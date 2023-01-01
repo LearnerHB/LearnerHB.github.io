@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bingcs.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="--">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Models (1)">
+<meta property="og:url" content="http://bingcs.com/2019/07/04/ML-Notes-1/index.html">
+<meta property="og:site_name" content="Bing&#39;s Blog">
+<meta property="og:description" content="--">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-05-010608.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-27-024146.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114851.jpg">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114758.jpg">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114810.jpg">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114818.jpg">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114823.jpg">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114839.jpg">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114845.jpg">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-05-025518.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-05-023237.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-29-021508.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-29-021441.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-29-021533.png">
+<meta property="article:published_time" content="2019-07-04T06:31:27.000Z">
+<meta property="article:modified_time" content="2023-01-01T14:05:18.289Z">
+<meta property="article:author" content="Bing">
+<meta property="article:tag" content="Artificial Intelligence">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-05-010608.png">
+
+
+<link rel="canonical" href="http://bingcs.com/2019/07/04/ML-Notes-1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://bingcs.com/2019/07/04/ML-Notes-1/","path":"2019/07/04/ML-Notes-1/","title":"Machine Learning Models (1)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Machine Learning Models (1) | Bing's Blog</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Models"><span class="nav-number">1.</span> <span class="nav-text">1. Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-LR-Logistic-Regression"><span class="nav-number">1.1.</span> <span class="nav-text">1.1  LR: Logistic Regression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-GBDT-Gradient-Boosting-Decison-Tree"><span class="nav-number">1.2.</span> <span class="nav-text">1.2  GBDT: Gradient Boosting Decison Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-XGBoost-eXtreme-Gradient-Boosting"><span class="nav-number">1.3.</span> <span class="nav-text">1.3  XGBoost: eXtreme Gradient Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-LightGBM-Light-Gradient-Boosting-Machine"><span class="nav-number">1.4.</span> <span class="nav-text">1.4  LightGBM: Light Gradient Boosting Machine</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Model-Evaluation"><span class="nav-number">2.</span> <span class="nav-text">2. Model Evaluation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Confusion-Matrix"><span class="nav-number">2.1.</span> <span class="nav-text">2.1  Confusion Matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-ROC-Receiver-Operating-Characteristic-curve"><span class="nav-number">2.2.</span> <span class="nav-text">2.2  ROC: Receiver Operating Characteristic curve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-AUC-Area-Under-the-Curve"><span class="nav-number">2.3.</span> <span class="nav-text">2.3  AUC: Area Under the Curve</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Since-there-are-so-many-evaluation-criteria-why-use-ROC-and-AUC"><span class="nav-number">2.3.1.</span> <span class="nav-text">Since there are so many evaluation criteria, why use ROC and AUC?</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-KS-Kolmogorov-Smirnov-curve"><span class="nav-number">2.4.</span> <span class="nav-text">2.4  KS: Kolmogorov-Smirnov curve</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-Lift"><span class="nav-number">2.5.</span> <span class="nav-text">2.5  Lift</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Model-Ensemble"><span class="nav-number">3.</span> <span class="nav-text">3. Model Ensemble</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Bagging-Bootstrap-Aggregation"><span class="nav-number">3.1.</span> <span class="nav-text">3.1  Bagging: Bootstrap Aggregation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Boosting"><span class="nav-number">3.2.</span> <span class="nav-text">3.2  Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Stacking"><span class="nav-number">3.3.</span> <span class="nav-text">3.3  Stacking</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Bing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://bingcs.com/2019/07/04/ML-Notes-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Machine Learning Models (1) | Bing's Blog">
+      <meta itemprop="description" content="--">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine Learning Models (1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-07-04 14:31:27" itemprop="dateCreated datePublished" datetime="2019-07-04T14:31:27+08:00">2019-07-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-01-01 22:05:18" itemprop="dateModified" datetime="2023-01-01T22:05:18+08:00">2023-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">--</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <span id="more"></span>
+
+<h2 id="1-Models"><a href="#1-Models" class="headerlink" title="1. Models"></a>1. Models</h2><h3 id="1-1-LR-Logistic-Regression"><a href="#1-1-LR-Logistic-Regression" class="headerlink" title="1.1  LR: Logistic Regression"></a>1.1  LR: Logistic Regression</h3><blockquote>
+<p>Wikipedia: Logistic regression is a statistical model that in its basic form uses a logistic function to model a binary dependent variable, although many more complex extensions exist. </p>
+</blockquote>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-05-010608.png" alt="image-20190705090607682"></p>
+<p>Since the linear regression has the same sensitivity in the whole real number domain,and the outlier noise will make the regression model perform poorly on the training set, so the robustness of the linear regression is not good. Logistic regression is a regression model that reduces the prediction range and limits the predicted value to [0,1].</p>
+<h3 id="1-2-GBDT-Gradient-Boosting-Decison-Tree"><a href="#1-2-GBDT-Gradient-Boosting-Decison-Tree" class="headerlink" title="1.2  GBDT: Gradient Boosting Decison Tree"></a>1.2  GBDT: Gradient Boosting Decison Tree</h3><p>1.2.1 Gradient Boosting</p>
+<p>Gradient Boosting is machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models, typically decision trees. It builds the model in a stage-wise fashion like other boosting methods do, and it generalizes them by allowing optimization of an arbitrary differentiable loss function. </p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-27-024146.png" alt="image-20190727104146761"></p>
+<p>1.2.2 GBDT</p>
+<p>Gradient Boosting is typically used with decision trees (especially CART trees) of a fixed size as base learners. As the meaning of the name, GBDT is the combination of Gradient Boosting and Decision Trees. It is worth noting that the decision tree here is the regression tree. GBDT is used for regression prediction. It can also be used for classification after adjustment. </p>
+<p>GBDT is to accumulate the conclusions of all trees to me final conclusion. The core of GBDT is that each tree learns residuals of all previous trees’ conclusions. And   the residual is a accumulated amount that can get the real value after plusing the predictive value. </p>
+<h3 id="1-3-XGBoost-eXtreme-Gradient-Boosting"><a href="#1-3-XGBoost-eXtreme-Gradient-Boosting" class="headerlink" title="1.3  XGBoost: eXtreme Gradient Boosting"></a>1.3  XGBoost: eXtreme Gradient Boosting</h3><p>It is an advanced implementation of gradient boosting algorithm. The basic learners in XGBoost can be either gbtree or gblinear. </p>
+<p>Advantages of XGBoost compared to GBM: Regularization &#x2F; Parallel Processing &#x2F; High Flexibility &#x2F; Handling Missing Values &#x2F; Tree Pruning &#x2F; Built-in Cross-Validation &#x2F; Continue on Existing Model</p>
+<h3 id="1-4-LightGBM-Light-Gradient-Boosting-Machine"><a href="#1-4-LightGBM-Light-Gradient-Boosting-Machine" class="headerlink" title="1.4  LightGBM: Light Gradient Boosting Machine"></a>1.4  LightGBM: Light Gradient Boosting Machine</h3><p>LightBGM is a framework for implementing the GBDT algorithm, supports efficient parallel training, and has the following advantages:</p>
+<ul>
+<li>Faster training speed</li>
+<li>Lower memory consumption</li>
+<li>Better accuracy</li>
+<li>Distributed support for fast processing of massive amounts of data</li>
+</ul>
+<p>The main reason that LightGBM proposes is to solve the problems that GBDT encounters when dealing with massive data, so that GBDT can be used in industrial practice better and faster. </p>
+<h2 id="2-Model-Evaluation"><a href="#2-Model-Evaluation" class="headerlink" title="2. Model Evaluation"></a>2. Model Evaluation</h2><h3 id="2-1-Confusion-Matrix"><a href="#2-1-Confusion-Matrix" class="headerlink" title="2.1  Confusion Matrix"></a>2.1  Confusion Matrix</h3><p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114851.jpg" alt="image-20190704164834691"></p>
+<h3 id="2-2-ROC-Receiver-Operating-Characteristic-curve"><a href="#2-2-ROC-Receiver-Operating-Characteristic-curve" class="headerlink" title="2.2  ROC: Receiver Operating Characteristic curve"></a>2.2  ROC: Receiver Operating Characteristic curve</h3><p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114758.jpg" alt="image-20190704151333932"></p>
+<p>In a two-class model,  it is assumed that a logistic regression classifier is used, which gives a probability that each instance is a positive class. Then, by setting a threshold such, a probability of greater than or equal to this threshold is a positive class, and a probability less than that is a negative class.</p>
+<p>(Each point on the ROC curve corresponds to one threshold.)</p>
+<p>X-axis: False Positive Rate, FPR. </p>
+<p>Y-axis: True Positive Rate, TPR. —— Sensitivity &#x2F; Recall Rate</p>
+<p>(TP: True Positive; FP: False Positive; TN: True Negative; FN: False Negative)</p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114810.jpg" alt="image-20190704152454087"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114818.jpg" alt="image-20190704152623593"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114823.jpg" alt="image-20190704152752758"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114839.jpg" alt="image-20190704160924481"></p>
+<p>Ideal goal: TPR &#x3D; 1, FPR &#x3D; 0, which corresponds to point (0,1) in the graph above. </p>
+<p>The bigger sensitivity and specificity, the better.</p>
+<h3 id="2-3-AUC-Area-Under-the-Curve"><a href="#2-3-AUC-Area-Under-the-Curve" class="headerlink" title="2.3  AUC: Area Under the Curve"></a>2.3  AUC: Area Under the Curve</h3><blockquote>
+<p>The AUC value is equivalent to the probability that a randomly chosen positive example is ranked higher than a randomly chosen negative example.</p>
+<p>——Fawcett, 2006</p>
+</blockquote>
+<p>The AUC value is used as the evaluation criterion because many times the ROC curve does not clearly indicate which classifier works better, and as a numerical value, the classifier corresponding to the larger AUC is better.</p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-04-114845.jpg" alt="image-20190704162738656"></p>
+<h4 id="Since-there-are-so-many-evaluation-criteria-why-use-ROC-and-AUC"><a href="#Since-there-are-so-many-evaluation-criteria-why-use-ROC-and-AUC" class="headerlink" title="Since there are so many evaluation criteria, why use ROC and AUC?"></a>Since there are so many evaluation criteria, why use ROC and AUC?</h4><p>The ROC curve can remain unchanged as the distribution of positive and negative samples in the test set changes. (Compare to Precision-Recall curve)</p>
+<h3 id="2-4-KS-Kolmogorov-Smirnov-curve"><a href="#2-4-KS-Kolmogorov-Smirnov-curve" class="headerlink" title="2.4  KS: Kolmogorov-Smirnov curve"></a>2.4  KS: Kolmogorov-Smirnov curve</h3><p>KS curve and ROC curve have the same data source. The ROC curve considers the TPR and the FPR as the horizontal and vertical axes, while the K-S curve considers both the TPR and the FPR as the vertical axis, and the horizontal axis is the selected threshold.</p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-05-025518.png" alt="image-20190705105518133"></p>
+<p>The discrimination index (KS) is the maximum gap between the normal sample and the default sample distribution under the specific model. First, the credit scores of the samples are sorted from small to large, and then the cumulative proportion of good and bad samples under each score is calculated. The maximum value of the cumulative difference between the normal and default samples is the discrimination index.</p>
+<h3 id="2-5-Lift"><a href="#2-5-Lift" class="headerlink" title="2.5  Lift"></a>2.5  Lift</h3><p>The Lift chart measures how much the model’s predictive ability “gets better” compared to not using the model. The larger the lift (uplifting index), the better the model’s performance.</p>
+<p>  <img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-05-023237.png" alt="image-20190705103236793"></p>
+<h2 id="3-Model-Ensemble"><a href="#3-Model-Ensemble" class="headerlink" title="3. Model Ensemble"></a>3. Model Ensemble</h2><h3 id="3-1-Bagging-Bootstrap-Aggregation"><a href="#3-1-Bagging-Bootstrap-Aggregation" class="headerlink" title="3.1  Bagging: Bootstrap Aggregation"></a>3.1  Bagging: Bootstrap Aggregation</h3><p>Individual learners do not have dependencies, and can simultaneously take samples to generate individual learners.</p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-29-021508.png" alt="image-20190729101508363"></p>
+<p>——RandomForest</p>
+<p>Random forests or random decision forests are an ensemble learning method for classification, regression and other tasks that operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees.</p>
+<p>There’s an article I think best explain the key point of Random Forest:</p>
+<p><a target="_blank" rel="noopener" href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2"><em>Understanding Random Forest</em></a></p>
+<blockquote>
+<p>The fundamental concept behind random forest is a simple but powerful one — the wisdom of crowds. In data science speak, the reason that the random forest model works so well is:</p>
+<p><strong>A large number of relatively uncorrelated models (trees) operating as a committee will outperform any of the individual constituent models.</strong></p>
+</blockquote>
+<h3 id="3-2-Boosting"><a href="#3-2-Boosting" class="headerlink" title="3.2  Boosting"></a>3.2  Boosting</h3><p>Individual learners have dependencies, and new models are generated serially based on the training results of the previous models. </p>
+<p>——Adaboost、GBDT、XGBoost</p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-29-021441.png" alt="image-20190729101440968"></p>
+<h3 id="3-3-Stacking"><a href="#3-3-Stacking" class="headerlink" title="3.3  Stacking"></a>3.3  Stacking</h3><p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-07-29-021533.png" alt="image-20190729101532721"></p>
+<p>There’s some articles I think describe these concept well:</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.hrwhisper.me/machine-learning-model-ensemble-and-bagging/">https://www.hrwhisper.me/machine-learning-model-ensemble-and-bagging/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.hrwhisper.me/machine-learning-model-ensemble-boostring-and-gbdt/">https://www.hrwhisper.me/machine-learning-model-ensemble-boostring-and-gbdt/</a></p>
+</blockquote>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li>Wikipedia：<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Receiver_operating_characteristic">Receiver operating characteristic</a></li>
+<li>Wikipedia: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Logistic_regression">Logistic regression</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c61ae11cc5f6">机器学习之分类性能度量指标 : ROC曲线、AUC值、正确率、召回率</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/30643044">精确率、召回率、F1 值、ROC、AUC 各自的优缺点是什么？</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/zwqjoy/article/details/84859405">模型评估：ROC，AUC，KS，GINI，Lift，Gain, PSI 总结</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2016/03/complete-guide-parameter-tuning-xgboost-with-codes-python/">Complete Guide to Parameter Tuning in XGBoost with codes in Python</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.analyticsvidhya.com/blog/2016/02/complete-guide-parameter-tuning-gradient-boosting-gbm-python/">Complete Machine Learning Guide to Parameter Tuning in Gradient Boosting (GBM) in Python</a></li>
+<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2">Understanding Random Forest</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/29036379">集成学习（ensemble learning）应如何入门？- 城东 的回答</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Artificial-Intelligence/" rel="tag"># Artificial Intelligence</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2019/06/26/ReferenceDocument/" rel="prev" title="How I Build This Blog">
+                  <i class="fa fa-chevron-left"></i> How I Build This Blog
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/07/26/ML-Notes-2/" rel="next" title="Machine Learning Notes(2)">
+                  Machine Learning Notes(2) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bing</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

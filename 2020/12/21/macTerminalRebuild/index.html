@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bingcs.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="oh-my-zsh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac终端改造计划">
+<meta property="og:url" content="http://bingcs.com/2020/12/21/macTerminalRebuild/index.html">
+<meta property="og:site_name" content="Bing&#39;s Blog">
+<meta property="og:description" content="oh-my-zsh">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-12-21-023914.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-12-21-070158.png">
+<meta property="article:published_time" content="2020-12-21T02:21:28.000Z">
+<meta property="article:modified_time" content="2023-01-01T14:05:18.323Z">
+<meta property="article:author" content="Bing">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-12-21-023914.png">
+
+
+<link rel="canonical" href="http://bingcs.com/2020/12/21/macTerminalRebuild/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://bingcs.com/2020/12/21/macTerminalRebuild/","path":"2020/12/21/macTerminalRebuild/","title":"Mac终端改造计划"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Mac终端改造计划 | Bing's Blog</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E5%87%86%E5%A4%87%EF%BC%9A%E5%AE%89%E8%A3%85Homebrew"><span class="nav-number">1.</span> <span class="nav-text">0. 准备：安装Homebrew</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%85%8D%E7%BD%AEMac%E7%BB%88%E7%AB%AF%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">1. 配置Mac终端主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85-oh-my-zsh"><span class="nav-number">3.</span> <span class="nav-text">2. 安装 oh-my-zsh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85-oh-my-zsh-%E4%B8%BB%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">3. 安装 oh-my-zsh 主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85oh-my-zsh%E6%8F%92%E4%BB%B6"><span class="nav-number">5.</span> <span class="nav-text">4. 安装oh-my-zsh插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git"><span class="nav-number">5.1.</span> <span class="nav-text">git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#extract"><span class="nav-number">5.2.</span> <span class="nav-text">extract</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sublime"><span class="nav-number">5.3.</span> <span class="nav-text">sublime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#autojump"><span class="nav-number">5.4.</span> <span class="nav-text">autojump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-syntax-highlighting"><span class="nav-number">5.5.</span> <span class="nav-text">zsh-syntax-highlighting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-autosuggestions"><span class="nav-number">5.6.</span> <span class="nav-text">zsh-autosuggestions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%AE%8C%E6%88%90"><span class="nav-number">6.</span> <span class="nav-text">5. 完成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optional-zsh%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84conda%E4%BD%BF%E7%94%A8%EF%BC%9A%E6%8A%A5%E9%94%99%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="nav-number">7.</span> <span class="nav-text">(Optional) zsh安装后的conda使用：报错与解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Optional-zsh%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E6%8D%B7%E6%8C%87%E4%BB%A4"><span class="nav-number">8.</span> <span class="nav-text">(Optional) zsh自定义快捷指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">9.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Bing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://bingcs.com/2020/12/21/macTerminalRebuild/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Mac终端改造计划 | Bing's Blog">
+      <meta itemprop="description" content="oh-my-zsh">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Mac终端改造计划
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-12-21 10:21:28" itemprop="dateCreated datePublished" datetime="2020-12-21T10:21:28+08:00">2020-12-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-01-01 22:05:18" itemprop="dateModified" datetime="2023-01-01T22:05:18+08:00">2023-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">oh-my-zsh</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <span id="more"></span>
+
+<p>Mac终端(Terminal)凭借Unix特性让用户爱不释手，但作为程序员们频繁使用的软件，其默认界面的文字阅读常令人感到吃力。我将借助oh-my-zsh对其进行界面上的美化，让Terminal更加美观易读。</p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-12-21-023914.png" alt="未改造之前的Terminal"></p>
+<center>Figure 1. 原本的Terminal界面</center>
+
+<h2 id="0-准备：安装Homebrew"><a href="#0-准备：安装Homebrew" class="headerlink" title="0. 准备：安装Homebrew"></a>0. 准备：安装Homebrew</h2><p>后续的部分插件安装需要用到homebrew，所以可以提前安装。</p>
+<p><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></p>
+<p>如果你的macOS版本早于Catalina，你需要手动安装zsh：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装 zsh</span></span><br><span class="line">brew install zsh</span><br><span class="line"><span class="comment"># 设置zsh为你的默认shell</span></span><br><span class="line">chsh -s /usr/local/bin/zsh</span><br></pre></td></tr></table></figure>
+
+<h2 id="1-配置Mac终端主题"><a href="#1-配置Mac终端主题" class="headerlink" title="1. 配置Mac终端主题"></a>1. 配置Mac终端主题</h2><ol>
+<li>在 <a target="_blank" rel="noopener" href="https://github.com/lysyi3m/macos-terminal-themes">OSX主题的项目主页</a> 里面选择自己喜欢的主题；</li>
+<li>把项目Clone或者Download下来；</li>
+<li>在 <code>themes/</code> 文件夹下，双击相应的*.terminal 文件。一个对应主题的终端窗口将会弹出；</li>
+<li>将当前主题设置为默认：菜单里找到 <em>Shell -&gt; Use Settings as Default</em> 或 <em>Shell -&gt; 将设置用作默认设置</em> 。</li>
+</ol>
+<h2 id="2-安装-oh-my-zsh"><a href="#2-安装-oh-my-zsh" class="headerlink" title="2. 安装 oh-my-zsh"></a>2. 安装 oh-my-zsh</h2><p>参考 <a target="_blank" rel="noopener" href="https://ohmyz.sh/">Oh My Zsh 主页</a>。Oh My Zsh 是一个令人愉快的、开源的、社区驱动的管理zsh配置的框架，安装十分简单，在Mac终端下输入如下代码即可。</p>
+<p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></p>
+<h2 id="3-安装-oh-my-zsh-主题"><a href="#3-安装-oh-my-zsh-主题" class="headerlink" title="3. 安装 oh-my-zsh 主题"></a>3. 安装 oh-my-zsh 主题</h2><p>如果不想鼓捣第三方主题，oh-my-zsh内置的主题其实也完全足够。只需要：</p>
+<ol>
+<li>在<a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">内置主题列表</a>寻找你想要的主题；</li>
+<li>在<code>~/.zshrc</code>配置文件里设置<code>ZSH_THEME</code>为你想要的主题名称；如果你不想使用任何内置主题，也可以把这个字段设置为空：<code>ZSH_THEME=&quot;&quot;</code></li>
+<li>激活设置<code>source ~/.zshrc</code></li>
+</ol>
+<p>当然，如果想要安装第三方主题，也可以在 <a target="_blank" rel="noopener" href="https://github.com/robbyrussell/oh-my-zsh/wiki/External-themes">这里</a> 查看。</p>
+<h2 id="4-安装oh-my-zsh插件"><a href="#4-安装oh-my-zsh插件" class="headerlink" title="4. 安装oh-my-zsh插件"></a>4. 安装oh-my-zsh插件</h2><p>Oh-my-zsh提供了丰富的插件，你可以通过查看Github上地 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins">plugins目录</a>或者 <a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">wiki</a>来获知哪些插件是可用的。除了许多自带的插件可以直接在~&#x2F;.zshrc 文件的 plugins字段按如下方式使用，也可以便捷地安装其他的插件。下面列举5个插件，更多地插件可以自行寻找。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ~/.zshrc:</span></span><br><span class="line">plugins=(</span><br><span class="line">  git														</span><br><span class="line">  zsh-syntax-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="git"><a href="#git" class="headerlink" title="git"></a>git</h3><blockquote>
+<p>自带插件。可以使用缩写命令, 比如 <code>gaa</code> -&gt; <code>git add --all</code>, 通过<code>alias | grep git</code>查看所有支持缩写命令。直接按上面的方式加入plugins字段。</p>
+</blockquote>
+<h3 id="extract"><a href="#extract" class="headerlink" title="extract"></a>extract</h3><blockquote>
+<p>自带插件。不用再使用复杂的<code>tar</code>来解压。直接按上面的方式加入plugins字段。</p>
+</blockquote>
+<h3 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h3><blockquote>
+<p>自带插件。可以使用sublime text打开文件&#x2F;文件夹，用 <code>st</code> 指令直接打开sublime text (前提是已经安装)，用<code> st + 文件/文件夹</code> 可以用sublime打开指定文件夹 。直接按上面的方式加入plugins字段。</p>
+</blockquote>
+<h3 id="autojump"><a href="#autojump" class="headerlink" title="autojump"></a>autojump</h3><blockquote>
+<p>非自带插件。使用<code>j</code>命令直接快速进入某个目录, 比如 <code>j Downloads</code> -&gt; <code>cd ~/Downloads</code>。</p>
+</blockquote>
+<p>用 <code>brew install autojump</code> 安装之后，按照提示在<code>~/.zshrc</code>配置文件添加:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ -f /usr/local/etc/profile.d/autojump.sh ] &amp;&amp; . /usr/local/etc/profile.d/autojump.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh-syntax-highlighting"><a href="#zsh-syntax-highlighting" class="headerlink" title="zsh-syntax-highlighting"></a>zsh-syntax-highlighting</h3><blockquote>
+<p>非自带插件。命令高亮，让命令五彩缤纷。</p>
+</blockquote>
+<p>用  <code>brew install zsh-syntax-highlighting</code> 完成安装。按照安装完成后的提示，在~&#x2F;.zshrc文件中进行相应的配置。</p>
+<h3 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a>zsh-autosuggestions</h3><blockquote>
+<p>非自带插件。输入时按右方向键→自动补全命令。</p>
+</blockquote>
+<p>用 <code>brew install zsh-autosuggestions</code> 完成安装。按照安装完成后的提示，在~&#x2F;.zshrc文件中进行相应的配置。</p>
+<h2 id="5-完成"><a href="#5-完成" class="headerlink" title="5. 完成"></a>5. 完成</h2><p>至此， 你应该可以拥有一个美观易用的terminal了。开始coding吧！</p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-12-21-070158.png" alt="image-20201221150157035"></p>
+<center>Figure 2. 配置之后的Terminal界面</center>
+
+
+
+<h2 id="Optional-zsh安装后的conda使用：报错与解决"><a href="#Optional-zsh安装后的conda使用：报错与解决" class="headerlink" title="(Optional) zsh安装后的conda使用：报错与解决"></a>(Optional) zsh安装后的conda使用：报错与解决</h2><p>在安装完zsh，开始要使用原本环境中conda相关指令的时候出现错误，以下是错误内容和相应的解决方案。</p>
+<ol>
+<li><p><code>zsh：command not find:conda</code></p>
+<ul>
+<li><p>首先检查是否安装了conda。在anaconda安装的文件夹下的bin文件夹查看是否有conda指令，没有的话就是尚未安装。</p>
+</li>
+<li><p>如果已经安装了conda，但是仍然报这个错，应该是因为环境变量配置文件没有更新。对于zsh来说，配置文件是 ~&#x2F;.zshrc。</p>
+<blockquote>
+<p>简单来说.zshrc是linux文件夹的一个配置文件，这个文件主要保存个人的一些个性化设置，比如命名别名、路径等。</p>
+</blockquote>
+</li>
+<li><p><code>vi ~/.zshrc</code> 打开配置文件。</p>
+</li>
+<li><p>在文件末尾加入一行<code>export PATH=/path/to/anaconda/bin:$PATH</code> 。注意这里的路径需要改成自己电脑上的anaconda的路径。比如我的电脑上装的是miniconda3，路径是 &#x2F;Users&#x2F;bing&#x2F;miniconda3&#x2F;，那么这一句就应该是<code>export PATH=/Users/bing/miniconda3/bin:$PATH</code>。添加完成后保存退出。</p>
+</li>
+<li><p><code>source ~/.zshrc</code> 使配置文件的修改立即生效。</p>
+</li>
+<li><p>再次查看conda指令，输入<code>conda --version</code>，如果可以正常显示版本号，说明问题已经解决。</p>
+</li>
+</ul>
+</li>
+<li><p><code>CommandNotFoundError: Your shell has not been properly configured to use &#39;conda activate&#39;.</code>  </p>
+<p><strong>解决</strong>：用<code>source activate</code> 重新激活一下activate，这时候当前环境会变更到(base)，说明activate指令可以正常运行了。</p>
+</li>
+</ol>
+<h2 id="Optional-zsh自定义快捷指令"><a href="#Optional-zsh自定义快捷指令" class="headerlink" title="(Optional) zsh自定义快捷指令"></a>(Optional) zsh自定义快捷指令</h2><p>平时使用terminal的时候，我们输入很长的指令往往会感到繁琐头疼。我们可以通过修改zshrc文件来设置快捷指令。</p>
+<p>比如想要用安装的Typora软件来打开某个Markdown文件，我们需要命令行输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">open -a &quot;Typora&quot; filename.md</span><br></pre></td></tr></table></figure>
+
+<p>前摇过长，不能忍。</p>
+<p>要实现类似 <code>st filename.md</code> 这种用Sublime Text快捷打开文件的操作，我们需要向~&#x2F;.zshrc文件添加一行<code>alias</code>指令替换：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">把 tp 指定为 open -a <span class="string">&quot;Typora&quot;</span>，并添加到 ~/.zshrc 文件末尾</span></span><br><span class="line">echo &quot;alias tp=&quot;open -a &quot;Typora&quot; &quot; &quot; &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">执行立即生效</span></span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>然后试试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tp filename.md	</span><br></pre></td></tr></table></figure>
+
+<p>可以发现已经可以快捷打开某文件。同理可以自行设置其他的快捷指令。:-)</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://ohmyz.sh/">Oh My Zsh - 官网</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh">Oh My Zsh - Github主页</a></li>
+<li><a target="_blank" rel="noopener" href="https://tonyxu.io/zh/posts/2018/ultimate-way-to-beautify-mac-terminal-and-recommendations-for-plugins/">程序员的Mac终端(oh-my-zsh)终极美化及必备插件推荐 | Tony Xu 博客</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/02/IERG4160/" rel="prev" title="IERG4160 Image and Video Processing">
+                  <i class="fa fa-chevron-left"></i> IERG4160 Image and Video Processing
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/26/usefulLink/" rel="next" title="Useful Links">
+                  Useful Links <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bing</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bingcs.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="关于该门网课的知识框架">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习笔记-《清华大学C++程序设计》">
+<meta property="og:url" content="http://bingcs.com/2020/09/21/Notes-%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Bing&#39;s Blog">
+<meta property="og:description" content="关于该门网课的知识框架">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-082609.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-083950.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-100024.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-100229.png">
+<meta property="og:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-103629.png">
+<meta property="article:published_time" content="2020-09-21T03:17:06.000Z">
+<meta property="article:modified_time" content="2023-01-01T14:05:18.295Z">
+<meta property="article:author" content="Bing">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-082609.png">
+
+
+<link rel="canonical" href="http://bingcs.com/2020/09/21/Notes-%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://bingcs.com/2020/09/21/Notes-%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/","path":"2020/09/21/Notes-清华大学C-程序设计/","title":"学习笔记-《清华大学C++程序设计》"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>学习笔记-《清华大学C++程序设计》 | Bing's Blog</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">第四章 类与对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%9A%84%E5%85%B1%E4%BA%AB%E4%B8%8E%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.</span> <span class="nav-text">第五章 数据的共享与保护</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">1. 标识符的作用域与可见性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%86%E7%B1%BB"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 作用域分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 可见性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E5%AD%98%E6%9C%9F"><span class="nav-number">2.2.</span> <span class="nav-text">2. 对象的生存期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E9%9D%99%E6%80%81%E7%94%9F%E5%AD%98%E6%9C%9F"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 静态生存期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E5%8A%A8%E6%80%81%E7%94%9F%E5%AD%98%E6%9C%9F"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 动态生存期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-number">2.3.</span> <span class="nav-text">3. 类的静态成员</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 静态数据成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E9%9D%99%E6%80%81%E5%87%BD%E6%95%B0%E6%88%90%E5%91%98"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 静态函数成员</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%B1%BB%E7%9A%84%E5%8F%8B%E5%85%83"><span class="nav-number">2.4.</span> <span class="nav-text">4. 类的友元</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 友元函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E5%8F%8B%E5%85%83%E7%B1%BB"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 友元类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.5.</span> <span class="nav-text">5. 共享数据的保护</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E5%B8%B8%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1 常类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-1-%E5%B8%B8%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">5.1.1 常对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-2-%E5%B8%B8%E6%88%90%E5%91%98"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">5.1.2 常成员</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-3-%E5%B8%B8%E5%BC%95%E7%94%A8"><span class="nav-number">2.5.1.3.</span> <span class="nav-text">5.1.3 常引用</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%95%B0%E7%BB%84%E3%80%81%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.</span> <span class="nav-text">第六章 数组、指针和字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">6.1 数组的定义和初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">6.2 数组作为函数的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84"><span class="nav-number">3.3.</span> <span class="nav-text">6.3 对象数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84"><span class="nav-number">3.3.1.</span> <span class="nav-text">6.3.1 数组元素的构造和析构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-%E5%9F%BA%E4%BA%8E%E8%8C%83%E5%9B%B4%E7%9A%84for%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.4.</span> <span class="nav-text">6.4 基于范围的for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-%E6%8C%87%E9%92%88%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%BF%90%E7%AE%97"><span class="nav-number">3.5.</span> <span class="nav-text">6.5 指针的定义和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-1-%E6%8C%87%E9%92%88%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">3.5.1.</span> <span class="nav-text">6.5.1 指针的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-2-%E6%8C%87%E9%92%88%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E8%B5%8B%E5%80%BC"><span class="nav-number">3.5.2.</span> <span class="nav-text">6.5.2 指针的初始化和赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E5%90%91%E5%B8%B8%E9%87%8F%E7%9A%84%E6%8C%87%E9%92%88-amp-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%B8%B8%E9%87%8F"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">指向常量的指针 &amp; 指针类型的常量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-3-%E6%8C%87%E9%92%88%E7%9A%84%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E3%80%81%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="nav-number">3.5.3.</span> <span class="nav-text">6.5.3 指针的算术运算、关系运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97"><span class="nav-number">3.5.3.1.</span> <span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="nav-number">3.5.3.2.</span> <span class="nav-text">关系运算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-%E6%8C%87%E9%92%88%E4%B8%8E%E6%95%B0%E7%BB%84"><span class="nav-number">3.6.</span> <span class="nav-text">6.6 指针与数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-%E6%8C%87%E9%92%88%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="nav-number">3.7.</span> <span class="nav-text">6.7 指针与函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-1-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">3.7.1.</span> <span class="nav-text">6.7.1 指针类型的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-2-%E6%8C%87%E5%90%91%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-number">3.7.2.</span> <span class="nav-text">6.7.2 指向函数的指针</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-%E5%AF%B9%E8%B1%A1%E6%8C%87%E9%92%88"><span class="nav-number">3.8.</span> <span class="nav-text">6.8 对象指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">3.9.</span> <span class="nav-text">6.9 动态内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-9-1-%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E4%B8%8E%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98"><span class="nav-number">3.9.1.</span> <span class="nav-text">6.9.1 动态分配与释放内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">3.10.</span> <span class="nav-text">6.10 智能指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-11-vector%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.11.</span> <span class="nav-text">6.11 vector对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-12-%E5%AF%B9%E8%B1%A1%E5%A4%8D%E5%88%B6%E4%B8%8E%E7%A7%BB%E5%8A%A8"><span class="nav-number">3.12.</span> <span class="nav-text">6.12 对象复制与移动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-12-1-%E6%B7%B1%E5%B1%82%E5%A4%8D%E5%88%B6%E5%92%8C%E6%B5%85%E5%B1%82%E5%A4%8D%E5%88%B6"><span class="nav-number">3.12.1.</span> <span class="nav-text">6.12.1 深层复制和浅层复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-12-2-%E7%A7%BB%E5%8A%A8%E6%9E%84%E9%80%A0"><span class="nav-number">3.12.2.</span> <span class="nav-text">6.12.2 移动构造</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-13-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.13.</span> <span class="nav-text">6.13 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-13-1-C%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.13.1.</span> <span class="nav-text">6.13.1 C风格字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-13-2-string%E7%B1%BB"><span class="nav-number">3.13.2.</span> <span class="nav-text">6.13.2 string类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F"><span class="nav-number">4.</span> <span class="nav-text">第七章 继承与派生</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AF%AD%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">7.1 继承的基本概念和语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-1-%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F%E6%A6%82%E8%BF%B0"><span class="nav-number">4.1.1.</span> <span class="nav-text">7.1.1 继承与派生概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-2-%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">4.1.2.</span> <span class="nav-text">7.1.2 继承与派生的目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-3-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">4.1.3.</span> <span class="nav-text">7.1.3 派生类的构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-3-%E5%8D%95%E7%BB%A7%E6%89%BF%E6%97%B6%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">4.1.4.</span> <span class="nav-text">7.1.3 单继承时派生类的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-4-%E5%A4%9A%E7%BB%A7%E6%89%BF%E6%97%B6%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">4.1.5.</span> <span class="nav-text">7.1.4 多继承时派生类的定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">7.2 继承方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-1-%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F%E7%AE%80%E4%BB%8B"><span class="nav-number">4.2.1.</span> <span class="nav-text">7.2.1 继承方式简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-2-%E5%85%AC%E6%9C%89%E7%BB%A7%E6%89%BF-public"><span class="nav-number">4.2.2.</span> <span class="nav-text">7.2.2 公有继承 public</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-3-%E7%A7%81%E6%9C%89%E7%BB%A7%E6%89%BF-private"><span class="nav-number">4.2.3.</span> <span class="nav-text">7.2.3 私有继承 private</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-4-%E4%BF%9D%E6%8A%A4%E7%BB%A7%E6%89%BF-protected"><span class="nav-number">4.2.4.</span> <span class="nav-text">7.2.4 保护继承 protected</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-%E5%9F%BA%E7%B1%BB%E4%B8%8E%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">4.3.</span> <span class="nav-text">7.3 基类与派生类类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84"><span class="nav-number">4.4.</span> <span class="nav-text">7.4 派生类的构造和析构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-1-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.1.</span> <span class="nav-text">7.4.1 派生类的构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E7%BB%A7%E6%89%BF"><span class="nav-number">4.4.1.1.</span> <span class="nav-text">单继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%BB%A7%E6%89%BF"><span class="nav-number">4.4.1.2.</span> <span class="nav-text">多继承</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-2-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.4.2.</span> <span class="nav-text">7.4.2 派生类的构造函数举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-3-%E6%B4%BE%E7%94%9F%E7%B1%BB%E5%A4%8D%E5%88%B6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.3.</span> <span class="nav-text">7.4.3 派生类复制构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-4-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.4.</span> <span class="nav-text">7.4.4 派生类的析构函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E6%A0%87%E8%AF%86%E4%B8%8E%E8%AE%BF%E9%97%AE"><span class="nav-number">4.5.</span> <span class="nav-text">7.5 派生类成员的标识与访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-1-%E8%AE%BF%E9%97%AE%E4%BB%8E%E5%9F%BA%E7%B1%BB%E7%BB%A7%E6%89%BF%E7%9A%84%E6%88%90%E5%91%98"><span class="nav-number">4.5.1.</span> <span class="nav-text">7.5.1 访问从基类继承的成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-2-%E8%99%9A%E5%9F%BA%E7%B1%BB"><span class="nav-number">4.5.2.</span> <span class="nav-text">7.5.2 虚基类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%99%9A%E5%9F%BA%E7%B1%BB%E5%8F%8A%E5%85%B6%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">4.5.2.1.</span> <span class="nav-text">虚基类及其派生类构造函数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%A4%9A%E6%80%81%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">第八章 多态性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="nav-number">5.1.</span> <span class="nav-text">8.1 运算符重载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E7%9A%84%E8%A7%84%E5%88%99"><span class="nav-number">5.1.1.</span> <span class="nav-text">8.1.1 运算符重载的规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-2-%E5%8F%8C%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%BA%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.2.</span> <span class="nav-text">8.1.2 双目运算符重载为成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-3-%E5%8D%95%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%BA%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.3.</span> <span class="nav-text">8.1.3 单目运算符重载为成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-4-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%BA%E9%9D%9E%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.4.</span> <span class="nav-text">8.1.4 运算符重载为非成员函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">8.2 虚函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-1-%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.1.</span> <span class="nav-text">8.2.1 虚函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-2-%E8%99%9A%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.2.</span> <span class="nav-text">8.2.2 虚析构函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-3-%E8%99%9A%E8%A1%A8%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A"><span class="nav-number">5.2.3.</span> <span class="nav-text">8.2.3 虚表与动态绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">5.3.</span> <span class="nav-text">8.3 抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-override%E4%B8%8Efinal"><span class="nav-number">5.4.</span> <span class="nav-text">8.4 override与final</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Bing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://bingcs.com/2020/09/21/Notes-%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="学习笔记-《清华大学C++程序设计》 | Bing's Blog">
+      <meta itemprop="description" content="关于该门网课的知识框架">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          学习笔记-《清华大学C++程序设计》
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-09-21 11:17:06" itemprop="dateCreated datePublished" datetime="2020-09-21T11:17:06+08:00">2020-09-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-01-01 22:05:18" itemprop="dateModified" datetime="2023-01-01T22:05:18+08:00">2023-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">关于该门网课的知识框架</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="第四章-类与对象"><a href="#第四章-类与对象" class="headerlink" title="第四章 类与对象"></a>第四章 类与对象</h2><h2 id="第五章-数据的共享与保护"><a href="#第五章-数据的共享与保护" class="headerlink" title="第五章 数据的共享与保护"></a>第五章 数据的共享与保护</h2><ul>
+<li>变量和对象定义在不同的位置, 其作用域、可见性、生存期都不同。</li>
+<li>友元：对一些类外的函数、其他的类给予授权，使之可以访问本类的私有成员。</li>
+<li>如何保障安全性？通过const关键字，限制对共享类型的修改</li>
+</ul>
+<h3 id="1-标识符的作用域与可见性"><a href="#1-标识符的作用域与可见性" class="headerlink" title="1. 标识符的作用域与可见性"></a>1. 标识符的作用域与可见性</h3><h4 id="1-1-作用域分类"><a href="#1-1-作用域分类" class="headerlink" title="1.1 作用域分类"></a>1.1 作用域分类</h4><ul>
+<li>函数原型作用域：函数原型中的参数，形参表中的()括号之内<ul>
+<li>函数声明中: double func(double a);</li>
+</ul>
+</li>
+<li>局部作用域（块作用域）：函数的形参、在块中声明的标识符，作用域自声明处起，限于块中</li>
+<li>类作用域：类的成员具有类作用域，范围包括类体和成员函数体<ul>
+<li>在类作用域之外访问类成员：<ul>
+<li>静态成员：通过类名，或者该类的对象名、对象引用访问</li>
+<li>非静态成员：通过类名，或者该类的对象名、对象引用、对象指针访问</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>文件作用域：不在前述作用域中出现的声明，就具有文件作用域。开始于声明点，结束与文件结束处。</li>
+<li>命名空间作用域</li>
+</ul>
+<h4 id="1-2-可见性"><a href="#1-2-可见性" class="headerlink" title="1.2 可见性"></a>1.2 可见性</h4><ul>
+<li><p>是对标识符的引用的角度来谈的概念，表示从内层作用域向外层作用域“看”时能看见什么。</p>
+</li>
+<li><p>如果标识在某处可见，那么就可以在该处引用这个标识符</p>
+</li>
+<li><p>如果标识符在外层中声明，且在内层中没有同一标识符的声明，则该标识符在内层可见；对于两个嵌套作用域，若内层作用域内声明了与外层作用域中同名的标识符，则外层作用域的标识符在内层不可见（但仍在外层同名标识符的作用域中）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	i = <span class="number">5</span>;</span><br><span class="line">	&#123;	<span class="type">int</span> i;</span><br><span class="line">		i = <span class="number">7</span>;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;i= &quot;</span> &lt;&lt; i &lt;&lt; endl;	<span class="comment">//输出7</span></span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;i= &quot;</span> &lt;&lt; i &lt;&lt; endl;		<span class="comment">//输出5</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-对象的生存期"><a href="#2-对象的生存期" class="headerlink" title="2. 对象的生存期"></a>2. 对象的生存期</h3><h4 id="2-1-静态生存期"><a href="#2-1-静态生存期" class="headerlink" title="2.1 静态生存期"></a>2.1 静态生存期</h4><ul>
+<li>该生存期与程序的运行期相同。</li>
+<li>在文件作用域中声明的变量具有这种生存期；</li>
+<li>在函数内部声明静态生存期对象，要冠以关键字static（static关键字声明的局部变量具有<strong>全局的寿命</strong>（即在整个程序中都存在）、局部的可见性）</li>
+</ul>
+<h4 id="2-2-动态生存期"><a href="#2-2-动态生存期" class="headerlink" title="2.2 动态生存期"></a>2.2 动态生存期</h4><ul>
+<li>开始于程序执行到声明点时，结束于命名该标识符的作用域结束处。</li>
+<li>块作用域中声明的，没有用static修饰的对象，是动态生存期的对象（习惯称局部生存期对象）。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> i = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">other</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> a = <span class="number">2</span>;</span><br><span class="line">  <span class="type">static</span> <span class="type">int</span> b;</span><br><span class="line">  <span class="comment">//a b 为静态局部变量，具有全局寿命，局部可见，只第一次进入函数时初始化</span></span><br><span class="line">  <span class="type">int</span> c = <span class="number">10</span>;</span><br><span class="line">  <span class="comment">//c 为局部变量，具有动态生存期，每次进入函数时都初始化</span></span><br><span class="line">  a += <span class="number">2</span>; i += <span class="number">32</span>; c += <span class="number">5</span>;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;---OTHER---&quot;</span> &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;i: &quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; a: &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot; b: &quot;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; c: &quot;</span> &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">  b = a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">static</span> <span class="type">int</span> a;	<span class="comment">//此处的 a 为静态局部变量，全局寿命，局部可见</span></span><br><span class="line">  <span class="type">int</span> b = <span class="number">-10</span>;</span><br><span class="line">  <span class="type">int</span> c = <span class="number">0</span>;</span><br><span class="line">  <span class="comment">//b c 为局部变量，具有动态生存期</span></span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;---MAIN---&quot;</span> &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;i: &quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; a: &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot; b: &quot;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; c: &quot;</span> &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">  c += <span class="number">8</span>; <span class="built_in">other</span>();</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;---MAIN---&quot;</span> &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;i: &quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot; a: &quot;</span> &lt;&lt; a &lt;&lt; <span class="string">&quot; b: &quot;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; c: &quot;</span> &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">  c += <span class="number">10</span>; <span class="built_in">other</span>();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*运行结果：</span></span><br><span class="line"><span class="comment">---MAIN---</span></span><br><span class="line"><span class="comment">i:1 a:0 b:-10 c:0</span></span><br><span class="line"><span class="comment">---OTHER---</span></span><br><span class="line"><span class="comment">i:33 a:4 b:0 c:15</span></span><br><span class="line"><span class="comment">---MAIN---</span></span><br><span class="line"><span class="comment">i:33 a:0 b:-10 c:8</span></span><br><span class="line"><span class="comment">---OTHER---</span></span><br><span class="line"><span class="comment">i:75 a:6 b:4 c:15</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-类的静态成员"><a href="#3-类的静态成员" class="headerlink" title="3. 类的静态成员"></a>3. 类的静态成员</h3><ul>
+<li>类的静态成员是用static修饰的，属于整个类而不属于对象</li>
+</ul>
+<h4 id="3-1-静态数据成员"><a href="#3-1-静态数据成员" class="headerlink" title="3.1 静态数据成员"></a>3.1 静态数据成员</h4><ul>
+<li>用关键字static声明</li>
+<li>为该类的所有对象共享，具有静态生存期</li>
+<li>必须在类外定义和初始化，用::来指明所属的类</li>
+</ul>
+<h4 id="3-2-静态函数成员"><a href="#3-2-静态函数成员" class="headerlink" title="3.2 静态函数成员"></a>3.2 静态函数成员</h4><p>上面的例子中，我们发现类中定义的函数都是属于对象的，也就是说必须有相应的对象我们才能够调用如getX()、showCount()这样的函数。但是由于我们定义了静态的数据成员，它不属于任一对象，那么我们如何在没有初始化对象的时候就知道当前的count数量呢？于是我们需要定义静态函数成员。</p>
+<ul>
+<li>对于非静态函数，每次调用都是用 对象名.函数名() 这样的形式，也就是函数能够清楚地知道是什么对象调用了它</li>
+<li>对于静态函数，调用的时候不通过特定对象，所以一般不用来处理属于对象的非静态数据，而专门用来处理整个类的静态数据。（如果非要处理属于对象的数据，就需要将希望其处理的这个对象作为参数传给它）</li>
+</ul>
+<h3 id="4-类的友元"><a href="#4-类的友元" class="headerlink" title="4. 类的友元"></a>4. 类的友元</h3><ul>
+<li>是C++提供的一种破坏数据封装和数据隐藏的机制</li>
+<li>通过将一个模块声明为另一个模块的友元，一个模块能够引用到另一个模块中本是被隐藏的信息。</li>
+<li>为了确保数据的完整性，及数据封装与隐藏的原则，建议尽量不使用或少使用友元。</li>
+</ul>
+<h4 id="4-1-友元函数"><a href="#4-1-友元函数" class="headerlink" title="4.1 友元函数"></a>4.1 友元函数</h4><ul>
+<li>友元函数是在类声明中由关键字friend修饰说明的非成员函数，在它的函数体中能够通过对象名访问 private 和 protected成员</li>
+<li>作用：增加灵活性，使程序员可以在封装和快速性方面做合理选择。</li>
+<li>访问对象中的成员必须通过对象名。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123; <span class="comment">//Point类声明</span></span><br><span class="line"><span class="keyword">public</span>: <span class="comment">//外部接口</span></span><br><span class="line">	<span class="built_in">Point</span>(<span class="type">int</span> x=<span class="number">0</span>, <span class="type">int</span> y=<span class="number">0</span>) : <span class="built_in">x</span>(x), <span class="built_in">y</span>(y) &#123; &#125;</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">getX</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> x; &#125;</span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">getY</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> y; &#125;</span><br><span class="line">  <span class="function"><span class="keyword">friend</span> <span class="type">float</span> <span class="title">dist</span><span class="params">(Point &amp;a, Point &amp;b)</span></span>;</span><br><span class="line">  <span class="keyword">private</span>: <span class="comment">//私有数据成员</span></span><br><span class="line">  <span class="type">int</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">dist</span><span class="params">( Point&amp; a, Point&amp; b)</span> </span>&#123;</span><br><span class="line">  <span class="type">double</span> x = a.x - b.x;</span><br><span class="line">  <span class="type">double</span> y = a.y - b.y;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;<span class="type">float</span>&gt;(<span class="built_in">sqrt</span>(x * x + y * y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="function">Point <span class="title">p1</span><span class="params">(<span class="number">1</span>, <span class="number">1</span>)</span>, <span class="title">p2</span><span class="params">(<span class="number">4</span>, <span class="number">5</span>)</span></span>;</span><br><span class="line">  cout &lt;&lt;<span class="string">&quot;The distance is: &quot;</span>;</span><br><span class="line">  cout &lt;&lt; <span class="built_in">dist</span>(p1, p2) &lt;&lt; endl;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*	运行结果</span></span><br><span class="line"><span class="comment">The distance is: 5</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>思考：dist传的是a和b的引用而不是直接传值（对象），好处和坏处？</li>
+</ul>
+<p>好处：效率高，不需要传递整个对象而只是引用</p>
+<p>坏处：安全隐患，引用是双向传递，有可能会不小心更改a和b原数据</p>
+<h4 id="4-2-友元类"><a href="#4-2-友元类" class="headerlink" title="4.2 友元类"></a>4.2 友元类</h4><ul>
+<li>若一个类为另一个类的友元，则此类的所有成员都能访问对方类的私有成员。</li>
+<li>声明语法：将友元类名在另一个类中使用friend修饰说明。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//友元类举例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">friend</span> <span class="keyword">class</span> <span class="title class_">B</span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">cout &lt;&lt; x &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line"><span class="type">int</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">set</span><span class="params">(<span class="type">int</span> i)</span></span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">A a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">B::set</span><span class="params">(<span class="type">int</span> i)</span> </span>&#123;</span><br><span class="line">a.x=i;	<span class="comment">//注意这里为了B类直接通过对象访问到A类的私有成员x，需要在A类中定义友元</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">B::display</span><span class="params">()</span> </span>&#123;</span><br><span class="line">a.<span class="built_in">display</span>();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>类的友元关系是单向的：声明B类是A类的友元 ≠ A类是B类的友元</li>
+</ul>
+<h3 id="5-共享数据的保护"><a href="#5-共享数据的保护" class="headerlink" title="5. 共享数据的保护"></a>5. 共享数据的保护</h3><ul>
+<li>既需要共享数据，又需要保证共享数据的安全性，即不被修改。则可以定义为const常类型。</li>
+</ul>
+<h4 id="5-1-常类型"><a href="#5-1-常类型" class="headerlink" title="5.1 常类型"></a>5.1 常类型</h4><ul>
+<li>常对象：必须初始化，不能被更新 </li>
+<li>常成员：常数据成员、常成员函数</li>
+<li>常引用：被引用的对象不能被更新 </li>
+<li>（常数组：被引用数组不能被修改）</li>
+<li>（常指针：指向常量的指针）</li>
+</ul>
+<h5 id="5-1-1-常对象"><a href="#5-1-1-常对象" class="headerlink" title="5.1.1 常对象"></a>5.1.1 常对象</h5><p>—— const 类名 对象名</p>
+<p>常成员函数可以被非常对象调用，但常对象不可调用非常成员函数。</p>
+<p>（一个const常对象调用的函数只能是类中的const修饰的常成员函数。）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">A</span>(<span class="type">int</span> i,<span class="type">int</span> j) &#123;x=i; y=j;&#125;</span><br><span class="line">                     ...</span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> x,y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function">A <span class="type">const</span> <span class="title">a</span><span class="params">(<span class="number">3</span>,<span class="number">4</span>)</span></span>; <span class="comment">//a是常对象，不能被更新</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="5-1-2-常成员"><a href="#5-1-2-常成员" class="headerlink" title="5.1.2 常成员"></a>5.1.2 常成员</h5><p>如果在定义类的成员函数的时候，里面的操作本就没有打算修改成员函数的值，那么可以把函数定义成const类型，这样之后使用会更加方便。</p>
+<ul>
+<li>常成员函数 —— 类型说明符 函数名（参数表）const；<ul>
+<li>const关键字可以被用于参与对重载函数的区分</li>
+<li>通过常对象只能调用它的常成员函数</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">R</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">R</span>(<span class="type">int</span> r1, <span class="type">int</span> r2) : <span class="built_in">r1</span>(r1), <span class="built_in">r2</span>(r2) &#123; &#125;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  <span class="type">int</span> r1, r2;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R::print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; r1 &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; r2 &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">R::print</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; r1 &lt;&lt; <span class="string">&quot;;&quot;</span> &lt;&lt; r2 &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="function">R <span class="title">a</span><span class="params">(<span class="number">5</span>,<span class="number">4</span>)</span></span>;</span><br><span class="line">  a.<span class="built_in">print</span>(); <span class="comment">//调用void print()</span></span><br><span class="line">  <span class="function"><span class="type">const</span> R <span class="title">b</span><span class="params">(<span class="number">20</span>,<span class="number">52</span>)</span></span>; </span><br><span class="line">  b.<span class="built_in">print</span>(); <span class="comment">//调用void print() const</span></span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常数据成员</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">       <span class="built_in">A</span>(<span class="type">int</span> i);</span><br><span class="line">       <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">       <span class="type">const</span> <span class="type">int</span> a;</span><br><span class="line">       <span class="type">static</span> <span class="type">const</span> <span class="type">int</span> b;  <span class="comment">//静态常数据成员，只初始化一次</span></span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="type">const</span> <span class="type">int</span> A::b=<span class="number">10</span>;</span><br><span class="line">A::<span class="built_in">A</span>(<span class="type">int</span> i) : <span class="built_in">a</span>(i) &#123; &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">A::print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; a &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; b &lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//建立对象a和b，并以100和0作为初值，分别调用构造函数，</span></span><br><span class="line"><span class="comment">//通过构造函数的初始化列表给对象的常数据成员赋初值</span></span><br><span class="line">  <span class="function">A <span class="title">a1</span><span class="params">(<span class="number">100</span>)</span>, <span class="title">a2</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">  a1.<span class="built_in">print</span>();		<span class="comment">// 100:10</span></span><br><span class="line">  a2.<span class="built_in">print</span>();		<span class="comment">// 0:10</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-1-3-常引用"><a href="#5-1-3-常引用" class="headerlink" title="5.1.3 常引用"></a>5.1.3 常引用</h5><p> —— const 类型说明符 &amp;引用名</p>
+<p>在友元中用常引用做参数，既能获得较高执行效率，又能保证实参的安全性</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123; <span class="comment">//Point类定义</span></span><br><span class="line"><span class="keyword">public</span>:          <span class="comment">//外部接口</span></span><br><span class="line">       <span class="built_in">Point</span>(<span class="type">int</span> x = <span class="number">0</span>, <span class="type">int</span> y = <span class="number">0</span>)</span><br><span class="line">    : <span class="built_in">x</span>(x), <span class="built_in">y</span>(y) &#123; &#125;</span><br><span class="line">       <span class="function"><span class="type">int</span> <span class="title">getX</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> x; &#125;</span><br><span class="line">       <span class="function"><span class="type">int</span> <span class="title">getY</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> y; &#125;</span><br><span class="line">       <span class="function"><span class="keyword">friend</span> <span class="type">float</span> <span class="title">dist</span><span class="params">(<span class="type">const</span> Point &amp;p1,<span class="type">const</span> Point &amp;p2)</span></span>;</span><br><span class="line"><span class="keyword">private</span>:         <span class="comment">//私有数据成员</span></span><br><span class="line">       <span class="type">int</span> x, y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">float</span> <span class="title">dist</span><span class="params">(<span class="type">const</span> Point &amp;p1, <span class="type">const</span> Point &amp;p2)</span> </span>&#123;</span><br><span class="line">       <span class="type">double</span> x = p1.x - p2.x; <span class="comment">//只能引用，不能修改</span></span><br><span class="line">       <span class="type">double</span> y = p1.y - p2.y;</span><br><span class="line">       <span class="keyword">return</span> <span class="built_in">static_cast</span>&lt;<span class="type">float</span>&gt;(<span class="built_in">sqrt</span>(x*x+y*y));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;  <span class="comment">//主函数</span></span><br><span class="line">       <span class="function"><span class="type">const</span> Point <span class="title">myp1</span><span class="params">(<span class="number">1</span>, <span class="number">1</span>)</span>, <span class="title">myp2</span><span class="params">(<span class="number">4</span>, <span class="number">5</span>)</span></span>;    </span><br><span class="line">       cout &lt;&lt; <span class="string">&quot;The distance is: &quot;</span>;</span><br><span class="line">       cout &lt;&lt; <span class="built_in">dist</span>(myp1, myp2) &lt;&lt; endl;</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第六章-数组、指针和字符串"><a href="#第六章-数组、指针和字符串" class="headerlink" title="第六章 数组、指针和字符串"></a>第六章 数组、指针和字符串</h2><h3 id="6-1-数组的定义和初始化"><a href="#6-1-数组的定义和初始化" class="headerlink" title="6.1 数组的定义和初始化"></a>6.1 数组的定义和初始化</h3><p>略。</p>
+<h3 id="6-2-数组作为函数的参数"><a href="#6-2-数组作为函数的参数" class="headerlink" title="6.2 数组作为函数的参数"></a>6.2 数组作为函数的参数</h3><p>略。</p>
+<h3 id="6-3-对象数组"><a href="#6-3-对象数组" class="headerlink" title="6.3 对象数组"></a>6.3 对象数组</h3><ul>
+<li>例如：Point a[2] &#x3D; {Point(1,2), Point(1,3)};</li>
+<li>数组中每一个元素对象被创建时，系统都会调用类构造函数初始化该对象。</li>
+</ul>
+<h4 id="6-3-1-数组元素的构造和析构"><a href="#6-3-1-数组元素的构造和析构" class="headerlink" title="6.3.1 数组元素的构造和析构"></a>6.3.1 数组元素的构造和析构</h4><ul>
+<li>元素所属的类不声明构造函数，则采用默认构造函数。</li>
+<li>各元素对象的初值要求为相同的值时，可以声明具有默认形参值的构造函数。</li>
+<li>各元素对象的初值要求为不同的值时，需要声明带形参的构造函数。</li>
+<li>当数组中每一个对象被删除时，系统都要调用一次析构函数。</li>
+</ul>
+<h3 id="6-4-基于范围的for循环"><a href="#6-4-基于范围的for循环" class="headerlink" title="6.4 基于范围的for循环"></a>6.4 基于范围的for循环</h3><ul>
+<li>for (int x : array) {}</li>
+</ul>
+<h3 id="6-5-指针的定义和运算"><a href="#6-5-指针的定义和运算" class="headerlink" title="6.5 指针的定义和运算"></a>6.5 指针的定义和运算</h3><ul>
+<li>内存空间的访问方式：1. 通过变量名；2. 通过地址</li>
+</ul>
+<h4 id="6-5-1-指针的概念"><a href="#6-5-1-指针的概念" class="headerlink" title="6.5.1 指针的概念"></a>6.5.1 指针的概念</h4><ul>
+<li>指针：内存地址，用于间接访问内存单元</li>
+<li>指针变量：用于存放地址的变量</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">static</span> <span class="type">int</span> i;</span><br><span class="line"><span class="type">static</span> <span class="type">int</span>* ptr = &amp;i;	<span class="comment">//指向int变量的指针	</span></span><br><span class="line"><span class="comment">//if			i = 3;</span></span><br><span class="line"><span class="comment">//then		*ptr = 3;</span></span><br><span class="line"><span class="comment">//				ptr = &amp;i = i所在的地址</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-5-2-指针的初始化和赋值"><a href="#6-5-2-指针的初始化和赋值" class="headerlink" title="6.5.2 指针的初始化和赋值"></a>6.5.2 指针的初始化和赋值</h4><ul>
+<li>语法形式：存储类型 数据类型 *指针名 &#x3D; 初始地址</li>
+<li>例如：int *pa &#x3D; &amp;a         </li>
+<li>a必须提前声明且变量类型和指针类型一致；可以用一个已有合法值的指针去初始化另一个指针变量，不要用一个内部非静态变量去初始化static指针</li>
+<li>指针空值 nullptr，是表达更准确，类型安全的指针</li>
+<li>可以声明void类型的指针：void *pv；不可以声明void类型的变量</li>
+<li></li>
+</ul>
+<h5 id="指向常量的指针-amp-指针类型的常量"><a href="#指向常量的指针-amp-指针类型的常量" class="headerlink" title="指向常量的指针 &amp; 指针类型的常量"></a>指向常量的指针 &amp; 指针类型的常量</h5><ul>
+<li><p>指向常量的指针：const int* p1 &#x3D; &amp;a</p>
+<ul>
+<li><p>不能通过指向常量的指针来改变所指对象的值，但指针本身可以改变，可以指向另外的对象</p>
+</li>
+<li><p>如果希望一个指针是一个只读的指针，可以访问内存空间中的内容但是不能进行改写和覆盖，那么可以将其定义为一个const指针</p>
+</li>
+<li><p>&#96;&#96;&#96;c++<br>int a;<br>const int *p1 &#x3D; &amp;a; &#x2F;&#x2F;p1是指向常量的指针<br>int b;<br>p1 &#x3D; &amp;b; &#x2F;&#x2F;正确，p1本身的值可以改变<br>*p1 &#x3D; 1; &#x2F;&#x2F;编译时出错，不能通过p1改变所指的对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 指针类型的常量：int * const p2 = &amp;a</span><br><span class="line"></span><br><span class="line">  - 若声明指针常量，则指针本身的值不能被改变</span><br><span class="line"></span><br><span class="line">  - ```c++</span><br><span class="line">    int a;</span><br><span class="line">    int * const p2 = &amp;a;</span><br><span class="line">    p2 = &amp;b; //错误，p2是指针常量，值不能改变</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h4 id="6-5-3-指针的算术运算、关系运算"><a href="#6-5-3-指针的算术运算、关系运算" class="headerlink" title="6.5.3 指针的算术运算、关系运算"></a>6.5.3 指针的算术运算、关系运算</h4><h5 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h5><ul>
+<li>指针的加减操作意义是指向下一个或前一个完整数据的起始值</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">short</span> a[<span class="number">4</span>];</span><br><span class="line"><span class="type">short</span> *pa = a;</span><br><span class="line"><span class="comment">//	*pa等同于a[0]</span></span><br><span class="line"><span class="comment">//	*(pa+1)等同于a[1]</span></span><br><span class="line"><span class="comment">//	*(pa+2)等同于a[2] </span></span><br></pre></td></tr></table></figure>
+
+<h5 id="关系运算"><a href="#关系运算" class="headerlink" title="关系运算"></a>关系运算</h5><ul>
+<li>指向相同类型数据的指针之间可以进行各种关系运算</li>
+<li>指向不同数据类型的指针，以及指针与一般整数变量之间的关系运算是无意义的</li>
+<li>指针可以和零之间进行等于或不等于的关系运算（判空）<ul>
+<li>例如 p&#x3D;&#x3D;0 或 p!&#x3D;0</li>
+</ul>
+</li>
+</ul>
+<h3 id="6-6-指针与数组"><a href="#6-6-指针与数组" class="headerlink" title="6.6 指针与数组"></a>6.6 指针与数组</h3><ul>
+<li>定义与赋值：int a[10], *pa; pa &#x3D; &amp;a[0] 或 pa &#x3D; a</li>
+<li>等效的形式：a[i] , *(pa+i), *(a+i), pa[i]</li>
+<li>用指针数组来表示二维数组的时候，数组里面每一个元素都是一个指针，分别指向一个数组。这种表示和二维数组最大得不同就是，指针数组的数组元素之间的内存不一定需要连续，但是二维数组的各行各列内存是连续的</li>
+</ul>
+<h3 id="6-7-指针与函数"><a href="#6-7-指针与函数" class="headerlink" title="6.7 指针与函数"></a>6.7 指针与函数</h3><h4 id="6-7-1-指针类型的函数"><a href="#6-7-1-指针类型的函数" class="headerlink" title="6.7.1 指针类型的函数"></a>6.7.1 指针类型的函数</h4><ul>
+<li>返回值是指针类型</li>
+<li>定义：存储类型 数据类型 *函数名(){};</li>
+<li>不要将非静态局部地址用作函数的返回值</li>
+</ul>
+<p>错误的例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="type">int</span>* <span class="title">function</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="type">int</span>* ptr= <span class="built_in">function</span>();</span><br><span class="line">    *prt=<span class="number">5</span>; <span class="comment">//危险的访问！</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span>* <span class="title">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> local=<span class="number">0</span>; <span class="comment">//非静态局部变量作用域和寿命都仅限于本函数体内</span></span><br><span class="line">    <span class="keyword">return</span> &amp;local;</span><br><span class="line">&#125;<span class="comment">//函数运行结束时，变量local被释</span></span><br></pre></td></tr></table></figure>
+
+<p>正确的例子1</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> array[<span class="number">10</span>]; <span class="comment">//主函数中定义的数组</span></span><br><span class="line">    <span class="function"><span class="type">int</span>* <span class="title">search</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span> num)</span></span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">10</span>; i++)</span><br><span class="line">      cin&gt;&gt;array[i];</span><br><span class="line">    <span class="type">int</span>* zeroptr= <span class="built_in">search</span>(array, <span class="number">10</span>);  <span class="comment">//将主函数中数组的首地址传给子函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span>* <span class="title">search</span><span class="params">(<span class="type">int</span>* a, <span class="type">int</span> num)</span></span>&#123; <span class="comment">//指针a指向主函数中定义的数组</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;num; i++)</span><br><span class="line">      <span class="keyword">if</span>(a[i]==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> &amp;a[i]; <span class="comment">//返回的地址指向的元素是在主函数中定义的</span></span><br><span class="line">&#125;<span class="comment">//函数运行结束时，a[i]的地址仍有</span></span><br></pre></td></tr></table></figure>
+
+<p>正确的例子2</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="type">int</span>* <span class="title">newintvar</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="type">int</span>* intptr= <span class="built_in">newintvar</span>();</span><br><span class="line">    *intptr=<span class="number">5</span>; <span class="comment">//访问的是合法有效的地址</span></span><br><span class="line">    <span class="keyword">delete</span> intptr; <span class="comment">//如果忘记在这里释放，会造成内存泄漏</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span>* <span class="title">newintvar</span> <span class="params">()</span></span>&#123; </span><br><span class="line">    <span class="type">int</span>* p=<span class="keyword">new</span> <span class="built_in">int</span>();</span><br><span class="line">    <span class="keyword">return</span> p; <span class="comment">//返回的地址指向的是动态分配的空间</span></span><br><span class="line">&#125;<span class="comment">//函数运行结束时，p中的地址仍有效</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="6-7-2-指向函数的指针"><a href="#6-7-2-指向函数的指针" class="headerlink" title="6.7.2 指向函数的指针"></a>6.7.2 指向函数的指针</h4><ul>
+<li>函数指针指向函数的起始地址（指向的是程序代码存储区）</li>
+<li>定义：存储类型 数据类型 (*函数指针名)();     &#x2F;&#x2F;如果没有这对括号，那么定义的就是返回值为指针类型的函数</li>
+<li>典型用途：实现函数回调<ul>
+<li>通过函数指针调用的函数<ul>
+<li>例如将函数的指针作为参数传递给一个函数，使得在处理相似事件的时候可以灵活使用不同的方法</li>
+</ul>
+</li>
+<li>调用者不关心谁是被调用者<ul>
+<li>需要知道存在一个具有特定原型和限制条件的被调用函数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">compute</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span>(*func)(<span class="type">int</span>, <span class="type">int</span>)&#123; </span></span></span><br><span class="line"><span class="params"><span class="function">	<span class="keyword">return</span> func(a,b);</span></span></span><br><span class="line"><span class="params"><span class="function">&#125;</span></span></span><br><span class="line"><span class="params"><span class="function"><span class="type">int</span> max(<span class="type">int</span> a, <span class="type">int</span> b)&#123; <span class="keyword">return</span> (a&gt;b)?a:b; &#125;</span></span></span><br><span class="line"><span class="params"><span class="function"><span class="type">int</span> min(<span class="type">int</span> a, <span class="type">int</span> b)&#123; <span class="keyword">return</span> (a&lt;b)?a:b; &#125;</span></span></span><br><span class="line"><span class="params"><span class="function"><span class="type">int</span> sum(<span class="type">int</span> a, <span class="type">int</span> b)&#123; <span class="keyword">return</span> a+b &#125;</span></span></span><br><span class="line"><span class="params"><span class="function"><span class="type">int</span> main()&#123;</span></span></span><br><span class="line"><span class="params"><span class="function">  <span class="type">int</span> a, b, res;</span></span></span><br><span class="line"><span class="params"><span class="function">  cin &gt;&gt; a &gt;&gt; b;</span></span></span><br><span class="line"><span class="params"><span class="function">  res = compute(a, b, &amp;max);	cout &lt;&lt; res &lt;&lt; endl;</span></span></span><br><span class="line"><span class="params"><span class="function">  res = compute(a, b, &amp;min);	cout &lt;&lt; res &lt;&lt; endl;</span></span></span><br><span class="line"><span class="params"><span class="function">  res = compute(a, b, &amp;sum);	cout &lt;&lt; res &lt;&lt; endl;</span></span></span><br><span class="line"><span class="params"><span class="function">	<span class="keyword">return</span> <span class="number">0</span>;</span></span></span><br><span class="line"><span class="params"><span class="function">&#125;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-8-对象指针"><a href="#6-8-对象指针" class="headerlink" title="6.8 对象指针"></a>6.8 对象指针</h3><ul>
+<li>类名 *对象指针名  :   TreeNode* root;</li>
+<li>访问对象：root-&gt;val</li>
+<li>this指针：隐含与类的每一个非静态成员函数中。当通过一个对象调用成员函数时，系统先将该对象的地址赋给this指针，然后调用成员函数，成员函数对对象的数据成员进行操作时，就隐含使用了this指针。</li>
+</ul>
+<h3 id="6-9-动态内存分配"><a href="#6-9-动态内存分配" class="headerlink" title="6.9 动态内存分配"></a>6.9 动态内存分配</h3><h4 id="6-9-1-动态分配与释放内存"><a href="#6-9-1-动态分配与释放内存" class="headerlink" title="6.9.1 动态分配与释放内存"></a>6.9.1 动态分配与释放内存</h4><p>动态申请内存操作符 new —— new 类型名T(初始化参数列表)</p>
+<ul>
+<li>功能：在程序执行期间，申请用语存储T类型对象的内存空间，并依初值列表赋以初值</li>
+<li>结果值：T类型的指针，指向新分配的内存；失败：抛出异常</li>
+</ul>
+<p>释放内存操作符delete —— delete 指针p</p>
+<ul>
+<li><p>功能：释放指针p所指向的内存。p必须是new操作的返回值。</p>
+</li>
+<li><p>注意：是删除指针指向的内存而不是指针自己。delete之后p可以重新进行赋值。</p>
+</li>
+<li><p>&#96;&#96;&#96;c++<br>int main() {</p>
+<p>  Point *ptr1 &#x3D; new Point; &#x2F;&#x2F;调用默认构造函数<br>  delete ptr1; &#x2F;&#x2F;删除对象，自动调用析构函数</p>
+<p>  ptr1 &#x3D; new Point(1,2);	&#x2F;&#x2F;ptr1可以继续使用<br>  delete ptr1;</p>
+<p>  return 0;<br>}</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 6.9.2 申请和释放动态数组</span><br><span class="line"></span><br><span class="line">分配：new 类型名T[数组长度]; （多维数组：new 类型名T[维度1\][维度2] </span><br><span class="line"></span><br><span class="line">释放：delete[] 数组名p （p是new分配得到的数组首地址）</span><br><span class="line"></span><br><span class="line">```c++</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main() &#123;</span><br><span class="line">  int (*cp)[9][8] = new int[7][9][8];</span><br><span class="line">  for (int i = 0; i &lt; 7; i++)</span><br><span class="line">    for (int j = 0; j &lt; 9; j++)</span><br><span class="line">      for (int k = 0; k &lt; 8; k++)</span><br><span class="line">      	*(*(*(cp + i) + j) + k) =（i * 100 + j * 10 + k);</span><br><span class="line">  for (int i = 0; i &lt; 7; i++) &#123;</span><br><span class="line">  	for (int j = 0; j &lt; 9; j++) &#123;</span><br><span class="line">  		for (int k = 0; k &lt; 8; k++)</span><br><span class="line">  			cout &lt;&lt; cp[i][j][k] &lt;&lt; &quot; &quot;;</span><br><span class="line">  		cout &lt;&lt; endl;</span><br><span class="line">  	&#125;</span><br><span class="line">  	cout &lt;&lt; endl;</span><br><span class="line">  &#125;</span><br><span class="line">  delete[] cp;</span><br><span class="line">  return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>将动态数组封装成类 </p>
+<ul>
+<li>更加简洁,便于管理</li>
+<li>可以在访问数组元素前检查下标是否越界</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cassert&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Point</span> &#123; <span class="comment">//类的声明同例6-16 … &#125;;</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ArrayOfPoints</span> &#123; <span class="comment">//动态数组类</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">ArrayOfPoints</span>(<span class="type">int</span> size) : <span class="built_in">size</span>(size) &#123;</span><br><span class="line">  	points = <span class="keyword">new</span> Point[size];</span><br><span class="line">  &#125;</span><br><span class="line">  ~<span class="built_in">ArrayOfPoints</span>() &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Deleting...&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">delete</span>[] points;</span><br><span class="line">  &#125;</span><br><span class="line">	<span class="function">Point&amp; <span class="title">element</span><span class="params">(<span class="type">int</span> index)</span> </span>&#123;</span><br><span class="line">		<span class="built_in">assert</span>(index &gt;= <span class="number">0</span> &amp;&amp; index &lt; size);</span><br><span class="line">		<span class="keyword">return</span> points[index];</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	Point *points; <span class="comment">//指向动态数组首地址</span></span><br><span class="line">	<span class="type">int</span> size; <span class="comment">//数组大小</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="type">int</span> count;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;Please enter the count of points: &quot;</span>;</span><br><span class="line">  cin &gt;&gt; count;</span><br><span class="line">  <span class="function">ArrayOfPoints <span class="title">points</span><span class="params">(count)</span></span>; <span class="comment">//创建数组对象</span></span><br><span class="line">  points.<span class="built_in">element</span>(<span class="number">0</span>).<span class="built_in">move</span>(<span class="number">5</span>, <span class="number">0</span>); <span class="comment">//访问数组元素的成员</span></span><br><span class="line">  points.<span class="built_in">element</span>(<span class="number">1</span>).<span class="built_in">move</span>(<span class="number">15</span>, <span class="number">20</span>); <span class="comment">//访问数组元素的成员</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">Please enter the number of points:<span class="number">2</span></span><br><span class="line">Default Constructor called.</span><br><span class="line">Default Constructor called.</span><br><span class="line">Deleting...</span><br><span class="line">Destructor called.</span><br><span class="line">Destructor called.</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-10-智能指针"><a href="#6-10-智能指针" class="headerlink" title="6.10 智能指针"></a>6.10 智能指针</h3><ul>
+<li>unique_ptr：不允许多个指针共享资源，可以用标准库中的move函数转移指针</li>
+<li>shared_ptr：多个指针共享资源</li>
+<li>weak_ptr：可复制shared_ptr，但其构造或者释放对资源不产生影响</li>
+</ul>
+<h3 id="6-11-vector对象"><a href="#6-11-vector对象" class="headerlink" title="6.11 vector对象"></a>6.11 vector对象</h3><ul>
+<li>注意：vector对象名不能当做数组的头指针使用</li>
+</ul>
+<h3 id="6-12-对象复制与移动"><a href="#6-12-对象复制与移动" class="headerlink" title="6.12 对象复制与移动"></a>6.12 对象复制与移动</h3><h4 id="6-12-1-深层复制和浅层复制"><a href="#6-12-1-深层复制和浅层复制" class="headerlink" title="6.12.1 深层复制和浅层复制"></a>6.12.1 深层复制和浅层复制</h4><ul>
+<li>浅层复制：实现对象间数据元素的一一复制</li>
+<li>深层复制：当被复制的对象数据成员是指针类型时，不是复制该指针成员本身，而是将指针所指对象进行复制。（防止调用析构函数时候出错）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;cassert&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">class Point &#123; //类的声明同例6-16</span><br><span class="line">&#125;;</span><br><span class="line">class ArrayOfPoints &#123;</span><br><span class="line">public:</span><br><span class="line">	ArrayOfPoints(const ArrayOfPoints&amp; pointsArray);</span><br><span class="line">	//其他成员同例6-18</span><br><span class="line">	&#125;;</span><br><span class="line">	ArrayOfPoints::ArrayOfPoints(const ArrayOfPoints&amp; v) &#123;</span><br><span class="line">    size = v.size;</span><br><span class="line">    points = new Point[size];</span><br><span class="line">    for (int i = 0; i &lt; size; i++)</span><br><span class="line">    points[i] = v.points[i];</span><br><span class="line">	&#125;</span><br><span class="line">int main() &#123;</span><br><span class="line">//同例6-20</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-12-2-移动构造"><a href="#6-12-2-移动构造" class="headerlink" title="6.12.2 移动构造"></a>6.12.2 移动构造</h4><ul>
+<li>C++11之前，将源对象的状态转移到目标对象只能通过复制，但有时候我们没有必要复制，只需要移动。</li>
+<li>C++11引入移动定义：源对象资源的控制权全部交给目标对象。</li>
+<li>什么时候触发：有可被利用的临时对象</li>
+<li>移动构造函数：class_name ( class_name &amp;&amp; )<ul>
+<li>&amp;&amp;是右值引用，&amp;是左值引用</li>
+<li>左值和右值都是针对表达式而言的，左值是指表达式结束后依然存在的持久对象，右值指表达式结束时就不再存在的临时对象</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-082609.png" alt="image-20201004162608854"></p>
+<ul>
+<li>使用深层复制构造函数：返回时构造临时对象，动态分配将临时对象返回到主调函数，然后删除临时对象。</li>
+<li>使用移动构造函数：将要返回的局部对象转移到主调函数，省去了构造和删除临时对象的过程。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">IntNum</span>(<span class="type">const</span> IntNum &amp; n) : <span class="built_in">xptr</span>(<span class="keyword">new</span> <span class="built_in">int</span>(*n.xptr))&#123;<span class="comment">//复制构造函数</span></span><br><span class="line"> cout &lt;&lt; <span class="string">&quot;Calling copy constructor...&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">IntNum</span>(IntNum &amp;&amp; n): <span class="built_in">xptr</span>( n.xptr)&#123; <span class="comment">//移动构造函数</span></span><br><span class="line"> n.xptr = <span class="literal">nullptr</span>;</span><br><span class="line"> cout &lt;&lt; <span class="string">&quot;Calling move constructor...&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-13-字符串"><a href="#6-13-字符串" class="headerlink" title="6.13 字符串"></a>6.13 字符串</h3><h4 id="6-13-1-C风格字符串"><a href="#6-13-1-C风格字符串" class="headerlink" title="6.13.1 C风格字符串"></a>6.13.1 C风格字符串</h4><ul>
+<li>例：”program”</li>
+<li>各字符连续、顺序存放，每个字符占一个字节，以‘\0’结尾，相当于一个隐含创建的字符常量数组</li>
+<li>“program”出现在表达式中，表示这一char数组的首地址</li>
+<li>首地址可以赋给char常量指针：const char *STRING1 &#x3D; “program”;</li>
+</ul>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-083950.png" alt="image-20201004163950472"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例题：</span></span><br><span class="line"><span class="comment">//函数F定义如下：</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">F</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">char</span> str[<span class="number">7</span>] = &#123; <span class="string">&#x27;p&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;m&#x27;</span>&#125;;</span><br><span class="line">	std::cout &lt;&lt; str &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用F()时，将会出现：</span></span><br><span class="line"><span class="comment">//	输出program以及任意长度的随机字符后换行（而非编译错误）</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>用字符数组表示字符串的缺点</strong></p>
+<ul>
+<li>执行连接、拷贝、比较等操作，都需要显式调用库函数，很麻烦</li>
+<li>当字符串长度很不确定时，需要用new动态创建字符数组，最后要用delete释放，很繁琐</li>
+<li>字符串实际长度大于为它分配的空间时，会产生数组下标越界的错误</li>
+</ul>
+<h4 id="6-13-2-string类"><a href="#6-13-2-string类" class="headerlink" title="6.13.2 string类"></a>6.13.2 string类</h4><ul>
+<li>string实际上是对字符数组操作的封装</li>
+</ul>
+<p>如何输入整行字符串：</p>
+<ul>
+<li><p>用cin的&gt;&gt;操作符输入字符串，会以空格作为分隔符，空格后的内容会在下一回输入时被读取</p>
+</li>
+<li><p>getline可以输入整行字符串（要包string头文件），例如：getline(cin, s2);</p>
+</li>
+<li><p>输入字符串时使用其它分隔符作为字符串结束的标志（例如逗号、分号）：getline(cin, s2, ‘,’);</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">include &lt;iostream&gt;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span>; i++)&#123;</span><br><span class="line">    string city, state;</span><br><span class="line">    <span class="built_in">getline</span>(cin, city, <span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">    <span class="built_in">getline</span>(cin, state);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;City:&quot;</span> &lt;&lt; city &lt;&lt; “ State:<span class="string">&quot; &lt;&lt; state &lt;&lt; endl;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">	return 0;</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="第七章-继承与派生"><a href="#第七章-继承与派生" class="headerlink" title="第七章 继承与派生"></a>第七章 继承与派生</h2><h3 id="7-1-继承的基本概念和语法"><a href="#7-1-继承的基本概念和语法" class="headerlink" title="7.1 继承的基本概念和语法"></a>7.1 继承的基本概念和语法</h3><h4 id="7-1-1-继承与派生概述"><a href="#7-1-1-继承与派生概述" class="headerlink" title="7.1.1 继承与派生概述"></a>7.1.1 继承与派生概述</h4><ul>
+<li>继承与派生是同一过程从不同的角度看<ul>
+<li>保持已有类的特性而构造新类的过程称为继承</li>
+<li>在已有类的基础上新增自己的特性而产生新类的过程称为派生。</li>
+</ul>
+</li>
+<li>被继承的已有类称为基类（或父类）</li>
+<li>派生出的新类称为派生类（或子类）</li>
+<li>直接参与派生出某类的基类称为直接基类</li>
+<li>基类的基类甚至更高层的基类称为间接基类</li>
+</ul>
+<h4 id="7-1-2-继承与派生的目的"><a href="#7-1-2-继承与派生的目的" class="headerlink" title="7.1.2 继承与派生的目的"></a>7.1.2 继承与派生的目的</h4><ul>
+<li>继承的目的：实现设计与代码的重用。</li>
+<li>派生的目的：当新的问题出现，原有程序无法解决（或不能完全解决）时，需要对原有程序进行改造。</li>
+</ul>
+<h4 id="7-1-3-派生类的构成"><a href="#7-1-3-派生类的构成" class="headerlink" title="7.1.3 派生类的构成"></a>7.1.3 派生类的构成</h4><ul>
+<li>吸收基类成员<ul>
+<li>默认情况下派生类包含了全部基类中除构造和析构函数之外的所有成员</li>
+<li>C++11规定可以用using语句继承基类构造函数</li>
+</ul>
+</li>
+<li>改造基类成员<ul>
+<li>隐藏或者覆盖外层同名成员</li>
+</ul>
+</li>
+<li>添加新的成员</li>
+</ul>
+<h4 id="7-1-3-单继承时派生类的定义"><a href="#7-1-3-单继承时派生类的定义" class="headerlink" title="7.1.3 单继承时派生类的定义"></a>7.1.3 单继承时派生类的定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">Derived</span> ();</span><br><span class="line">  ~<span class="built_in">Derived</span> ();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-1-4-多继承时派生类的定义"><a href="#7-1-4-多继承时派生类的定义" class="headerlink" title="7.1.4 多继承时派生类的定义"></a>7.1.4 多继承时派生类的定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base1, <span class="keyword">private</span> Base2</span><br><span class="line">&#123;	<span class="comment">//注意：每一个“继承方式public/private”，只用于限制对紧随其后之基类的继承。</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="built_in">Derived</span> ();</span><br><span class="line">  ~<span class="built_in">Derived</span> ();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-继承方式"><a href="#7-2-继承方式" class="headerlink" title="7.2 继承方式"></a>7.2 继承方式</h3><h4 id="7-2-1-继承方式简介"><a href="#7-2-1-继承方式简介" class="headerlink" title="7.2.1 继承方式简介"></a>7.2.1 继承方式简介</h4><p>不同继承方式的影响主要体现在：</p>
+<ul>
+<li>派生类<strong>成员</strong>对基类成员的访问权限</li>
+<li>通过派生类<strong>对象</strong>对基类成员的访问权限</li>
+</ul>
+<p>三种继承方式：</p>
+<ul>
+<li>公有继承</li>
+<li>私有继承</li>
+<li>保护继承</li>
+</ul>
+<h4 id="7-2-2-公有继承-public"><a href="#7-2-2-公有继承-public" class="headerlink" title="7.2.2 公有继承 public"></a>7.2.2 公有继承 public</h4><ul>
+<li>继承的访问控制<ul>
+<li>基类的public和protected成员：访问属性在派生类中保持不变</li>
+<li>基类的private成员：不可直接访问。</li>
+</ul>
+</li>
+<li>访问权限<ul>
+<li>派生类中的成员函数：可以直接访问基类中的public和protected成员，但不能直接访问基类的private成员；</li>
+<li>通过派生类的对象：只能访问public成员。</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-2-3-私有继承-private"><a href="#7-2-3-私有继承-private" class="headerlink" title="7.2.3 私有继承 private"></a>7.2.3 私有继承 private</h4><ul>
+<li><p>继承的访问控制</p>
+</li>
+<li><ul>
+<li>基类的<strong>public</strong>和<strong>protected</strong>成员：都以<strong>private</strong>身份出现在派生类中</li>
+<li>基类的private成员：<strong>不可直接访问</strong>。</li>
+</ul>
+</li>
+<li><p>访问权限</p>
+</li>
+<li><ul>
+<li>派生类中的成员函数：可以直接访问基类中的public和protected成员，但不能直接访问基类的private成员；</li>
+<li>通过派生类的对象：不能直接访问从基类继承的任何成员。</li>
+</ul>
+</li>
+</ul>
+<h4 id="7-2-4-保护继承-protected"><a href="#7-2-4-保护继承-protected" class="headerlink" title="7.2.4 保护继承 protected"></a>7.2.4 保护继承 protected</h4><ul>
+<li><p>继承的访问控制</p>
+</li>
+<li><ul>
+<li>基类的<strong>public</strong>和<strong>protected</strong>成员：都以<strong>protected</strong>身份出现在派生类中；</li>
+<li>基类的<strong>private</strong>成员：<strong>不可直接访问</strong>。</li>
+</ul>
+</li>
+<li><p>访问权限</p>
+</li>
+<li><ul>
+<li>派生类中的成员函数：可以直接访问基类中的public和protected成员，但不能直接访问基类的private成员；</li>
+<li>通过派生类的对象：不能直接访问从基类继承的任何成员。</li>
+</ul>
+</li>
+<li><p>protected 成员的特点与作用</p>
+</li>
+<li><ul>
+<li>对建立其所在类对象的模块来说，它与 private 成员的性质相同。</li>
+<li>对于其派生类来说，它与 public 成员的性质相同。</li>
+<li>既实现了数据隐藏，又方便继承，实现代码重用。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    A a;</span><br><span class="line">    a.x = <span class="number">5</span>;<span class="comment">//错误</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">protected</span>:</span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span>: <span class="keyword">public</span> A&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">function</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">void</span> B:<span class="built_in">function</span>() &#123;</span><br><span class="line">    x = <span class="number">5</span>;   <span class="comment">//正确</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>如果派生类有多个基类，也就是多继承时，可以用不同的方式继承每个基类。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setA</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">showA</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setB</span><span class="params">(<span class="type">int</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">showB</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> : <span class="keyword">public</span> A, <span class="keyword">private</span> B &#123; </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">setC</span><span class="params">(<span class="type">int</span>, <span class="type">int</span>, <span class="type">int</span>)</span></span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">showC</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span>  <span class="title">A::setA</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    a=x; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">B::setB</span><span class="params">(<span class="type">int</span> x)</span> </span>&#123;</span><br><span class="line">    b=x; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">C::setC</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">int</span> z)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//派生类成员直接访问基类的</span></span><br><span class="line">    <span class="comment">//公有成员</span></span><br><span class="line">    <span class="built_in">setA</span>(x); </span><br><span class="line">    <span class="built_in">setB</span>(y); </span><br><span class="line">    c = z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//其他函数实现略</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    C obj;</span><br><span class="line">    obj.<span class="built_in">setA</span>(<span class="number">5</span>);</span><br><span class="line">    obj.<span class="built_in">showA</span>();</span><br><span class="line">    obj.<span class="built_in">setC</span>(<span class="number">6</span>,<span class="number">7</span>,<span class="number">9</span>);</span><br><span class="line">    obj.<span class="built_in">showC</span>();</span><br><span class="line"><span class="comment">// obj.setB(6);  错误	因为B是通过私有继承到C类，B类内的私有成员在C类外不能通过对象访问</span></span><br><span class="line"><span class="comment">// obj.showB(); 错误</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-3-基类与派生类类型转换"><a href="#7-3-基类与派生类类型转换" class="headerlink" title="7.3 基类与派生类类型转换"></a>7.3 基类与派生类类型转换</h3><ul>
+<li><p>公有派生类对象可以被当作基类的对象使用，反之则不可。</p>
+</li>
+<li><ul>
+<li>派生类的对象可以隐含转换为基类对象；</li>
+<li>派生类的对象可以初始化基类的引用；</li>
+<li>派生类的指针可以隐含转换为基类的指针。</li>
+</ul>
+</li>
+<li><p>通过基类对象名、指针只能使用从基类继承的成员。</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base1</span> &#123; <span class="comment">//基类Base1定义</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Base1::display()&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base2</span>: <span class="keyword">public</span> Base1 &#123; <span class="comment">//公有派生类Base2定义</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Base2::display()&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base2 &#123; <span class="comment">//公有派生类Derived定义</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Derived::display()&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">(Base1 *ptr)</span> </span>&#123;  <span class="comment">//参数为指向基类对象的指针</span></span><br><span class="line">    ptr-&gt;<span class="built_in">display</span>();     <span class="comment">//&quot;对象指针-&gt;成员名&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;    <span class="comment">//主函数</span></span><br><span class="line">    Base1 base1;    <span class="comment">//声明Base1类对象</span></span><br><span class="line">    Base2 base2;    <span class="comment">//声明Base2类对象</span></span><br><span class="line">    Derived derived;    <span class="comment">//声明Derived类对象</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">fun</span>(&amp;base1);    <span class="comment">//用Base1对象的指针调用fun函数</span></span><br><span class="line">    <span class="built_in">fun</span>(&amp;base2);    <span class="comment">//用Base2对象的指针调用fun函数</span></span><br><span class="line">    <span class="built_in">fun</span>(&amp;derived); <span class="comment">//用Derived对象的指针调用fun函数</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">运行结果</span></span><br><span class="line"><span class="comment">Base1::display()</span></span><br><span class="line"><span class="comment">Base1::display()</span></span><br><span class="line"><span class="comment">Base1::display()</span></span><br><span class="line"><span class="comment">如果要达到我们想要的效果先，需要定义虚函数</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>建议：不要重新定义继承而来的非虚函数</li>
+</ul>
+<h3 id="7-4-派生类的构造和析构"><a href="#7-4-派生类的构造和析构" class="headerlink" title="7.4 派生类的构造和析构"></a>7.4 派生类的构造和析构</h3><h4 id="7-4-1-派生类的构造函数"><a href="#7-4-1-派生类的构造函数" class="headerlink" title="7.4.1 派生类的构造函数"></a>7.4.1 派生类的构造函数</h4><ul>
+<li><p>默认情况</p>
+</li>
+<li><ul>
+<li>基类的构造函数不被继承;</li>
+<li>派生类需要定义自己的构造函数。</li>
+</ul>
+</li>
+<li><p>C++11规定</p>
+</li>
+<li><ul>
+<li>可用using语句继承基类构造函数，但是只能初始化从基类继承的成员。派生类新增成员可以通过类内初始值进行初始化。</li>
+<li>语法形式：using B::B;</li>
+</ul>
+</li>
+</ul>
+<p><strong>建议</strong></p>
+<ul>
+<li>如果派生类有自己新增的成员，且需要通过构造函数初始化，则派生类要自定义构造函数。</li>
+</ul>
+<p><strong>若不继承基类的构造函数</strong></p>
+<ul>
+<li>派生类新增成员：派生类定义构造函数初始化；</li>
+<li>继承来的成员：自动调用基类构造函数进行初始化；</li>
+<li>派生类的构造函数需要给基类的构造函数传递参数。</li>
+</ul>
+<h5 id="单继承"><a href="#单继承" class="headerlink" title="单继承"></a>单继承</h5><ul>
+<li>派生类只有一个直接基类的情况，是单继承。单继承时，派生类的构造函数只需要给一个直接基类构造函数传递参数。</li>
+</ul>
+<p>单继承时构造函数的定义语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">派生类名::派生类名(基类所需的形参，本类成员所需的形参):</span><br><span class="line">基类名(参数表), 本类成员初始化列表</span><br><span class="line">&#123;</span><br><span class="line">	//其他初始化；</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">B</span>();</span><br><span class="line">    <span class="built_in">B</span>(<span class="type">int</span> i);</span><br><span class="line">    ~<span class="built_in">B</span>();</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">B::<span class="built_in">B</span>() &#123;</span><br><span class="line">    b=<span class="number">0</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;B&#x27;s default constructor called.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">B::<span class="built_in">B</span>(<span class="type">int</span> i) &#123;</span><br><span class="line">    b=i;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;B&#x27;s constructor called.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">B::~<span class="built_in">B</span>() &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;B&#x27;s destructor called.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">B::print</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; b &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span>: <span class="keyword">public</span> B &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">C</span>();</span><br><span class="line">    <span class="built_in">C</span>(<span class="type">int</span> i, <span class="type">int</span> j);</span><br><span class="line">    ~<span class="built_in">C</span>();</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">print</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">&#125;;</span><br><span class="line">C::<span class="built_in">C</span>() &#123;</span><br><span class="line">    c = <span class="number">0</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;C&#x27;s default constructor called.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">C::<span class="built_in">C</span>(<span class="type">int</span> i,<span class="type">int</span> j): <span class="built_in">B</span>(i), <span class="built_in">c</span>(j)&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;C&#x27;s constructor called.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line">C::~<span class="built_in">C</span>() &#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;C&#x27;s destructor called.&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">C::print</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    B::<span class="built_in">print</span>();</span><br><span class="line">    cout &lt;&lt; c &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">C <span class="title">obj</span><span class="params">(<span class="number">5</span>, <span class="number">6</span>)</span></span>;</span><br><span class="line">    obj.<span class="built_in">print</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h5><ul>
+<li>多继承时，有多个直接基类，如果不继承基类的构造函数，派生类构造函数需要给所有基类构造函数传递参数。我们来看一下语法规定</li>
+</ul>
+<p>多继承时构造函数的定义语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">派生类名::派生类名(参数表) : </span><br><span class="line">基类名1(基类1初始化参数表), </span><br><span class="line">基类名2(基类2初始化参数表), </span><br><span class="line">...</span><br><span class="line">基类名n(基类n初始化参数表), </span><br><span class="line">本类成员初始化列表</span><br><span class="line">&#123;</span><br><span class="line">        //其他初始化；</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+
+<p>派生类与基类的构造函数</p>
+<ul>
+<li><p>当基类有默认构造函数时</p>
+</li>
+<li><ul>
+<li>派生类构造函数可以不向基类构造函数传递参数。</li>
+<li>构造派生类的对象时，基类的默认构造函数将被调用。</li>
+</ul>
+</li>
+<li><p>如需执行基类中带参数的构造函数</p>
+</li>
+<li><ul>
+<li>派生类构造函数应为基类构造函数提供参数。</li>
+</ul>
+</li>
+</ul>
+<p>多继承且有对象成员时派生的构造函数定义语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">派生类名::派生类名(形参表):</span><br><span class="line">基类名1(参数), 基类名2(参数), ..., 基类名n(参数), </span><br><span class="line">本类成员（含对象成员）初始化列表</span><br><span class="line">&#123;</span><br><span class="line">        //其他初始化</span><br><span class="line">&#125;；</span><br></pre></td></tr></table></figure>
+
+<p>构造函数的执行顺序</p>
+<ol>
+<li><p>调用基类构造函数。</p>
+</li>
+<li><ul>
+<li>顺序按照它们被继承时声明的顺序（从左向右）。</li>
+</ul>
+</li>
+<li><p>对初始化列表中的成员进行初始化。</p>
+</li>
+<li><ul>
+<li>顺序按照它们在类中定义的顺序。</li>
+<li>对象成员初始化时自动调用其所属类的构造函数。由初始化列表提供参数。</li>
+</ul>
+</li>
+<li><p>执行派生类的构造函数体中的内容。</p>
+</li>
+</ol>
+<h4 id="7-4-2-派生类的构造函数举例"><a href="#7-4-2-派生类的构造函数举例" class="headerlink" title="7.4.2 派生类的构造函数举例"></a>7.4.2 派生类的构造函数举例</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base1</span> &#123;<span class="comment">//基类Base1，构造函数有参数</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base1</span>(<span class="type">int</span> i) </span><br><span class="line">  &#123; cout &lt;&lt; <span class="string">&quot;Constructing Base1 &quot;</span> &lt;&lt; i &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base2</span> &#123;<span class="comment">//基类Base2，构造函数有参数</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base2</span>(<span class="type">int</span> j) </span><br><span class="line">  &#123; cout &lt;&lt; <span class="string">&quot;Constructing Base2 &quot;</span> &lt;&lt; j &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base3</span> &#123;<span class="comment">//基类Base3，构造函数无参数</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base3</span>() </span><br><span class="line">  &#123; cout &lt;&lt; <span class="string">&quot;Constructing Base3 *&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base2, <span class="keyword">public</span> Base1, <span class="keyword">public</span> Base3 &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="built_in">Derived</span>(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c, <span class="type">int</span> d): <span class="built_in">Base1</span>(a), <span class="built_in">member2</span>(d), <span class="built_in">member1</span>(c), <span class="built_in">Base2</span>(b)</span><br><span class="line">  <span class="comment">//此处的次序与构造函数的执行次序无关</span></span><br><span class="line">  <span class="comment">//执行的顺序应该按照本类进行多继承时候的基类排列顺序，然后是本类自己的成员函数定义的顺序</span></span><br><span class="line">    &#123; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    Base1 member1;</span><br><span class="line">    Base2 member2;</span><br><span class="line">    Base3 member3;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Derived <span class="title">obj</span><span class="params">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>)</span></span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-4-3-派生类复制构造函数"><a href="#7-4-3-派生类复制构造函数" class="headerlink" title="7.4.3 派生类复制构造函数"></a>7.4.3 派生类复制构造函数</h4><p>派生类未定义复制构造函数的情况</p>
+<ul>
+<li>编译器会在需要时生成一个隐含的复制构造函数；</li>
+<li>先调用基类的复制构造函数；</li>
+<li>再为派生类新增的成员执行复制。</li>
+</ul>
+<p>派生类定义了复制构造函数的情况</p>
+<ul>
+<li>一般都要为基类的复制构造函数传递参数。</li>
+<li>复制构造函数只能接受一个参数，既用来初始化派生类定义的成员，也将被传递给基类的复制构造函数。</li>
+<li>基类的复制构造函数形参类型是基类对象的引用，实参可以是派生类对象的引用</li>
+<li>例如: C::C(const C &amp;c1): B(c1) {…}</li>
+</ul>
+<h4 id="7-4-4-派生类的析构函数"><a href="#7-4-4-派生类的析构函数" class="headerlink" title="7.4.4 派生类的析构函数"></a>7.4.4 派生类的析构函数</h4><ul>
+<li>析构函数不被继承，派生类如果需要，要自行声明析构函数。</li>
+<li>声明方法与无继承关系时类的析构函数相同。</li>
+<li>不需要显式地调用基类的析构函数，系统会自动隐式调用。</li>
+<li>先执行派生类析构函数的函数体，再调用基类的析构函数。</li>
+</ul>
+<h3 id="7-5-派生类成员的标识与访问"><a href="#7-5-派生类成员的标识与访问" class="headerlink" title="7.5 派生类成员的标识与访问"></a>7.5 派生类成员的标识与访问</h3><h4 id="7-5-1-访问从基类继承的成员"><a href="#7-5-1-访问从基类继承的成员" class="headerlink" title="7.5.1 访问从基类继承的成员"></a>7.5.1 访问从基类继承的成员</h4><p><strong>作用域限定</strong></p>
+<p>当派生类与基类中有相同成员时：</p>
+<ul>
+<li>若未特别限定，则通过派生类对象使用的是派生类中的同名成员。</li>
+<li>如要通过派生类对象访问基类中被隐藏的同名成员，应使用基类名和作用域操作符（::）来限定。</li>
+</ul>
+<p><strong>二义性问题</strong></p>
+<ul>
+<li>如果从不同基类继承了同名成员，但是在派生类中没有定义同名成员，“<strong>派生类对象名或引用名.成员名</strong>”、“<strong>派生类指针-&gt;成员名</strong>”访问成员存在二义性问题</li>
+<li>解决方式：1. 用类名限定；2. 同名隐藏</li>
+</ul>
+<p><strong>Derived类对象d的存储结构示意图</strong></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-100024.png" alt="image-20201009180024326"></p>
+<h4 id="7-5-2-虚基类"><a href="#7-5-2-虚基类" class="headerlink" title="7.5.2 虚基类"></a>7.5.2 虚基类</h4><ul>
+<li><p>需要解决的问题</p>
+</li>
+<li><ul>
+<li>当派生类从多个基类派生，而这些基类又共同基类，则在访问此共同基类中的成员时，将产生冗余，并有可能因冗余带来不一致性</li>
+</ul>
+</li>
+<li><p>虚基类声明</p>
+</li>
+<li><ul>
+<li>以virtual说明基类继承方式</li>
+<li>例：class B1:virtual public B</li>
+</ul>
+</li>
+<li><p>作用</p>
+</li>
+<li><ul>
+<li>主要用来解决多继承时可能发生的对同一基类继承多次而产生的二义性问题</li>
+<li>为最远的派生类提供唯一的基类成员，而不重复产生多次复制</li>
+</ul>
+</li>
+<li><p>注意：</p>
+</li>
+<li><ul>
+<li>在第一级继承时就要将共同基类设计为虚基类。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-100229.png" alt="image-20201009180229499"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base0</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> var0;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fun0</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;Member of Base0&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base1</span>: <span class="keyword">virtual</span> <span class="keyword">public</span> Base0 &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="type">int</span> var1;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base2</span>: <span class="keyword">virtual</span> <span class="keyword">public</span> Base0 &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="type">int</span> var2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2 &#123;</span><br><span class="line"><span class="comment">//定义派生类Derived </span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="type">int</span> var;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Member of Derived&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">    Derived d;</span><br><span class="line">    d.var0 = <span class="number">2</span>; <span class="comment">//直接访问虚基类的数据成员</span></span><br><span class="line">    d.<span class="built_in">fun0</span>();     <span class="comment">//直接访问虚基类的函数成员</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="虚基类及其派生类构造函数"><a href="#虚基类及其派生类构造函数" class="headerlink" title="虚基类及其派生类构造函数"></a>虚基类及其派生类构造函数</h5><ul>
+<li>建立对象时所指定的类称为<strong>最远派生类</strong>。</li>
+<li>虚基类的成员是由最远派生类的构造函数通过调用虚基类的构造函数进行初始化的。</li>
+<li>在整个继承结构中，直接或间接继承虚基类的所有派生类，都必须在构造函数的成员初始化表中为虚基类的构造函数列出参数。如果未列出，则表示调用该虚基类的默认构造函数。</li>
+<li>在建立对象时，只有最远派生类的构造函数调用虚基类的构造函数，其他类对虚基类构造函数的调用被忽略。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base0</span> &#123;   </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base0</span>(<span class="type">int</span> var) : <span class="built_in">var0</span>(var) &#123; &#125;</span><br><span class="line">    <span class="type">int</span> var0;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fun0</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;Member of Base0&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base1</span>: <span class="keyword">virtual</span> <span class="keyword">public</span> Base0 &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="built_in">Base1</span>(<span class="type">int</span> var) : <span class="built_in">Base0</span>(var) &#123; &#125;</span><br><span class="line">    <span class="type">int</span> var1;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base2</span>: <span class="keyword">virtual</span> <span class="keyword">public</span> Base0 &#123; </span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base2</span>(<span class="type">int</span> var) : <span class="built_in">Base0</span>(var) &#123; &#125;</span><br><span class="line">    <span class="type">int</span> var2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2 &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Derived</span>(<span class="type">int</span> var) : <span class="built_in">Base0</span>(var), <span class="built_in">Base1</span>(var), <span class="built_in">Base2</span>(var) </span><br><span class="line">   &#123; &#125;</span><br><span class="line">    <span class="type">int</span> var;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">   </span>&#123; cout &lt;&lt; <span class="string">&quot;Member of Derived&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;    <span class="comment">//程序主函数</span></span><br><span class="line">    <span class="function">Derived <span class="title">d</span><span class="params">(<span class="number">1</span>)</span></span>;</span><br><span class="line">    d.var0 = <span class="number">2</span>; <span class="comment">//直接访问虚基类的数据成员</span></span><br><span class="line">    d.<span class="built_in">fun0</span>();   <span class="comment">//直接访问虚基类的函数成员</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="第八章-多态性"><a href="#第八章-多态性" class="headerlink" title="第八章 多态性"></a>第八章 多态性</h2><h3 id="8-1-运算符重载"><a href="#8-1-运算符重载" class="headerlink" title="8.1 运算符重载"></a>8.1 运算符重载</h3><h4 id="8-1-1-运算符重载的规则"><a href="#8-1-1-运算符重载的规则" class="headerlink" title="8.1.1 运算符重载的规则"></a>8.1.1 运算符重载的规则</h4><ul>
+<li>C++ 几乎可以重载全部的运算符，而且只能够重载C++中已经有的。</li>
+<li>不能重载的运算符：“.”、“.*”、“::”、“?:”</li>
+<li>重载之后运算符的优先级和结合性都不会改变。</li>
+<li>运算符重载是针对新类型数据的实际需要，对原有运算符进行适当的改造。</li>
+</ul>
+<h4 id="8-1-2-双目运算符重载为成员函数"><a href="#8-1-2-双目运算符重载为成员函数" class="headerlink" title="8.1.2 双目运算符重载为成员函数"></a>8.1.2 双目运算符重载为成员函数</h4><p>重载为类成员的运算符函数定义形式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">函数类型  operator 运算符（形参）</span><br><span class="line">&#123;</span><br><span class="line">       ......</span><br><span class="line">&#125;</span><br><span class="line">参数个数=原操作数个数-1   （后置++、--除外）</span><br></pre></td></tr></table></figure>
+
+<p><strong>双目运算符重载规则</strong></p>
+<ul>
+<li>如果要重载 B 为类成员函数，使之能够实现表达式 oprd1 B oprd2，其中 oprd1 为A 类对象，则 B 应被重载为 A 类的成员函数，形参类型应该是 oprd2 所属的类型。</li>
+<li>经重载后，表达式 oprd1 B oprd2 相当于 oprd1.operator B(oprd2)</li>
+</ul>
+<p>例 : 复数类加减法运算重载为成员函数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">要求:将+、-运算重载为复数类的成员函数。</span><br><span class="line">规则:实部和虚部分别相加减。</span><br><span class="line">操作数:两个操作数都是复数类的对象。</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Complex</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Complex</span>(<span class="type">double</span> r = <span class="number">0.0</span>, <span class="type">double</span> i = <span class="number">0.0</span>) : <span class="built_in">real</span>(r), <span class="built_in">imag</span>(i) &#123; &#125;</span><br><span class="line">    <span class="comment">//运算符+重载成员函数</span></span><br><span class="line">  Complex <span class="keyword">operator</span> + (<span class="type">const</span> Complex &amp;c2) <span class="type">const</span>;</span><br><span class="line">    <span class="comment">//运算符-重载成员函数</span></span><br><span class="line">  Complex <span class="keyword">operator</span> - (<span class="type">const</span> Complex &amp;c2) <span class="type">const</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">display</span><span class="params">()</span> <span class="type">const</span></span>;   <span class="comment">//输出复数</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">double</span> real;    <span class="comment">//复数实部</span></span><br><span class="line">    <span class="type">double</span> imag;    <span class="comment">//复数虚部</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Complex Complex::<span class="keyword">operator</span>+(<span class="type">const</span> Complex &amp;c2) <span class="type">const</span>&#123;</span><br><span class="line">  <span class="comment">//创建一个临时无名对象作为返回值 </span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Complex</span>(real+c2.real, imag+c2.imag); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Complex Complex::<span class="keyword">operator</span>-(<span class="type">const</span> Complex &amp;c2) <span class="type">const</span>&#123;</span><br><span class="line"> <span class="comment">//创建一个临时无名对象作为返回值</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Complex</span>(real-c2.real, imag-c2.imag); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Complex::display</span><span class="params">()</span> <span class="type">const</span> </span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;(&quot;</span>&lt;&lt;real&lt;&lt;<span class="string">&quot;, &quot;</span>&lt;&lt;imag&lt;&lt;<span class="string">&quot;)&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Complex <span class="title">c1</span><span class="params">(<span class="number">5</span>, <span class="number">4</span>)</span>, <span class="title">c2</span><span class="params">(<span class="number">2</span>, <span class="number">10</span>)</span>, c3</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c1 = &quot;</span>; c1.<span class="built_in">display</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c2 = &quot;</span>; c2.<span class="built_in">display</span>();</span><br><span class="line">    c3 = c1 - c2;   <span class="comment">//使用重载运算符完成复数减法</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c3 = c1 - c2 = &quot;</span>; c3.<span class="built_in">display</span>();</span><br><span class="line">    c3 = c1 + c2;   <span class="comment">//使用重载运算符完成复数加法</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c3 = c1 + c2 = &quot;</span>; c3.<span class="built_in">display</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-1-3-单目运算符重载为成员函数"><a href="#8-1-3-单目运算符重载为成员函数" class="headerlink" title="8.1.3 单目运算符重载为成员函数"></a>8.1.3 单目运算符重载为成员函数</h4><p><strong>前置单目运算符重载规则</strong></p>
+<ul>
+<li>如果要重载 U 为类成员函数，使之能够实现表达式 U oprd，其中 oprd 为A类对象，则 U 应被重载为 A 类的成员函数，无形参。</li>
+<li>经重载后，表达式 U oprd 相当于 oprd.operator U()</li>
+</ul>
+<p><strong>后置单目运算符 ++和–重载规则</strong></p>
+<ul>
+<li>如果要重载 ++或–为类成员函数，使之能够实现表达式 oprd++ 或 oprd– ，其中 oprd 为A类对象，则 ++或– 应被重载为 A 类的成员函数，且具有一个 int 类型形参。</li>
+<li>经重载后，表达式 oprd++ 相当于 oprd.operator ++(0)</li>
+</ul>
+<p><strong>例：重载前置++和后置++为时钟类成员函数</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">前置单目运算符，重载函数没有形参</span><br><span class="line">后置++运算符，重载函数需要有一个<span class="type">int</span>形参</span><br><span class="line">操作数是时钟类的对象。</span><br><span class="line">实现时间增加<span class="number">1</span>秒钟。</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Clock</span> &#123;<span class="comment">//时钟类定义</span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="built_in">Clock</span>(<span class="type">int</span> hour = <span class="number">0</span>, <span class="type">int</span> minute = <span class="number">0</span>, <span class="type">int</span> second = <span class="number">0</span>);</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">showTime</span><span class="params">()</span> <span class="type">const</span></span>;</span><br><span class="line">  <span class="comment">//前置单目运算符重载</span></span><br><span class="line">    Clock&amp; <span class="keyword">operator</span> ++ ();</span><br><span class="line">  <span class="comment">//后置单目运算符重载</span></span><br><span class="line">    Clock <span class="keyword">operator</span> ++ (<span class="type">int</span>);    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> hour, minute, second;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Clock::<span class="built_in">Clock</span>(<span class="type">int</span> hour, <span class="type">int</span> minute, <span class="type">int</span> second) &#123;    </span><br><span class="line">    <span class="keyword">if</span> (<span class="number">0</span> &lt;= hour &amp;&amp; hour &lt; <span class="number">24</span> &amp;&amp; <span class="number">0</span> &lt;= minute &amp;&amp; minute &lt; <span class="number">60</span></span><br><span class="line">        &amp;&amp; <span class="number">0</span> &lt;= second &amp;&amp; second &lt; <span class="number">60</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;hour = hour;</span><br><span class="line">        <span class="keyword">this</span>-&gt;minute = minute;</span><br><span class="line">        <span class="keyword">this</span>-&gt;second = second;</span><br><span class="line">    &#125; <span class="keyword">else</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Time error!&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clock::showTime</span><span class="params">()</span> <span class="type">const</span> </span>&#123;  <span class="comment">//显示时间</span></span><br><span class="line">    cout &lt;&lt; hour &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; minute &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; second &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//前置++：先+1再使用</span></span><br><span class="line"><span class="comment">//运算结果返回的是左值，所以源数据是可以被修改的，可用在之后的后置++定义</span></span><br><span class="line">Clock &amp; Clock::<span class="keyword">operator</span> ++ () &#123; </span><br><span class="line">    second++;</span><br><span class="line">    <span class="keyword">if</span> (second &gt;= <span class="number">60</span>) &#123;</span><br><span class="line">        second -= <span class="number">60</span>;  minute++;</span><br><span class="line">        <span class="keyword">if</span> (minute &gt;= <span class="number">60</span>) &#123;</span><br><span class="line">          minute -= <span class="number">60</span>; hour = (hour + <span class="number">1</span>) % <span class="number">24</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//后置++：先使用后++</span></span><br><span class="line"><span class="comment">//运算结果返回的只是一个临时右值，是源数据的复制品</span></span><br><span class="line">Clock Clock::<span class="keyword">operator</span> ++ (<span class="type">int</span>) &#123;</span><br><span class="line">    <span class="comment">//注意形参表中的整型参数</span></span><br><span class="line">    Clock old = *<span class="keyword">this</span>;</span><br><span class="line">    ++(*<span class="keyword">this</span>);  <span class="comment">//调用前置“++”运算符，更能保证一致性</span></span><br><span class="line">    <span class="keyword">return</span> old;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="function">Clock <span class="title">myClock</span><span class="params">(<span class="number">23</span>, <span class="number">59</span>, <span class="number">59</span>)</span></span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;First time output: &quot;</span>;</span><br><span class="line">    myClock.<span class="built_in">showTime</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Show myClock++:    &quot;</span>;</span><br><span class="line">    (myClock++).<span class="built_in">showTime</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Show ++myClock:    &quot;</span>;</span><br><span class="line">    (++myClock).<span class="built_in">showTime</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">运行结果：</span><br><span class="line">  First time output: <span class="number">23</span>:<span class="number">59</span>:<span class="number">59</span></span><br><span class="line">  Show myClock++:    <span class="number">23</span>:<span class="number">59</span>:<span class="number">59</span></span><br><span class="line">  Show ++myClock:    <span class="number">0</span>:<span class="number">0</span>:<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="8-1-4-运算符重载为非成员函数"><a href="#8-1-4-运算符重载为非成员函数" class="headerlink" title="8.1.4 运算符重载为非成员函数"></a>8.1.4 运算符重载为非成员函数</h4><ul>
+<li>有些运算符不能重载为成员函数，例如二元运算符的左操作数不是对象，或者是不能由我们重载运算符的对象</li>
+</ul>
+<p>运算符重载为非成员函数的规则</p>
+<ul>
+<li><p>函数的形参代表依自左至右次序排列的各操作数。</p>
+</li>
+<li><p>重载为非成员函数时</p>
+</li>
+<li><p>参数个数&#x3D;原操作数个数（后置++、–除外）</p>
+</li>
+<li><p>至少应该有一个自定义类型的参数。</p>
+</li>
+<li><p>后置单目运算符 ++和–的重载函数，形参列表中要增加一个int，但不必写形参名。</p>
+</li>
+<li><p>如果在运算符的重载函数中需要操作某类对象的私有成员，可以将此函数声明为该类的友元。</p>
+</li>
+<li><p>双目运算符 B重载后，表达式oprd1 B oprd2 等同于operator B(oprd1,oprd2 )</p>
+</li>
+<li><p>前置单目运算符 B重载后，表达式 B oprd 等同于operator B(oprd )</p>
+</li>
+<li><p>后置单目运算符 ++和–重载后，表达式 oprd B 等同于operator B(oprd,0 )</p>
+</li>
+</ul>
+<p><strong>例：重载Complex的加减法和“&lt;&lt;”运算符为非成员函数</strong></p>
+<ul>
+<li>将+、-（双目）重载为非成员函数，并将其声明为复数类的友元，两个操作数都是复数类的常引用。 • 将&lt;&lt;（双目）重载为非成员函数，并将其声明为复数类的友元，它的左操作数是std::ostream引用，右操作数为复数类的常引用，返回std::ostream引用，用以支持下面形式的输出：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; a &lt;&lt; b;</span><br></pre></td></tr></table></figure>
+
+<p>该输出调用的是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">operator &lt;&lt; (operator &lt;&lt; (cout, a), b);</span><br></pre></td></tr></table></figure>
+
+<p>源代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//8_3.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Complex</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Complex</span>(<span class="type">double</span> r = <span class="number">0.0</span>, <span class="type">double</span> i = <span class="number">0.0</span>) : <span class="built_in">real</span>(r), <span class="built_in">imag</span>(i) &#123; &#125;  </span><br><span class="line">    <span class="keyword">friend</span> Complex <span class="keyword">operator</span>+(<span class="type">const</span> Complex &amp;c1, <span class="type">const</span> Complex &amp;c2);</span><br><span class="line">    <span class="keyword">friend</span> Complex <span class="keyword">operator</span>-(<span class="type">const</span> Complex &amp;c1, <span class="type">const</span> Complex &amp;c2);</span><br><span class="line">    <span class="keyword">friend</span> ostream &amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;out, <span class="type">const</span> Complex &amp;c);</span><br><span class="line"><span class="keyword">private</span>:    </span><br><span class="line">    <span class="type">double</span> real;  <span class="comment">//复数实部</span></span><br><span class="line">    <span class="type">double</span> imag;  <span class="comment">//复数虚部</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Complex <span class="keyword">operator</span>+(<span class="type">const</span> Complex &amp;c1, <span class="type">const</span> Complex &amp;c2)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Complex</span>(c1.real+c2.real, c1.imag+c2.imag); </span><br><span class="line">&#125;</span><br><span class="line">Complex <span class="keyword">operator</span>-(<span class="type">const</span> Complex &amp;c1, <span class="type">const</span> Complex &amp;c2)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Complex</span>(c1.real-c2.real, c1.imag-c2.imag); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ostream &amp; <span class="keyword">operator</span>&lt;&lt;(ostream &amp;out, <span class="type">const</span> Complex &amp;c)&#123;</span><br><span class="line">    out &lt;&lt; <span class="string">&quot;(&quot;</span> &lt;&lt; c.real &lt;&lt; <span class="string">&quot;, &quot;</span> &lt;&lt; c.imag &lt;&lt; <span class="string">&quot;)&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">    <span class="function">Complex <span class="title">c1</span><span class="params">(<span class="number">5</span>, <span class="number">4</span>)</span>, <span class="title">c2</span><span class="params">(<span class="number">2</span>, <span class="number">10</span>)</span>, c3</span>;    </span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c1 = &quot;</span> &lt;&lt; c1 &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c2 = &quot;</span> &lt;&lt; c2 &lt;&lt; endl;</span><br><span class="line">    c3 = c1 - c2;   <span class="comment">//使用重载运算符完成复数减法</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c3 = c1 - c2 = &quot;</span> &lt;&lt; c3 &lt;&lt; endl;</span><br><span class="line">    c3 = c1 + c2;   <span class="comment">//使用重载运算符完成复数加法</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;c3 = c1 + c2 = &quot;</span> &lt;&lt; c3 &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-2-虚函数"><a href="#8-2-虚函数" class="headerlink" title="8.2 虚函数"></a>8.2 虚函数</h3><h4 id="8-2-1-虚函数"><a href="#8-2-1-虚函数" class="headerlink" title="8.2.1 虚函数"></a>8.2.1 虚函数</h4><ul>
+<li>用virtual关键字说明的函数</li>
+<li>虚函数是实现运行时多态性基础</li>
+<li>C++中的虚函数是动态绑定的函数</li>
+<li>虚函数必须是非静态的成员函数，虚函数经过派生之后，就可以实现<strong>运行过程中的多态</strong>。</li>
+<li>一般成员函数可以是虚函数</li>
+<li>构造函数不能是虚函数</li>
+<li>析构函数可以是虚函数</li>
+</ul>
+<p><strong>一般虚函数成员</strong></p>
+<ul>
+<li>虚函数的声明：virtual 函数类型 函数名（形参表）;</li>
+<li>虚函数声明只能出现在类定义中的函数原型声明中，而不能在成员函数实现的时候。</li>
+<li>在派生类中可以对基类中的成员函数进行覆盖。</li>
+<li>虚函数一般不声明为内联函数，因为对虚函数的调用需要动态绑定，而对内联函数的处理是静态的。</li>
+</ul>
+<p><strong>virtual 关键字</strong></p>
+<ul>
+<li><p>派生类可以不显式地用virtual声明虚函数，这时系统就会用以下规则来判断派生类的一个函数成员是不是虚函数：</p>
+</li>
+<li><ul>
+<li>该函数是否与基类的虚函数有相同的名称、参数个数及对应参数类型；</li>
+<li>该函数是否与基类的虚函数有相同的返回值或者满足类型兼容规则的指针、引用型的返回值；</li>
+</ul>
+</li>
+<li><p>如果从名称、参数及返回值三个方面检查之后，派生类的函数满足上述条件，就会自动确定为虚函数。这时，派生类的虚函数便覆盖了基类的虚函数。</p>
+</li>
+<li><p>派生类中的虚函数还会隐藏基类中同名函数的所有其它重载形式。</p>
+</li>
+<li><p>一般习惯于在派生类的函数中也使用virtual关键字，以增加程序的可读性。</p>
+</li>
+</ul>
+<h4 id="8-2-2-虚析构函数"><a href="#8-2-2-虚析构函数" class="headerlink" title="8.2.2 虚析构函数"></a>8.2.2 虚析构函数</h4><p>为什么需要虚析构函数？</p>
+<ul>
+<li>可能通过基类指针删除派生类对象；</li>
+<li>如果你打算允许其他人通过基类指针调用对象的析构函数（通过delete这样做是正常的），就需要让基类的析构函数成为虚函数，<strong>否则执行delete的结果是不确定的。</strong></li>
+</ul>
+<h4 id="8-2-3-虚表与动态绑定"><a href="#8-2-3-虚表与动态绑定" class="headerlink" title="8.2.3 虚表与动态绑定"></a>8.2.3 虚表与动态绑定</h4><ul>
+<li><p>虚表</p>
+</li>
+<li><ul>
+<li>每个多态类有一个虚表（virtual table）</li>
+<li>虚表中有当前类的各个虚函数的入口地址</li>
+<li>每个对象有一个指向当前类的虚表的指针（虚指针vptr）</li>
+</ul>
+</li>
+<li><p>动态绑定的实现</p>
+</li>
+<li><ul>
+<li>构造函数中为对象的虚指针赋值</li>
+<li>通过多态类型的指针或引用调用成员函数时，通过虚指针找到虚表，进而找到所调用的虚函数的入口地址</li>
+<li>通过该入口地址调用虚函数</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-103629.png" alt="image-20201009183628918"></p>
+<h3 id="8-3-抽象类"><a href="#8-3-抽象类" class="headerlink" title="8.3 抽象类"></a>8.3 抽象类</h3><p>纯虚函数</p>
+<ul>
+<li><p>纯虚函数是一个在基类中声明的虚函数，它在该基类中没有定义具体的操作内容，要求各派生类根据实际需要定义自己的版本，纯虚函数的声明格式为：</p>
+<p>virtual 函数类型 函数名(参数表) &#x3D; 0;</p>
+</li>
+<li><p>带有纯虚函数的类称为抽象类</p>
+</li>
+</ul>
+<p>抽象类</p>
+<ul>
+<li><p>带有纯虚函数的类称为抽象类:</p>
+<p>class 类名 { virtual 类型 函数名(参数表)&#x3D;0; &#x2F;&#x2F;其他成员…… }</p>
+</li>
+</ul>
+<p>抽象类作用</p>
+<ul>
+<li>抽象类为抽象和设计的目的而声明</li>
+<li>将有关的数据和行为组织在一个继承层次结构中，保证派生类具有要求的行为。</li>
+<li>对于暂时无法实现的函数，可以声明为纯虚函数，留给派生类去实现。</li>
+</ul>
+<p>注意</p>
+<ul>
+<li>抽象类只能作为基类来使用。</li>
+<li>不能定义抽象类的对象。</li>
+</ul>
+<h3 id="8-4-override与final"><a href="#8-4-override与final" class="headerlink" title="8.4 override与final"></a>8.4 override与final</h3><p>override</p>
+<ul>
+<li>多态行为的基础：基类声明虚函数，继承类声明一个函数覆盖该虚函数</li>
+<li>覆盖要求： 函数签名（signatture）完全一致</li>
+<li>函数签名包括：函数名 参数列表 const</li>
+</ul>
+<p><strong>显式函数覆盖</strong></p>
+<ul>
+<li>C++11 引入显式函数覆盖，在编译期而非运行期捕获此类错误。 - 在虚函数显式重载中运用，编译器会检查基类是否存在一虚拟函数，与派生类中带有声明override的虚拟函数，有相同的函数签名（signature）；若不存在，则会回报错误。</li>
+</ul>
+<p><strong>final</strong></p>
+<ul>
+<li><p>C++11提供的final，用来避免类被继承，或是基类的函数被改写 例： </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Base1</span> <span class="keyword">final</span> &#123; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Derived1</span> : Base1 &#123; &#125;; <span class="comment">// 编译错误：Base1为final，不允许被继承</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Base2</span> &#123; <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">f</span><span class="params">()</span> <span class="keyword">final</span></span>; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Derived2</span> : Base2 &#123; <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span></span>; <span class="comment">// 编译错误：Base2::f 为final，不允许被覆盖 &#125;;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/04/05/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E7%94%9F%E6%B4%BB/" rel="prev" title="My Spiritual Life">
+                  <i class="fa fa-chevron-left"></i> My Spiritual Life
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/02/IERG4160/" rel="next" title="IERG4160 Image and Video Processing">
+                  IERG4160 Image and Video Processing <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bing</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

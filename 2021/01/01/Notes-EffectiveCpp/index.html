@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"bingcs.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Excellent book written by Scott Meyers and translated by 侯捷.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习笔记-《Effective C++》">
+<meta property="og:url" content="http://bingcs.com/2021/01/01/Notes-EffectiveCpp/index.html">
+<meta property="og:site_name" content="Bing&#39;s Blog">
+<meta property="og:description" content="Excellent book written by Scott Meyers and translated by 侯捷.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-01T04:07:14.000Z">
+<meta property="article:modified_time" content="2023-01-01T14:05:18.291Z">
+<meta property="article:author" content="Bing">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://bingcs.com/2021/01/01/Notes-EffectiveCpp/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://bingcs.com/2021/01/01/Notes-EffectiveCpp/","path":"2021/01/01/Notes-EffectiveCpp/","title":"学习笔记-《Effective C++》"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>学习笔记-《Effective C++》 | Bing's Blog</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Bing's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B9%A0%E6%83%AFC"><span class="nav-number">1.</span> <span class="nav-text">1. 习惯C++</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rule-1-View-C-as-a-federation-of-labguages"><span class="nav-number">1.1.</span> <span class="nav-text">Rule 1: View C++ as a federation of labguages.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rule-2-Prefer-consts-enums-and-inlines-to-defines"><span class="nav-number">1.2.</span> <span class="nav-text">Rule 2: Prefer consts, enums, and inlines to #defines.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rule-3-Use-const-whenever-possible"><span class="nav-number">1.3.</span> <span class="nav-text">Rule 3: Use const whenever possible.</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Bing</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://bingcs.com/2021/01/01/Notes-EffectiveCpp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Bing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bing's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="学习笔记-《Effective C++》 | Bing's Blog">
+      <meta itemprop="description" content="Excellent book written by Scott Meyers and translated by 侯捷.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          学习笔记-《Effective C++》
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-01-01 12:07:14" itemprop="dateCreated datePublished" datetime="2021-01-01T12:07:14+08:00">2021-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2023-01-01 22:05:18" itemprop="dateModified" datetime="2023-01-01T22:05:18+08:00">2023-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Excellent book written by Scott Meyers and translated by 侯捷.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>[toc]</p>
+<span id="more"></span>
+
+
+
+<h2 id="1-习惯C"><a href="#1-习惯C" class="headerlink" title="1. 习惯C++"></a>1. 习惯C++</h2><h3 id="Rule-1-View-C-as-a-federation-of-labguages"><a href="#Rule-1-View-C-as-a-federation-of-labguages" class="headerlink" title="Rule 1: View C++ as a federation of labguages."></a>Rule 1: View C++ as a federation of labguages.</h3><p>将C++视为一个由相关语言组成的联邦而非单一语言，在其某个次语言中，各种守则和通例都倾向简单、直观易懂。然而当你从一个次语言转向另一个次语言的时候，守则可能会改变。</p>
+<p>C++主要的次语言：</p>
+<ul>
+<li>C</li>
+<li>Object-Oriented C++</li>
+<li>Template C++</li>
+<li>STL</li>
+</ul>
+<p>举个例子，对于内置（C-like）类型而言，pass-by-value通常比pass-by-reference高效，但是当你从C part of C++ 转向 Object-Oriented C++ 的时候，由于用户自定义构造函数和析构函数的存在，pass-by-reference-to-const 往往更好。运用Template C++时尤其如此，因为彼时你甚至不知道所处理的对象的类型。然而一旦跨入STL，由于迭代器和函数都是在C指针之上塑造出来的，所以对STL的迭代器和函数对象而言，旧式的C的pass-by-value守则再次适用。</p>
+<h3 id="Rule-2-Prefer-consts-enums-and-inlines-to-defines"><a href="#Rule-2-Prefer-consts-enums-and-inlines-to-defines" class="headerlink" title="Rule 2: Prefer consts, enums, and inlines to #defines."></a>Rule 2: Prefer consts, enums, and inlines to #defines.</h3><p>换言之：以编译器替换预处理器。</p>
+<p>当你使用<code>#define ASPECT_RATIO 1.653</code>的时候，记号名称也许从未被编译器看见，所以没有进入到记号表（symbol table）中。于是当你运用这个常量但是获得一个编译错误信息的时候，错误信息可能会提到1.653而不是ASPECT_RATIO。当这个ASPECT_RATIO被定义在一个非你所写的头文件内，你肯定会对1.653和其来自何处毫无概念，于是将为了追踪这个错误浪费时间。</p>
+<p>解决的方案是用一个常量替换上述的宏：<code>const double AspectRatio  =1.653;</code>。此外对于浮点常量而言，使用常量可能比使用#define带来更少的码量，因为预处理器盲目的将宏名称改成1.653可能导致目标码（object code）出现多份1.653，而改用常量不会出现相同情况。</p>
+<ul>
+<li>对于单纯常量，最好以const 对象或enums替换#defines</li>
+<li>对于形似函数的宏（marcos），最好改用inline函数替换#defines</li>
+</ul>
+<h3 id="Rule-3-Use-const-whenever-possible"><a href="#Rule-3-Use-const-whenever-possible" class="headerlink" title="Rule 3: Use const whenever possible."></a>Rule 3: Use const whenever possible.</h3><p>如果const出现在星号左边，表示被指物是常量；如果出现在星号右边，表示指针自身是常量；如果出现在两边，表示被指物和指针两者都是常量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> greeting = <span class="string">&quot;Hello&quot;</span>;		</span><br><span class="line"><span class="type">char</span>* p = greeting;				<span class="comment">//non-const pointer, non-const data</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* p = greeting;	<span class="comment">//non-const poiter, const data </span></span><br><span class="line"><span class="type">char</span>* <span class="type">const</span> p = greeting;	<span class="comment">//const pointer, non-const data</span></span><br><span class="line"><span class="type">const</span> <span class="type">char</span>* <span class="type">const</span> p = greeting;	<span class="comment">//const pointer, const data</span></span><br></pre></td></tr></table></figure>
+
+<p>如果被指物是常量，const写在类型之前或者类型之后星号之前的意义是相同的。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//f1获得一个指针，指向一个常量的/不变的Widget对象；f2也是</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f1</span><span class="params">(<span class="type">const</span> Widget* pw)</span></span>;	</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">f2</span><span class="params">(Widget <span class="type">const</span> * pw)</span></span>;	</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/26/usefulLink/" rel="prev" title="Useful Links">
+                  <i class="fa fa-chevron-left"></i> Useful Links
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/01/26/socialmedia-a1/" rel="next" title="Social Media Analysis (1)">
+                  Social Media Analysis (1) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bing</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
