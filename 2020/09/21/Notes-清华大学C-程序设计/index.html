@@ -1,24 +1,21 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"bingcs.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bing">
+  <meta name="keywords" content="">
+  
     <meta name="description" content="关于该门网课的知识框架">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习笔记-《清华大学C++程序设计》">
@@ -35,195 +32,255 @@
 <meta property="article:modified_time" content="2023-01-01T14:05:18.295Z">
 <meta property="article:author" content="Bing">
 <meta property="article:tag" content="C++">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-082609.png">
+  
+  
+  
+  <title>学习笔记-《清华大学C++程序设计》 - Bing&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<link rel="canonical" href="http://bingcs.com/2020/09/21/Notes-%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://bingcs.com/2020/09/21/Notes-%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/","path":"2020/09/21/Notes-清华大学C-程序设计/","title":"学习笔记-《清华大学C++程序设计》"}</script>
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>学习笔记-《清华大学C++程序设计》 | Bing's Blog</title>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"bingcs.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
-  <script async defer data-website-id="" src=""></script>
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-  <script defer data-domain="" src=""></script>
 
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
+<body>
+  
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <header>
+    
 
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">Bing's Blog</p>
-      <i class="logo-line"></i>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
     </a>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
-  </div>
-</div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-
-
-
-
-
-
-</header>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
       </ul>
+    </div>
+  </div>
+</nav>
 
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">第四章 类与对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%95%B0%E6%8D%AE%E7%9A%84%E5%85%B1%E4%BA%AB%E4%B8%8E%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.</span> <span class="nav-text">第五章 数据的共享与保护</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%87%E8%AF%86%E7%AC%A6%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">2.1.</span> <span class="nav-text">1. 标识符的作用域与可见性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%88%86%E7%B1%BB"><span class="nav-number">2.1.1.</span> <span class="nav-text">1.1 作用域分类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%8F%AF%E8%A7%81%E6%80%A7"><span class="nav-number">2.1.2.</span> <span class="nav-text">1.2 可见性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%94%9F%E5%AD%98%E6%9C%9F"><span class="nav-number">2.2.</span> <span class="nav-text">2. 对象的生存期</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E9%9D%99%E6%80%81%E7%94%9F%E5%AD%98%E6%9C%9F"><span class="nav-number">2.2.1.</span> <span class="nav-text">2.1 静态生存期</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E5%8A%A8%E6%80%81%E7%94%9F%E5%AD%98%E6%9C%9F"><span class="nav-number">2.2.2.</span> <span class="nav-text">2.2 动态生存期</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%B1%BB%E7%9A%84%E9%9D%99%E6%80%81%E6%88%90%E5%91%98"><span class="nav-number">2.3.</span> <span class="nav-text">3. 类的静态成员</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98"><span class="nav-number">2.3.1.</span> <span class="nav-text">3.1 静态数据成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E9%9D%99%E6%80%81%E5%87%BD%E6%95%B0%E6%88%90%E5%91%98"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.2 静态函数成员</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E7%B1%BB%E7%9A%84%E5%8F%8B%E5%85%83"><span class="nav-number">2.4.</span> <span class="nav-text">4. 类的友元</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.1 友元函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E5%8F%8B%E5%85%83%E7%B1%BB"><span class="nav-number">2.4.2.</span> <span class="nav-text">4.2 友元类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E7%9A%84%E4%BF%9D%E6%8A%A4"><span class="nav-number">2.5.</span> <span class="nav-text">5. 共享数据的保护</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E5%B8%B8%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.5.1.</span> <span class="nav-text">5.1 常类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-1-%E5%B8%B8%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.5.1.1.</span> <span class="nav-text">5.1.1 常对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-2-%E5%B8%B8%E6%88%90%E5%91%98"><span class="nav-number">2.5.1.2.</span> <span class="nav-text">5.1.2 常成员</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-1-3-%E5%B8%B8%E5%BC%95%E7%94%A8"><span class="nav-number">2.5.1.3.</span> <span class="nav-text">5.1.3 常引用</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%95%B0%E7%BB%84%E3%80%81%E6%8C%87%E9%92%88%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.</span> <span class="nav-text">第六章 数组、指针和字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">6.1 数组的定义和初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E6%95%B0%E7%BB%84%E4%BD%9C%E4%B8%BA%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%82%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">6.2 数组作为函数的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E5%AF%B9%E8%B1%A1%E6%95%B0%E7%BB%84"><span class="nav-number">3.3.</span> <span class="nav-text">6.3 对象数组</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-1-%E6%95%B0%E7%BB%84%E5%85%83%E7%B4%A0%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84"><span class="nav-number">3.3.1.</span> <span class="nav-text">6.3.1 数组元素的构造和析构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-%E5%9F%BA%E4%BA%8E%E8%8C%83%E5%9B%B4%E7%9A%84for%E5%BE%AA%E7%8E%AF"><span class="nav-number">3.4.</span> <span class="nav-text">6.4 基于范围的for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-%E6%8C%87%E9%92%88%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E8%BF%90%E7%AE%97"><span class="nav-number">3.5.</span> <span class="nav-text">6.5 指针的定义和运算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-1-%E6%8C%87%E9%92%88%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-number">3.5.1.</span> <span class="nav-text">6.5.1 指针的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-2-%E6%8C%87%E9%92%88%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E5%92%8C%E8%B5%8B%E5%80%BC"><span class="nav-number">3.5.2.</span> <span class="nav-text">6.5.2 指针的初始化和赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8C%87%E5%90%91%E5%B8%B8%E9%87%8F%E7%9A%84%E6%8C%87%E9%92%88-amp-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%B8%B8%E9%87%8F"><span class="nav-number">3.5.2.1.</span> <span class="nav-text">指向常量的指针 &amp; 指针类型的常量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-5-3-%E6%8C%87%E9%92%88%E7%9A%84%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E3%80%81%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="nav-number">3.5.3.</span> <span class="nav-text">6.5.3 指针的算术运算、关系运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97"><span class="nav-number">3.5.3.1.</span> <span class="nav-text">算术运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E8%BF%90%E7%AE%97"><span class="nav-number">3.5.3.2.</span> <span class="nav-text">关系运算</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-%E6%8C%87%E9%92%88%E4%B8%8E%E6%95%B0%E7%BB%84"><span class="nav-number">3.6.</span> <span class="nav-text">6.6 指针与数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-%E6%8C%87%E9%92%88%E4%B8%8E%E5%87%BD%E6%95%B0"><span class="nav-number">3.7.</span> <span class="nav-text">6.7 指针与函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-1-%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-number">3.7.1.</span> <span class="nav-text">6.7.1 指针类型的函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-7-2-%E6%8C%87%E5%90%91%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-number">3.7.2.</span> <span class="nav-text">6.7.2 指向函数的指针</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-%E5%AF%B9%E8%B1%A1%E6%8C%87%E9%92%88"><span class="nav-number">3.8.</span> <span class="nav-text">6.8 对象指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-9-%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D"><span class="nav-number">3.9.</span> <span class="nav-text">6.9 动态内存分配</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-9-1-%E5%8A%A8%E6%80%81%E5%88%86%E9%85%8D%E4%B8%8E%E9%87%8A%E6%94%BE%E5%86%85%E5%AD%98"><span class="nav-number">3.9.1.</span> <span class="nav-text">6.9.1 动态分配与释放内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-10-%E6%99%BA%E8%83%BD%E6%8C%87%E9%92%88"><span class="nav-number">3.10.</span> <span class="nav-text">6.10 智能指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-11-vector%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.11.</span> <span class="nav-text">6.11 vector对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-12-%E5%AF%B9%E8%B1%A1%E5%A4%8D%E5%88%B6%E4%B8%8E%E7%A7%BB%E5%8A%A8"><span class="nav-number">3.12.</span> <span class="nav-text">6.12 对象复制与移动</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-12-1-%E6%B7%B1%E5%B1%82%E5%A4%8D%E5%88%B6%E5%92%8C%E6%B5%85%E5%B1%82%E5%A4%8D%E5%88%B6"><span class="nav-number">3.12.1.</span> <span class="nav-text">6.12.1 深层复制和浅层复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-12-2-%E7%A7%BB%E5%8A%A8%E6%9E%84%E9%80%A0"><span class="nav-number">3.12.2.</span> <span class="nav-text">6.12.2 移动构造</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-13-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.13.</span> <span class="nav-text">6.13 字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-13-1-C%E9%A3%8E%E6%A0%BC%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">3.13.1.</span> <span class="nav-text">6.13.1 C风格字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-13-2-string%E7%B1%BB"><span class="nav-number">3.13.2.</span> <span class="nav-text">6.13.2 string类</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F"><span class="nav-number">4.</span> <span class="nav-text">第七章 继承与派生</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-%E7%BB%A7%E6%89%BF%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E8%AF%AD%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">7.1 继承的基本概念和语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-1-%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F%E6%A6%82%E8%BF%B0"><span class="nav-number">4.1.1.</span> <span class="nav-text">7.1.1 继承与派生概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-2-%E7%BB%A7%E6%89%BF%E4%B8%8E%E6%B4%BE%E7%94%9F%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">4.1.2.</span> <span class="nav-text">7.1.2 继承与派生的目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-3-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E6%88%90"><span class="nav-number">4.1.3.</span> <span class="nav-text">7.1.3 派生类的构成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-3-%E5%8D%95%E7%BB%A7%E6%89%BF%E6%97%B6%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">4.1.4.</span> <span class="nav-text">7.1.3 单继承时派生类的定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-4-%E5%A4%9A%E7%BB%A7%E6%89%BF%E6%97%B6%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-number">4.1.5.</span> <span class="nav-text">7.1.4 多继承时派生类的定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F"><span class="nav-number">4.2.</span> <span class="nav-text">7.2 继承方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-1-%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F%E7%AE%80%E4%BB%8B"><span class="nav-number">4.2.1.</span> <span class="nav-text">7.2.1 继承方式简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-2-%E5%85%AC%E6%9C%89%E7%BB%A7%E6%89%BF-public"><span class="nav-number">4.2.2.</span> <span class="nav-text">7.2.2 公有继承 public</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-3-%E7%A7%81%E6%9C%89%E7%BB%A7%E6%89%BF-private"><span class="nav-number">4.2.3.</span> <span class="nav-text">7.2.3 私有继承 private</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-4-%E4%BF%9D%E6%8A%A4%E7%BB%A7%E6%89%BF-protected"><span class="nav-number">4.2.4.</span> <span class="nav-text">7.2.4 保护继承 protected</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-%E5%9F%BA%E7%B1%BB%E4%B8%8E%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">4.3.</span> <span class="nav-text">7.3 基类与派生类类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%92%8C%E6%9E%90%E6%9E%84"><span class="nav-number">4.4.</span> <span class="nav-text">7.4 派生类的构造和析构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-1-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.1.</span> <span class="nav-text">7.4.1 派生类的构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8D%95%E7%BB%A7%E6%89%BF"><span class="nav-number">4.4.1.1.</span> <span class="nav-text">单继承</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E7%BB%A7%E6%89%BF"><span class="nav-number">4.4.1.2.</span> <span class="nav-text">多继承</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-2-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%BE%E4%BE%8B"><span class="nav-number">4.4.2.</span> <span class="nav-text">7.4.2 派生类的构造函数举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-3-%E6%B4%BE%E7%94%9F%E7%B1%BB%E5%A4%8D%E5%88%B6%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.3.</span> <span class="nav-text">7.4.3 派生类复制构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-4-%E6%B4%BE%E7%94%9F%E7%B1%BB%E7%9A%84%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-number">4.4.4.</span> <span class="nav-text">7.4.4 派生类的析构函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%88%90%E5%91%98%E7%9A%84%E6%A0%87%E8%AF%86%E4%B8%8E%E8%AE%BF%E9%97%AE"><span class="nav-number">4.5.</span> <span class="nav-text">7.5 派生类成员的标识与访问</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-1-%E8%AE%BF%E9%97%AE%E4%BB%8E%E5%9F%BA%E7%B1%BB%E7%BB%A7%E6%89%BF%E7%9A%84%E6%88%90%E5%91%98"><span class="nav-number">4.5.1.</span> <span class="nav-text">7.5.1 访问从基类继承的成员</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-5-2-%E8%99%9A%E5%9F%BA%E7%B1%BB"><span class="nav-number">4.5.2.</span> <span class="nav-text">7.5.2 虚基类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%99%9A%E5%9F%BA%E7%B1%BB%E5%8F%8A%E5%85%B6%E6%B4%BE%E7%94%9F%E7%B1%BB%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-number">4.5.2.1.</span> <span class="nav-text">虚基类及其派生类构造函数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E5%A4%9A%E6%80%81%E6%80%A7"><span class="nav-number">5.</span> <span class="nav-text">第八章 多态性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="nav-number">5.1.</span> <span class="nav-text">8.1 运算符重载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-1-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E7%9A%84%E8%A7%84%E5%88%99"><span class="nav-number">5.1.1.</span> <span class="nav-text">8.1.1 运算符重载的规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-2-%E5%8F%8C%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%BA%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.2.</span> <span class="nav-text">8.1.2 双目运算符重载为成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-3-%E5%8D%95%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%BA%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.3.</span> <span class="nav-text">8.1.3 单目运算符重载为成员函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-1-4-%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD%E4%B8%BA%E9%9D%9E%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-number">5.1.4.</span> <span class="nav-text">8.1.4 运算符重载为非成员函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">8.2 虚函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-1-%E8%99%9A%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.1.</span> <span class="nav-text">8.2.1 虚函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-2-%E8%99%9A%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.2.</span> <span class="nav-text">8.2.2 虚析构函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-2-3-%E8%99%9A%E8%A1%A8%E4%B8%8E%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A"><span class="nav-number">5.2.3.</span> <span class="nav-text">8.2.3 虚表与动态绑定</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="nav-number">5.3.</span> <span class="nav-text">8.3 抽象类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-override%E4%B8%8Efinal"><span class="nav-number">5.4.</span> <span class="nav-text">8.4 override与final</span></a></li></ol></li></ol></div>
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="学习笔记-《清华大学C++程序设计》"></span>
+          
         </div>
-        <!--/noindex-->
 
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Bing</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">45</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-09-21 11:17" pubdate>
+          September 21, 2020 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          28k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          233 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
+
+      
+    </div>
+  </div>
 </div>
 
-        </div>
-      </div>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
     </div>
 
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://bingcs.com/2020/09/21/Notes-%E6%B8%85%E5%8D%8E%E5%A4%A7%E5%AD%A6C-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bing's Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="学习笔记-《清华大学C++程序设计》 | Bing's Blog">
-      <meta itemprop="description" content="关于该门网课的知识框架">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          学习笔记-《清华大学C++程序设计》
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2020-09-21 11:17:06" itemprop="dateCreated datePublished" datetime="2020-09-21T11:17:06+08:00">2020-09-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-01 22:05:18" itemprop="dateModified" datetime="2023-01-01T22:05:18+08:00">2023-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-            <div class="post-description">关于该门网课的知识框架</div>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h2 id="第四章-类与对象"><a href="#第四章-类与对象" class="headerlink" title="第四章 类与对象"></a>第四章 类与对象</h2><h2 id="第五章-数据的共享与保护"><a href="#第五章-数据的共享与保护" class="headerlink" title="第五章 数据的共享与保护"></a>第五章 数据的共享与保护</h2><ul>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">学习笔记-《清华大学C++程序设计》</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="第四章-类与对象"><a href="#第四章-类与对象" class="headerlink" title="第四章 类与对象"></a>第四章 类与对象</h2><h2 id="第五章-数据的共享与保护"><a href="#第五章-数据的共享与保护" class="headerlink" title="第五章 数据的共享与保护"></a>第五章 数据的共享与保护</h2><ul>
 <li>变量和对象定义在不同的位置, 其作用域、可见性、生存期都不同。</li>
 <li>友元：对一些类外的函数、其他的类给予授权，使之可以访问本类的私有成员。</li>
 <li>如何保障安全性？通过const关键字，限制对共享类型的修改</li>
@@ -483,7 +540,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-082609.png" alt="image-20201004162608854"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-082609.png" srcset="/img/loading.gif" lazyload alt="image-20201004162608854"></p>
 <ul>
 <li>使用深层复制构造函数：返回时构造临时对象，动态分配将临时对象返回到主调函数，然后删除临时对象。</li>
 <li>使用移动构造函数：将要返回的局部对象转移到主调函数，省去了构造和删除临时对象的过程。</li>
@@ -496,7 +553,7 @@
 <li>“program”出现在表达式中，表示这一char数组的首地址</li>
 <li>首地址可以赋给char常量指针：const char *STRING1 &#x3D; “program”;</li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-083950.png" alt="image-20201004163950472"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-04-083950.png" srcset="/img/loading.gif" lazyload alt="image-20201004163950472"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//例题：</span></span><br><span class="line"><span class="comment">//函数F定义如下：</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">F</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">char</span> str[<span class="number">7</span>] = &#123; <span class="string">&#x27;p&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;o&#x27;</span>, <span class="string">&#x27;g&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, <span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;m&#x27;</span>&#125;;</span><br><span class="line">	std::cout &lt;&lt; str &lt;&lt; std::endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用F()时，将会出现：</span></span><br><span class="line"><span class="comment">//	输出program以及任意长度的随机字符后换行（而非编译错误）</span></span><br></pre></td></tr></table></figure>
 
 <p><strong>用字符数组表示字符串的缺点</strong></p>
@@ -747,7 +804,7 @@
 <li>解决方式：1. 用类名限定；2. 同名隐藏</li>
 </ul>
 <p><strong>Derived类对象d的存储结构示意图</strong></p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-100024.png" alt="image-20201009180024326"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-100024.png" srcset="/img/loading.gif" lazyload alt="image-20201009180024326"></p>
 <h4 id="7-5-2-虚基类"><a href="#7-5-2-虚基类" class="headerlink" title="7.5.2 虚基类"></a>7.5.2 虚基类</h4><ul>
 <li><p>需要解决的问题</p>
 </li>
@@ -776,7 +833,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-100229.png" alt="image-20201009180229499"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-100229.png" srcset="/img/loading.gif" lazyload alt="image-20201009180229499"></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base0</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> var0;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fun0</span><span class="params">()</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;Member of Base0&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base1</span>: <span class="keyword">virtual</span> <span class="keyword">public</span> Base0 &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="type">int</span> var1;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Base2</span>: <span class="keyword">virtual</span> <span class="keyword">public</span> Base0 &#123;</span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="type">int</span> var2;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span>: <span class="keyword">public</span> Base1, <span class="keyword">public</span> Base2 &#123;</span><br><span class="line"><span class="comment">//定义派生类Derived </span></span><br><span class="line"><span class="keyword">public</span>: </span><br><span class="line">    <span class="type">int</span> var;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Member of Derived&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;    </span><br><span class="line">    Derived d;</span><br><span class="line">    d.var0 = <span class="number">2</span>; <span class="comment">//直接访问虚基类的数据成员</span></span><br><span class="line">    d.<span class="built_in">fun0</span>();     <span class="comment">//直接访问虚基类的函数成员</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h5 id="虚基类及其派生类构造函数"><a href="#虚基类及其派生类构造函数" class="headerlink" title="虚基类及其派生类构造函数"></a>虚基类及其派生类构造函数</h5><ul>
@@ -908,7 +965,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-103629.png" alt="image-20201009183628918"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2020-10-09-103629.png" srcset="/img/loading.gif" lazyload alt="image-20201009183628918"></p>
 <h3 id="8-3-抽象类"><a href="#8-3-抽象类" class="headerlink" title="8.3 抽象类"></a>8.3 抽象类</h3><p>纯虚函数</p>
 <ul>
 <li><p>纯虚函数是一个在基类中声明的虚函数，它在该基类中没有定义具体的操作内容，要求各派生类根据实际需要定义自己的版本，纯虚函数的声明格式为：</p>
@@ -950,92 +1007,372 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Base1</span> <span class="keyword">final</span> &#123; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Derived1</span> : Base1 &#123; &#125;; <span class="comment">// 编译错误：Base1为final，不允许被继承</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Base2</span> &#123; <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">f</span><span class="params">()</span> <span class="keyword">final</span></span>; &#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Derived2</span> : Base2 &#123; <span class="function"><span class="type">void</span> <span class="title">f</span><span class="params">()</span></span>; <span class="comment">// 编译错误：Base2::f 为final，不允许被覆盖 &#125;;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Tech/" class="category-chain-item">Tech</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>学习笔记-《清华大学C++程序设计》</div>
+      <div>http://bingcs.com/2020/09/21/Notes-清华大学C-程序设计/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Bing</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>September 21, 2020</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/12/02/IERG4160/" title="IERG4160 Image and Video Processing">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">IERG4160 Image and Video Processing</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/05/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E7%94%9F%E6%B4%BB/" title="My Spiritual Life">
+                        <span class="hidden-mobile">My Spiritual Life</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
     </div>
 
-    
-    
-    
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/C/" rel="tag"># C++</a>
-          </div>
 
-        
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2020/04/05/%E6%88%91%E7%9A%84%E7%B2%BE%E7%A5%9E%E7%94%9F%E6%B4%BB/" rel="prev" title="My Spiritual Life">
-                  <i class="fa fa-chevron-left"></i> My Spiritual Life
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2020/12/02/IERG4160/" rel="next" title="IERG4160 Image and Video Processing">
-                  IERG4160 Image and Video Processing <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+  </aside>
+
+
+    </div>
+  </div>
 </div>
 
 
 
 
 
+  
 
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+    
+
+    
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Bing</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
+  
+  
+  
+  
+</div>
+
   </footer>
 
+  <!-- Scripts -->
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
 
   
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

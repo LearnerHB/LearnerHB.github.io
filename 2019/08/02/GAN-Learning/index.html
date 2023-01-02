@@ -1,24 +1,21 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"bingcs.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bing">
+  <meta name="keywords" content="">
+  
     <meta name="description" content="生成对抗网络学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAN 生成对抗网络入门">
@@ -58,195 +55,255 @@
 <meta property="article:modified_time" content="2023-01-01T14:05:18.284Z">
 <meta property="article:author" content="Bing">
 <meta property="article:tag" content="Artificial Intelligence">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-04-145741.png">
+  
+  
+  
+  <title>GAN 生成对抗网络入门 - Bing&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<link rel="canonical" href="http://bingcs.com/2019/08/02/GAN-Learning/">
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://bingcs.com/2019/08/02/GAN-Learning/","path":"2019/08/02/GAN-Learning/","title":"GAN 生成对抗网络入门"}</script>
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>GAN 生成对抗网络入门 | Bing's Blog</title>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"bingcs.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
-  <script async defer data-website-id="" src=""></script>
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-  <script defer data-domain="" src=""></script>
 
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
+<body>
+  
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <header>
+    
 
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">Bing's Blog</p>
-      <i class="logo-line"></i>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
     </a>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
-  </div>
-</div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-
-
-
-
-
-
-</header>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
       </ul>
+    </div>
+  </div>
+</nav>
 
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">1. 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E7%94%9F%E6%88%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 生成模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%BD%A2%E8%B1%A1%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 形象描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%85%B6%E4%BB%96%E5%B8%B8%E8%A7%81%E7%94%9F%E6%88%90%E5%BC%8F%E6%A8%A1%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">2. 其他常见生成式模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-PixelCNN-%E5%92%8C-PixelRNN"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 PixelCNN 和 PixelRNN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-VAE-Variational-Auto-Encode-%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 VAE: Variational Auto-Encode 变分自编码器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-GAN%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">3. GAN常见模型结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-DCGAN"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 DCGAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E5%B1%82%E7%BA%A7%E7%BB%93%E6%9E%84"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 层级结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-%E8%87%AA%E7%BC%96%E7%A0%81%E7%BB%93%E6%9E%84"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 自编码结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-GAN%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.</span> <span class="nav-text">4. GAN存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-GAN%E7%9A%84%E5%8F%91%E5%B1%95"><span class="nav-number">5.</span> <span class="nav-text">5. GAN的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-GAN-Generative-Adversarial-Networks%EF%BC%8C-2014"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 GAN: Generative Adversarial Networks， 2014</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-Conditional-GAN%EF%BC%8C-2014"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 Conditional GAN， 2014</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-DCGAN"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 DCGAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-Improved-Techniques-for-Training-GANs"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 Improved Techniques for Training GANs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-Pix2Pix"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 Pix2Pix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-CycleGAN"><span class="nav-number">5.6.</span> <span class="nav-text">5.6 CycleGAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-Progressive-Growing-of-GANs"><span class="nav-number">5.7.</span> <span class="nav-text">5.7 Progressive Growing of GANs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-StackGAN"><span class="nav-number">5.8.</span> <span class="nav-text">5.8 StackGAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-BigGAN"><span class="nav-number">5.9.</span> <span class="nav-text">5.9 BigGAN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-GAN%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">6.</span> <span class="nav-text">6. GAN的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-MNIST%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%8A%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 MNIST数据集上的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E5%9C%A8%E5%9B%BE%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 在图网络中的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">7.</span> <span class="nav-text">Reference</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99"><span class="nav-number">8.</span> <span class="nav-text">一些相关资料</span></a></li></ol></div>
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="GAN 生成对抗网络入门"></span>
+          
         </div>
-        <!--/noindex-->
 
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Bing</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">45</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-08-02 10:34" pubdate>
+          August 2, 2019 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          16k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          132 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
+
+      
+    </div>
+  </div>
 </div>
 
-        </div>
-      </div>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
     </div>
 
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://bingcs.com/2019/08/02/GAN-Learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bing's Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="GAN 生成对抗网络入门 | Bing's Blog">
-      <meta itemprop="description" content="生成对抗网络学习笔记">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          GAN 生成对抗网络入门
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-08-02 10:34:38" itemprop="dateCreated datePublished" datetime="2019-08-02T10:34:38+08:00">2019-08-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-01 22:05:18" itemprop="dateModified" datetime="2023-01-01T22:05:18+08:00">2023-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-            <div class="post-description">生成对抗网络学习笔记</div>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <span id="more"></span>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">GAN 生成对抗网络入门</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
 
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>神经网络分很多种，有普通的前向传播网络，有分析图片的CNN卷积神经网络，有分析序列化数据的RNN循环神经网络，这些都是根据数据去预测结果。而对于生成网络而言，则是”捏造结果”了。GAN(Generative Adversarial Networks，生成对抗网络)就是其中一种生成网络，是根据随机数来生成结果，提供了一种不需要大量的标注训练数据就能学习深度表征的方式。</p>
 <p>相比于其他的生成模型，GAN有两大特点：</p>
@@ -256,17 +313,17 @@
 </ul>
 <h3 id="1-1-生成模型"><a href="#1-1-生成模型" class="headerlink" title="1.1 生成模型"></a>1.1 生成模型</h3><p><strong>生成模型</strong>是指能够随机生成观测数据的模型，尤其是在给定某些隐含参数的条件下。</p>
 <h3 id="1-2-形象描述"><a href="#1-2-形象描述" class="headerlink" title="1.2 形象描述"></a>1.2 形象描述</h3><p>生成对抗网络的过程可以用一个新手画家和一个新手鉴赏家的例子来说明。新手画家要画一幅达芬奇的画，但是他刚开始学，不知道达芬奇的画风格要怎么呈现，于是他用新手的灵感画画，画得一团糟。这时候有一个新手鉴赏家，他接受到了一些画作，但是他不知道哪些是新手画家画的，哪些是达芬奇画的。新手鉴赏家说出了自己的判断，你来纠正他的判断。于是新手鉴赏家就一边判断，一边告诉新手画家要怎么作画才能更加接近达芬奇的画作。新手画家也就一步步学会怎么画的更像达芬奇的风格了。如下，包含一个生成网络和一个判别网络。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-04-145741.png" alt="image-20190804225740236"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-04-145741.png" srcset="/img/loading.gif" lazyload alt="image-20190804225740236"></p>
 <center>图片来自 莫烦Python 的B站频道 [1]</center>
 
 <h3 id="1-3-原理"><a href="#1-3-原理" class="headerlink" title="1.3 原理"></a>1.3 原理</h3><p>有两个网络，G(Generator)和D(Descriminator)。G是生成图片的网络，接收一个隐变量z（通常为服从高斯分布的随机噪声），并生成图片G(z)；D是判别网络，判定一张图片是不是真实的，输入x为一张图片，输出的D(x)代表x为真实图片的概率，输出为1表示百分百是真实图片，输出为0表示不可能为真实的图片。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-05-085445.png" alt="image-20190805165445205"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-05-085445.png" srcset="/img/loading.gif" lazyload alt="image-20190805165445205"></p>
 <p>训练的过程，就是G生成尽量真实的图片去欺骗D，而D则是尽量把G生成的图片和真实的图片区分开，二者就形成了一个博弈的过程。而在最理想的情况下，博弈的最终结果，就是D完全无法区分开G的作品和真实的图片，也就是D(G(z)) &#x3D; 0.5。</p>
 <ul>
 <li>寻找生成模型和判别模型之间的一个纳什均衡！</li>
 </ul>
 <p>数学语言描述：（优化的目标函数）</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-05-031738.png" alt="image-20190805111737882"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-05-031738.png" srcset="/img/loading.gif" lazyload alt="image-20190805111737882"></p>
 <ul>
 <li><p>对判别器D来说，这是一个二分类问题。V(D,G) 为二分类问题中常见的交叉熵损失。</p>
 </li>
@@ -275,11 +332,11 @@
 <li><p>D和G采取交替训练的方法，先训练D，目标是希望V(G, D)越大越好，所以采用梯度上升；之后训练G，目标是希望V(G, D)越小越好，所以采用梯度下降</p>
 </li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-05-033903.png" alt="image-20190805113902723"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-05-033903.png" srcset="/img/loading.gif" lazyload alt="image-20190805113902723"></p>
 <ul>
 <li>生成器G固定时，可以对V(D, G)求导，求出最佳判别器（已经被作者证明该D*(x)存在且唯一）</li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-07-083018.png" alt="image-20190807163018201"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-07-083018.png" srcset="/img/loading.gif" lazyload alt="image-20190807163018201"></p>
 <ul>
 <li>判别函数代入上面的目标函数，可以求出在最佳判别器下，生成器的目标函数等价于优化 Pdata(x) , Pg(x) 的 JS 散度 (JS-Divergence)。</li>
 <li>全局的优化目标为Pg &#x3D; Pdata。经过若干次训练之后，如果G和D有一定的复杂度，那么二者会达到Pg &#x3D; Pdata这个均衡点，即生成器的密度概率函数等于真实数据的密度概率函数，即生成数据和密度数据一样，D(x) &#x3D; 1&#x2F;2。</li>
@@ -301,22 +358,22 @@
 </ol>
 <p>根据价值函数 V(G,D) 的定义，要求两个数学期望， E[log(D(x))] 和 E[log(1-D(G(z)))]， x 服从真实数据分布，z 服从初始化分布。实践中没法利用积分求解，所以一般是从无穷的真实数据和无穷的生成器中做采样以逼近真实的数学期望。</p>
 <p>最大化价值函数：P_data(x) 采样 m 个样本， P_G(x) 采样 m 个样本</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-020303.png" alt="image-20190812100303119"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-020303.png" srcset="/img/loading.gif" lazyload alt="image-20190812100303119"></p>
 <p>最小化损失函数：P_data(x) 抽取样本作为正样本，从 P_G(x) 抽取样本作为负样本，同时将逼近 -V(G,D) 的函数作为损失函数。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-020352.png" alt="image-20190812100351590"></p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-020434.png" alt="image-20190812100433912"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-020352.png" srcset="/img/loading.gif" lazyload alt="image-20190812100351590"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-020434.png" srcset="/img/loading.gif" lazyload alt="image-20190812100433912"></p>
 <p>——用迭代和数值计算的方式实现极小极大化博弈过程。</p>
 <ul>
 <li><p>从真实数据分布 P_data 抽取 m 个样本</p>
 </li>
 <li><p>从先验分布 P_prior(z) 抽取 m 个噪声样本</p>
 </li>
-<li><p>将噪声样本投入 G 而生成数据，通过最大化 V 的近似而更新判别器参数θ_d，即极大化，判别器参数的更新迭代式：<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-022447.png" alt="image-20190812102447202"></p>
+<li><p>将噪声样本投入 G 而生成数据，通过最大化 V 的近似而更新判别器参数θ_d，即极大化，判别器参数的更新迭代式：<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-022447.png" srcset="/img/loading.gif" lazyload alt="image-20190812102447202"></p>
 <p>—— 以上是学习判别器D的过程。学习D的过程是计算JS散度的过程，我们希望最大化价值函数，所以会进行K次迭代。实践中好像一般K取1也足够。</p>
 </li>
 <li><p>从先验分布 P_prior(z) 中抽取另外 m 个噪声样本 {z^1,…,z^m}</p>
 </li>
-<li><p>生成器参数的更新迭代式：<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-022556.png" alt="image-20190812102556437"></p>
+<li><p>生成器参数的更新迭代式：<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-022556.png" srcset="/img/loading.gif" lazyload alt="image-20190812102556437"></p>
 <p>——以上是学习生成器G的过程。为避免更新太多使得JS散度上升，在一次迭代中只进行一次。</p>
 </li>
 </ul>
@@ -325,24 +382,24 @@
 <ul>
 <li>生成对抗网络模型和其他生成模型之间的对比：</li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-054441.png" alt="image-20190812134440513"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-054441.png" srcset="/img/loading.gif" lazyload alt="image-20190812134440513"></p>
 <h2 id="2-其他常见生成式模型"><a href="#2-其他常见生成式模型" class="headerlink" title="2. 其他常见生成式模型"></a>2. 其他常见生成式模型</h2><h3 id="2-1-PixelCNN-和-PixelRNN"><a href="#2-1-PixelCNN-和-PixelRNN" class="headerlink" title="2.1 PixelCNN 和 PixelRNN"></a>2.1 PixelCNN 和 PixelRNN</h3><p>对图像数据的概率分布Pdata(x)进行显式建模，并利用极大似然估计优化模型。给定 x1,x2,…,xi-1 条件下，所有 p(xi) 的概率乘起来就是图像数据的分布。如果使用 RNN 对上述依然关系建模，就是 pixelRNN。如果使用 CNN，则是 pixelCNN。</p>
 <p>优点：定义了一个易于处理的密度函数，可以直接优化训练数据的似然。</p>
 <p>缺点：像素值是从图像的一个角落开始，一个个生成的，所以速度会很慢。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-11-155649.png" alt="image-20190811235648428"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-11-155649.png" srcset="/img/loading.gif" lazyload alt="image-20190811235648428"></p>
 <h3 id="2-2-VAE-Variational-Auto-Encode-变分自编码器"><a href="#2-2-VAE-Variational-Auto-Encode-变分自编码器" class="headerlink" title="2.2 VAE: Variational Auto-Encode 变分自编码器"></a>2.2 VAE: Variational Auto-Encode 变分自编码器</h3><p>真实样本X通过神经网络计算出均值方差，假设隐变量服从正态分布。然后通过采样得到采样变量Z进行重构。VAE和GAN均学习了隐变量 z 到真实数据分布的映射，但VAE的不同之处在于：</p>
 <ul>
 <li>GAN思路直接，使用一个判别器去度量分布转换模块（即生成器）生成分布与真实数据分布的距离。</li>
 <li>VAE委婉，通过约束隐变量 z 服从标准正态分布以及重构数据实现了分布转换映射 X&#x3D;G(z)。</li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-11-154857.png" alt="image-20190811234857262"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-11-154857.png" srcset="/img/loading.gif" lazyload alt="image-20190811234857262"></p>
 <h2 id="3-GAN常见模型结构"><a href="#3-GAN常见模型结构" class="headerlink" title="3. GAN常见模型结构"></a>3. GAN常见模型结构</h2><h3 id="3-1-DCGAN"><a href="#3-1-DCGAN" class="headerlink" title="3.1 DCGAN"></a>3.1 DCGAN</h3><p>提出使用CNN结构来稳定GAN的训练，这允许了生成器和判别器学习优秀的上采样和下采样操作，这些操作可能提升图像合成的质量。</p>
 <h3 id="3-2-层级结构"><a href="#3-2-层级结构" class="headerlink" title="3.2 层级结构"></a>3.2 层级结构</h3><p>GAN 对于高分辨率图像生成一直存在许多问题，层级结构的 GAN 通过逐层次，分阶段生成，一步步提生图像的分辨率。</p>
 <ul>
 <li>使用多对GAN：StackGAN、GoGAN</li>
 <li>单一GAN，多阶段生成：ProgressiveGAN</li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-11-161613.png" alt="image-20190812001612728"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-11-161613.png" srcset="/img/loading.gif" lazyload alt="image-20190812001612728"></p>
 <h3 id="3-3-自编码结构"><a href="#3-3-自编码结构" class="headerlink" title="3.3 自编码结构"></a>3.3 自编码结构</h3><p>BEGAN，EBGAN，MAGAN ……</p>
 <h2 id="4-GAN存在的问题"><a href="#4-GAN存在的问题" class="headerlink" title="4. GAN存在的问题"></a>4. GAN存在的问题</h2><ul>
 <li><p>不收敛问题：由于GAN是采用极小极大博弈，D 在进行梯度下降时，使得在损失流形上下降，而G使其上升，可能造成两者的梯度相互抵消，最终在最优点附近徘徊。因此，不收敛问题也是GAN所面临的最大的问题。目前采用的优化方法都是采用的启发式的方法。WGAN也在一定程度上解决了收敛不稳定的问题。</p>
@@ -365,7 +422,7 @@
 </ul>
 <h3 id="5-2-Conditional-GAN，-2014"><a href="#5-2-Conditional-GAN，-2014" class="headerlink" title="5.2 Conditional GAN， 2014"></a>5.2 Conditional GAN， 2014</h3><p>论文地址：<a href="https://link.juejin.im/?target=https://arxiv.org/abs/1411.1784">arxiv.org&#x2F;abs&#x2F;1411.17…</a></p>
 <p>之前的GAN是无监督模型，但给生成器提供随机噪声的话效果往往没有那么好。cGAN的提出将其拉回监督学习领域，缓和了GAN的训练不稳定的问题。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-024751.png" alt="image-20190812104750739"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-024751.png" srcset="/img/loading.gif" lazyload alt="image-20190812104750739"></p>
 <h3 id="5-3-DCGAN"><a href="#5-3-DCGAN" class="headerlink" title="5.3 DCGAN"></a>5.3 DCGAN</h3><p> Deep Convolutional GAN </p>
 <p>第一次采用CNN结构实现GAN。将G和D换成两个CNN，但对CNN的结构做出了一些改变来提高样本质量和收敛速度：</p>
 <ul>
@@ -377,7 +434,7 @@
 <li>采用Adam优化算法，学习率是0.0002，beta1&#x3D;0.5</li>
 </ul>
 <p>DCGAN中的G网络：</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-062835.png" alt="image-20190812142834368"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-12-062835.png" srcset="/img/loading.gif" lazyload alt="image-20190812142834368"></p>
 <p>这篇论文介绍了如何使用卷积层，并给出一些额外的结构上的指导建议来实现。另外，它还讨论如何可视化 GAN 的特征、隐空间的插值、利用判别器特征训练分类器以及评估结果。</p>
 <h3 id="5-4-Improved-Techniques-for-Training-GANs"><a href="#5-4-Improved-Techniques-for-Training-GANs" class="headerlink" title="5.4 Improved Techniques for Training GANs"></a>5.4 Improved Techniques for Training GANs</h3><p>论文地址：<a href="https://link.juejin.im/?target=https://arxiv.org/abs/1606.03498">arxiv.org&#x2F;abs&#x2F;1606.03…</a></p>
 <p>作者之一是 Ian Goodfellow。论文介绍了很多如何构建一个 GAN 结构的建议，可以帮助理解 GAN 不稳定的原因，给出稳定训练 DCGANs 的建议，比如特征匹配(feature matching)、最小批次判别(minibatch discrimination)、单边标签平滑(one-sided label smoothing)、虚拟批归一化(virtual batch normalization)等等。</p>
@@ -385,24 +442,24 @@
 <p>论文地址：<a href="https://link.juejin.im/?target=https://arxiv.org/abs/1611.07004">arxiv.org&#x2F;abs&#x2F;1611.07…</a></p>
 <p>目标是实现图像转换：语义图转街景，黑白图片上色，素描图变真实照片等。</p>
 <p>在训练时候需要采用成对的训练数据，并对 GAN 模型采用了不同的配置。其中它应用到了 PatchGAN 这个模型，PatchGAN 对图片的一块 70*70 大小的区域进行观察来判断该图片是真是假，而不需要观察整张图片。生成器部分使用 U-Net 结构，即结合了 ResNet 网络中的 skip connections 技术，编码器和解码器对应层之间有相互连接。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-015316.png" alt="image-20190813095316532"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-015316.png" srcset="/img/loading.gif" lazyload alt="image-20190813095316532"></p>
 <h3 id="5-6-CycleGAN"><a href="#5-6-CycleGAN" class="headerlink" title="5.6 CycleGAN"></a>5.6 CycleGAN</h3><p>Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks</p>
 <p>论文地址：<a href="https://link.juejin.im/?target=https://arxiv.org/abs/1703.10593">arxiv.org&#x2F;abs&#x2F;1703.10…</a></p>
 <p>和上面的Pix2Pix不同，不需要原图和转换后的图来训练，仅仅需要准备两个领域的数据集即可，比如说普通马的图片和斑马的图片，但不需要一一对应。这篇论文提出了一个非常好的方法–循环一致性(Cycle-Consistency)损失函数。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-015734.png" alt="image-20190813095734307"></p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-015719.png" alt="image-20190813095719444"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-015734.png" srcset="/img/loading.gif" lazyload alt="image-20190813095734307"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-015719.png" srcset="/img/loading.gif" lazyload alt="image-20190813095719444"></p>
 <h3 id="5-7-Progressive-Growing-of-GANs"><a href="#5-7-Progressive-Growing-of-GANs" class="headerlink" title="5.7 Progressive Growing of GANs"></a>5.7 Progressive Growing of GANs</h3><p>Progressive Growing of GANs for Improved Quality, Stability, and Variation</p>
 <p>论文地址：<a href="https://link.juejin.im/?target=https://arxiv.org/abs/1710.10196">arxiv.org&#x2F;abs&#x2F;1710.10…</a></p>
 <p>利用一个多尺度结构，从 <code>4*4</code> 到 <code>8*8</code> 一直提升到 <code>1024*1024</code> 的分辨率，如下图所示的结构，这篇论文提出了一些如何解决由于目标图片尺寸导致的不稳定问题。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-020009.png" alt="image-20190813100008687"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-020009.png" srcset="/img/loading.gif" lazyload alt="image-20190813100008687"></p>
 <h3 id="5-8-StackGAN"><a href="#5-8-StackGAN" class="headerlink" title="5.8 StackGAN"></a>5.8 StackGAN</h3><p>StackGAN: Text to Photo-realistic Image Synthesis with Stacked Generative Adversarial Networks</p>
 <p>论文地址：<a href="https://link.juejin.im/?target=https://arxiv.org/abs/1612.03242">arxiv.org&#x2F;abs&#x2F;1612.03…</a></p>
 <p>StackGAN 和 cGAN、Progressively GANs 两篇论文比较相似，它同样采用了先验知识，以及多尺度方法。整个网络结构如下图所示，第一阶段根据给定文本描述和随机噪声，然后输出 <code>64*64</code>的图片，接着将其作为先验知识，再次生成 <code>256*256</code>大小的图片。相比前面 7 篇论文，StackGAN 通过一个文本向量来引入文本信息，并提取一些视觉特征。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-020146.png" alt="image-20190813100146022"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-020146.png" srcset="/img/loading.gif" lazyload alt="image-20190813100146022"></p>
 <h3 id="5-9-BigGAN"><a href="#5-9-BigGAN" class="headerlink" title="5.9 BigGAN"></a>5.9 BigGAN</h3><p>Large Scale GAN Training for High Fidelity Natural Image Synthesis</p>
 <p>论文地址：<a href="https://link.juejin.im/?target=https://arxiv.org/abs/1809.11096">arxiv.org&#x2F;abs&#x2F;1809.11…</a></p>
 <p>当前 ImageNet 上图片生成最好的模型，但这篇论文比较难在本地电脑上进行复现。它同时结合了很多结构和技术，包括自注意机制(Self-Attention)、谱归一化(Spectral Normalization)等。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-020411.png" alt="image-20190813100410787"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-020411.png" srcset="/img/loading.gif" lazyload alt="image-20190813100410787"></p>
 <h2 id="6-GAN的实现"><a href="#6-GAN的实现" class="headerlink" title="6. GAN的实现"></a>6. GAN的实现</h2><h3 id="6-1-MNIST数据集上的应用"><a href="#6-1-MNIST数据集上的应用" class="headerlink" title="6.1 MNIST数据集上的应用"></a>6.1 MNIST数据集上的应用</h3><ul>
 <li>进行GAN实验时候，只是将二维的数据拉伸成一维，没有用到卷积，只是多层神经网络的叠加。</li>
 <li>生成器和判别器使用不同的激活函数</li>
@@ -415,14 +472,14 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="keyword">if</span> train:</span><br><span class="line">        train()</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
-<p>Epoch 1: <img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-012847.png" alt="image-20190813092847343"></p>
-<p>Epoch 10:<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-013022.png" alt="image-20190813093021600"></p>
-<p>Epoch 50:<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-013053.png" alt="image-20190813093052998"></p>
-<p>Epoch 100:<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-013115.png" alt="image-20190813093115056"></p>
-<p>Epoch 300:<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-013131.png" alt="image-20190813093130880"></p>
+<p>Epoch 1: <img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-012847.png" srcset="/img/loading.gif" lazyload alt="image-20190813092847343"></p>
+<p>Epoch 10:<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-013022.png" srcset="/img/loading.gif" lazyload alt="image-20190813093021600"></p>
+<p>Epoch 50:<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-013053.png" srcset="/img/loading.gif" lazyload alt="image-20190813093052998"></p>
+<p>Epoch 100:<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-013115.png" srcset="/img/loading.gif" lazyload alt="image-20190813093115056"></p>
+<p>Epoch 300:<img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-013131.png" srcset="/img/loading.gif" lazyload alt="image-20190813093130880"></p>
 <h3 id="6-2-在图网络中的应用"><a href="#6-2-在图网络中的应用" class="headerlink" title="6.2 在图网络中的应用"></a>6.2 在图网络中的应用</h3><p>详见：<a target="_blank" rel="noopener" href="https://www.jiqizhixin.com/articles/2019-07-19-3?from=synced&keyword=GAN">综述 | 生成对抗网络（GAN）在图网络中的应用</a></p>
 <p>GraphGAN采用GAN网络中常见的对抗机制：生成器G尽可能的逼近Ptrue(V|Vc)以找到与Vc的相邻节点极其相似的节点来欺骗判别器D，而判别器D则会反过来检测给定的节点V是Vc的真实邻居还是由生成器生成的。</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-021645.png" alt="image-20190813101644848"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-13-021645.png" srcset="/img/loading.gif" lazyload alt="image-20190813101644848"></p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av15999082?from=search&seid=7361319389662604746">什么是 GAN 生成对抗网络 (深度学习)? - 莫烦Python</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/24767059">GAN学习指南：从原理入门到制作生成Demo</a></li>
@@ -442,92 +499,372 @@
 <li><a target="_blank" rel="noopener" href="https://me.csdn.net/z704630835">全部梭哈迟早暴富 的CSDN博客</a></li>
 </ol>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Tech/" class="category-chain-item">Tech</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Artificial-Intelligence/">#Artificial Intelligence</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>GAN 生成对抗网络入门</div>
+      <div>http://bingcs.com/2019/08/02/GAN-Learning/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Bing</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 2, 2019</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/09/ielts-writting/" title="IELTS Writing Notes">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">IELTS Writing Notes</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/08/01/neo4j-notes/" title="Neo4j图数据库">
+                        <span class="hidden-mobile">Neo4j图数据库</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
     </div>
 
-    
-    
-    
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
 
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Artificial-Intelligence/" rel="tag"># Artificial Intelligence</a>
-          </div>
 
-        
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2019/08/01/neo4j-notes/" rel="prev" title="Neo4j图数据库">
-                  <i class="fa fa-chevron-left"></i> Neo4j图数据库
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2019/08/09/ielts-writting/" rel="next" title="IELTS Writing Notes">
-                  IELTS Writing Notes <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+  </aside>
+
+
+    </div>
+  </div>
 </div>
 
 
 
 
 
+  
 
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+    
+
+    
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Bing</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
+  
+  
+  
+  
+</div>
+
   </footer>
 
+  <!-- Scripts -->
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
 
   
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>

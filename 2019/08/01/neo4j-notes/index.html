@@ -1,24 +1,21 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"bingcs.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bing">
+  <meta name="keywords" content="">
+  
     <meta name="description" content="Graph Database Neo4j Learning Notes.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Neo4j图数据库">
@@ -36,195 +33,255 @@
 <meta property="article:published_time" content="2019-08-01T03:04:42.000Z">
 <meta property="article:modified_time" content="2023-01-01T14:05:18.325Z">
 <meta property="article:author" content="Bing">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-071802.png">
+  
+  
+  
+  <title>Neo4j图数据库 - Bing&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
-<link rel="canonical" href="http://bingcs.com/2019/08/01/neo4j-notes/">
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://bingcs.com/2019/08/01/neo4j-notes/","path":"2019/08/01/neo4j-notes/","title":"Neo4j图数据库"}</script>
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Neo4j图数据库 | Bing's Blog</title>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"bingcs.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
-  <script async defer data-website-id="" src=""></script>
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
 
-  <script defer data-domain="" src=""></script>
 
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
+<body>
+  
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  <header>
+    
 
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">Bing's Blog</p>
-      <i class="logo-line"></i>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
     </a>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="Search" role="button">
-    </div>
-  </div>
-</div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-
-
-
-
-
-
-</header>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-  
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
       </ul>
+    </div>
+  </div>
+</nav>
 
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Neo4j-amp-CQL"><span class="nav-number">1.</span> <span class="nav-text">Neo4j &amp; CQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-CQL%E5%91%BD%E4%BB%A4"><span class="nav-number">1.1.</span> <span class="nav-text">1. CQL命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-CREATE-x2F-MATCH-x2F-RETURN"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 CREATE &#x2F; MATCH &#x2F; RETURN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%85%B3%E7%B3%BB%E5%9F%BA%E7%A1%80"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 关系基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-Label"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 Label</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-WHERE-x2F-DELETE-x2F-REMOVE-x2F-SET"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 WHERE &#x2F; DELETE &#x2F; REMOVE &#x2F; SET</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-ORDER-BY"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.5 ORDER BY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-UNION-x2F-UNION-ALL"><span class="nav-number">1.1.6.</span> <span class="nav-text">1.6 UNION &#x2F; UNION ALL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-LIMIT-x2F-SKIP"><span class="nav-number">1.1.7.</span> <span class="nav-text">1.7 LIMIT &#x2F; SKIP</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-8-MERGE"><span class="nav-number">1.1.8.</span> <span class="nav-text">1.8 MERGE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-CQL%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">2. CQL函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 字符串函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 聚合函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E5%85%B3%E7%B3%BB%E5%87%BD%E6%95%B0"><span class="nav-number">1.2.3.</span> <span class="nav-text">2.3 关系函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Cypher%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">3. Cypher语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E7%B1%BB%E5%9E%8B%E7%B3%BB%E7%BB%9F"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 类型系统</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-1-%E5%B1%9E%E6%80%A7%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">3.1.1 属性类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-2-%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">3.1.2 复合类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-3-%E7%BB%93%E6%9E%84%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">3.1.3 结构类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E5%91%BD%E5%90%8D%E8%A7%84%E5%88%99%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 命名规则、作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E4%BC%A0%E9%80%92%E5%8F%82%E6%95%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">3.3 传递参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.3.4.</span> <span class="nav-text">3.4 操作符</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-1-%E9%80%9A%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">3.4.1 通用操作符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-2-%E6%95%B0%E5%AD%A6%E6%93%8D%E4%BD%9C%E7%AC%A6"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">3.4.2 数学操作符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-3-%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">3.4.3 比较运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-4-%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">1.3.4.4.</span> <span class="nav-text">3.4.4 逻辑运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-5-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.3.4.5.</span> <span class="nav-text">3.4.5 字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-4-6-%E5%88%97%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.4.6.</span> <span class="nav-text">3.4.6 列表操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%A4%9A%E5%BA%A6%E6%95%B0%E7%9B%B8%E5%85%B3"><span class="nav-number">1.4.</span> <span class="nav-text">4. 多度数相关</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-py2neo%E4%BD%BF%E7%94%A8"><span class="nav-number">1.5.</span> <span class="nav-text">5. py2neo使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E6%A1%A3"><span class="nav-number">2.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Neo4j图数据库"></span>
+          
         </div>
-        <!--/noindex-->
 
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Bing</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">45</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2019-08-01 11:04" pubdate>
+          August 1, 2019 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.1k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          51 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">13</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
+
+      
+    </div>
+  </div>
 </div>
 
-        </div>
-      </div>
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
     </div>
 
-    
-  </aside>
-
-
-    </div>
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://bingcs.com/2019/08/01/neo4j-notes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Bing">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bing's Blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Neo4j图数据库 | Bing's Blog">
-      <meta itemprop="description" content="Graph Database Neo4j Learning Notes.">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Neo4j图数据库
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2019-08-01 11:04:42" itemprop="dateCreated datePublished" datetime="2019-08-01T11:04:42+08:00">2019-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2023-01-01 22:05:18" itemprop="dateModified" datetime="2023-01-01T22:05:18+08:00">2023-01-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Tech/" itemprop="url" rel="index"><span itemprop="name">Tech</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-            <div class="post-description">Graph Database Neo4j Learning Notes.</div>
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <span id="more"></span>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Neo4j图数据库</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <span id="more"></span>
 
 <h2 id="Neo4j-amp-CQL"><a href="#Neo4j-amp-CQL" class="headerlink" title="Neo4j &amp; CQL"></a>Neo4j &amp; CQL</h2><ul>
 <li><p>Neo4j</p>
@@ -239,10 +296,10 @@
 </ul>
 <h3 id="1-CQL命令"><a href="#1-CQL命令" class="headerlink" title="1. CQL命令"></a>1. CQL命令</h3><h4 id="1-1-CREATE-x2F-MATCH-x2F-RETURN"><a href="#1-1-CREATE-x2F-MATCH-x2F-RETURN" class="headerlink" title="1.1 CREATE &#x2F; MATCH &#x2F; RETURN"></a>1.1 CREATE &#x2F; MATCH &#x2F; RETURN</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- create return </span><br><span class="line">create (n:MEMBER&#123;zuche_member_id:12345678, name:&#x27;Hu Bing&#x27;&#125;)-[r:HOLD&#123;tag:&#x27;hahaha&#x27;&#125;]-&gt;(m:MOBILE&#123;mobile:&#x27;18020690578&#x27;&#125;) return n, m, r</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-071802.png" alt="image-20190801151802240"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-071802.png" srcset="/img/loading.gif" lazyload alt="image-20190801151802240"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- match return</span><br><span class="line">match (n:MEMBER&#123;name:&#x27;Hu Bing&#x27;&#125;)-[r]-&gt;(m:MOBILE&#123;mobile:&#x27;18020690578&#x27;&#125;) return r</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-071913.png" alt="image-20190801151912751"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-071913.png" srcset="/img/loading.gif" lazyload alt="image-20190801151912751"></p>
 <h4 id="1-2-关系基础"><a href="#1-2-关系基础" class="headerlink" title="1.2 关系基础"></a>1.2 关系基础</h4><ul>
 <li>Neo4j数据库遵循属性图模型来存储和管理数据。关系应该是定向的，否则会报错。<ul>
 <li>单向关系</li>
@@ -256,15 +313,15 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CREATE (&lt;node-name&gt;:&lt;label-name&gt;)</span><br><span class="line">CREATE (&lt;node-name&gt;:&lt;label_1&gt;:&lt;label_2&gt;...:&lt;label_n&gt;)</span><br><span class="line">-- eg. 为关系创建标签</span><br><span class="line">create (n:MEMBER)-[r:HOLD]-&gt;(m:DEVICE) return n, r, m</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-063701.png" alt="image-20190801143700656"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-063701.png" srcset="/img/loading.gif" lazyload alt="image-20190801143700656"></p>
 <h4 id="1-4-WHERE-x2F-DELETE-x2F-REMOVE-x2F-SET"><a href="#1-4-WHERE-x2F-DELETE-x2F-REMOVE-x2F-SET" class="headerlink" title="1.4 WHERE &#x2F; DELETE &#x2F; REMOVE &#x2F; SET"></a>1.4 WHERE &#x2F; DELETE &#x2F; REMOVE &#x2F; SET</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-- where </span><br><span class="line">MATCH (emp:Employee) WHERE emp.name = &#x27;Abc&#x27; OR emp.name = &#x27;Xyz&#x27; RETURN emp</span><br><span class="line">-- delete (用于删除节点和关联关系)</span><br><span class="line">MATCH (cc: CreditCard)-[rel]-(c:Customer) </span><br><span class="line">DELETE cc,c,rel</span><br><span class="line">-- remove (用于删除属性和标签，此例为删除属性) - 下面给出了运行截图</span><br><span class="line">create (n:MEMBER&#123;name:&#x27;User1&#x27;, age:20, sex:&#x27;male&#x27;, nation:&#x27;China&#x27;&#125;)</span><br><span class="line">match (n:MEMBER) where n.name=&#x27;User1&#x27; return n</span><br><span class="line">match (n:MEMBER) where n.name=&#x27;User1&#x27; remove n.nation return n</span><br><span class="line">-- set - 用于 向现有节点或关系添加新属性 或 添加或更新属性值</span><br><span class="line">match (n:MEMBER) where n.name=&#x27;User1&#x27; set n.age=23 return n.age</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>上面的Remove实例</li>
 </ul>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-074220.png" alt="image-20190801154219774"></p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-074441.png" alt="image-20190801154440600"></p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-074959.png" alt="image-20190801154958826"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-074220.png" srcset="/img/loading.gif" lazyload alt="image-20190801154219774"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-074441.png" srcset="/img/loading.gif" lazyload alt="image-20190801154440600"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-074959.png" srcset="/img/loading.gif" lazyload alt="image-20190801154958826"></p>
 <ul>
 <li>DELETE和REMOVE命令之间的主要区别<ul>
 <li>DELETE操作用于删除节点和关联关系</li>
@@ -294,7 +351,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">match (n:MEMBER) where n.name=&#x27;User1&#x27; return n.name as name, n.age as age, n.sex as sex</span><br><span class="line">union</span><br><span class="line">match (m:MEMBER) where m.name=&#x27;User2&#x27; return m.name as name, m.age as age, m.sex as sex</span><br></pre></td></tr></table></figure>
 
 <p>运行结果：</p>
-<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-083048.png" alt="image-20190801163047919"></p>
+<p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/2019-08-01-083048.png" srcset="/img/loading.gif" lazyload alt="image-20190801163047919"></p>
 <ul>
 <li>是否加ALL的区别：在合并查询结果的时候，UNION过滤重复行，UNION ALL不过滤</li>
 </ul>
@@ -430,89 +487,365 @@
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ljhdo/p/10911426.html">博客园 - 悦光阴的博客: Neo4j 第六篇：Cypher语法</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ljhdo/p/5516793.html">博客园 - 悦光阴的博客: Neo4j 第三篇：Cypher查询入门</a></p>
 
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Tech/" class="category-chain-item">Tech</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Neo4j图数据库</div>
+      <div>http://bingcs.com/2019/08/01/neo4j-notes/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Bing</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>August 1, 2019</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/02/GAN-Learning/" title="GAN 生成对抗网络入门">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">GAN 生成对抗网络入门</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2019/07/31/TensorFlow_Learning/" title="TensorFlow Notes">
+                        <span class="hidden-mobile">TensorFlow Notes</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
     </div>
 
-    
-    
-    
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
 
-    <footer class="post-footer">
 
-        
 
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2019/07/31/TensorFlow_Learning/" rel="prev" title="TensorFlow Notes">
-                  <i class="fa fa-chevron-left"></i> TensorFlow Notes
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2019/08/02/GAN-Learning/" rel="next" title="GAN 生成对抗网络入门">
-                  GAN 生成对抗网络入门 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
+  </aside>
+
+
+    </div>
+  </div>
 </div>
 
 
 
 
 
+  
 
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+    
+
+    
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Bing</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
-
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
+  
+  
+  
+  
+</div>
+
   </footer>
 
+  <!-- Scripts -->
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
 
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
 
   
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
 </body>
 </html>
