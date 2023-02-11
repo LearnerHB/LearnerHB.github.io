@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Bing">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Shell编程常用的一些指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shell杂谈">
+<meta property="og:url" content="http://bingcs.com/2021/06/16/learning-shell/index.html">
+<meta property="og:site_name" content="Bing">
+<meta property="og:description" content="Shell编程常用的一些指令">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-16T03:01:21.000Z">
+<meta property="article:modified_time" content="2023-01-01T14:05:18.258Z">
+<meta property="article:author" content="Bing">
+<meta property="article:tag" content="Shell">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Shell杂谈 - Bing</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"bingcs.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Bing</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>Archives</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>Categories</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>Tags</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>About</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Shell杂谈"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-06-16 11:01" pubdate>
+          June 16, 2021 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.4k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          29 mins
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Shell杂谈</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="常用内容小记"><a href="#常用内容小记" class="headerlink" title="常用内容小记"></a>常用内容小记</h2><ul>
+<li>echo 输出</li>
+<li>readonly 标记只读变量</li>
+<li>unset 删除变量</li>
+<li>单引号<ul>
+<li>单引号中变量无效，内部字符原样输出；</li>
+<li>单引号字符串中不能出现单独的一个单引号，即便使用了转义字符，但可以成对出现</li>
+</ul>
+</li>
+<li>双引号<ul>
+<li>双引号里可以有变量；</li>
+<li>双引号里可以出现转义字符</li>
+</ul>
+</li>
+<li>提取子字符串：${string:1:4} 从位置1（第二个位置）开始截取4个字符</li>
+<li>查找子字符串：<code>expr index &quot;$string&quot; io</code>  查找字符i或o的位置，哪个先出现就计算哪个</li>
+<li>数组：<ul>
+<li>定义 array1&#x3D;(value0 value1)   赋值 array1[0]&#x3D;value3  读取 ${array1[n]}</li>
+<li>获取所有元素 echo ${array_name[@]}</li>
+</ul>
+</li>
+<li>注释： 单行#     多行:&lt;&lt;EOF xxxx EOF  或 :&lt;&lt;’  xxxx  ‘    或 :&lt;&lt;! xxxx !</li>
+<li>关系运算符 只支持数字或值为数字的字符串-eq -ne -gt -lt -ge -le</li>
+<li>布尔运算符 ! -o -a</li>
+<li>逻辑运算符 &amp;&amp; ||</li>
+<li>字符串运算符 &#x3D; !&#x3D; -z -n $</li>
+<li>文件测试运算符 -r file 检查file是否可读 等等……</li>
+<li>echo 输出</li>
+<li>显示命令执行结果，使用反引号 &#96;</li>
+<li>单引号包括的字符串会原样输出，没有转义</li>
+<li>printf 输出</li>
+<li>test用于检查某个条件是否成立，可以进行 数值、字符、文件 三个方面的测试</li>
+<li>if then elif then else 常与test结合使用</li>
+<li>for var in item1 item2; do command1; command2; done;</li>
+<li>Let 执行表达式 let “int++”</li>
+<li>case esac</li>
+<li>函数 funname(){}</li>
+<li>函数参数<ul>
+<li>$10不能获取第10个参数，要用${10}</li>
+<li>$#参数个数；</li>
+<li>$*以一个单字符串显示所有向脚本传递的参数；</li>
+<li>$$脚本运行的当前进行ID号；</li>
+<li>$!后台运行的最后一个进程ID号</li>
+<li>$@与$*相同，但是使用时加引号，并在引号中返回各个参数</li>
+<li>$-显示Shell使用的当前选项，与set命令功能相同</li>
+<li>$? 显示最后命令的退出状态。0表示没有错误，其他值表示有错误；$?仅对上一条指令负责，一旦函数返回后没有立即保存入参数，那么其返回值将不能再通过$?获得。</li>
+<li>输出重定向: &gt;  ; 输出以追加的方式重定向: &gt;&gt; ; 输出文件m与n合并 n &gt;&amp; m ;</li>
+</ul>
+</li>
+</ul>
+<h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><p>一种处理文本文件的语言，强大的文本分析工具。主要用于行处理。</p>
+<blockquote>
+<p>grep 更适合单纯的查找或匹配文本</p>
+<p>sed 更适合编辑匹配到的文本</p>
+<p>awk 更适合格式化文本，对文本进行较复杂格式处理</p>
+</blockquote>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">awk [-F filed_separator] <span class="hljs-string">&#x27;&#123;[pattern] action&#125;&#x27;</span> &#123;filenames&#125;   <span class="hljs-comment"># 行匹配语句 awk &#x27;&#x27; 只能用单引号</span><br></code></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># log.txt文本内容如下：</span><br>1 : This is a <span class="hljs-built_in">test</span>.<br>2 : The number indicates the index of line.<br>3 : We are going to learn the basic usage of awk.<br>4 : Let<span class="hljs-string">&#x27;s list some fruits at first.</span><br><span class="hljs-string">5 : Apple, Banana, Orange &amp; Pear.</span><br><span class="hljs-string"></span><br><span class="hljs-string"># log2.txt文本内容如下：</span><br><span class="hljs-string">Apple:Banana:Potato</span><br><span class="hljs-string">Apple : Banana : Potato</span><br><span class="hljs-string">Apple: Banana: Potato</span><br><span class="hljs-string">Apple,Banana,Potato</span><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 每行按空格或TAB分割，输出文本中1 2 5项。参数之间用,分割的话输出会用空格分割。</span><br>$ awk <span class="hljs-string">&#x27;&#123;print $1,$2,$5&#125;&#x27;</span> log.txt<br>1 : a<br>2 : indicates<br>3 : going<br>4 : some<br>5 : Orange<br><br><span class="hljs-comment"># 格式化输出</span><br>$ awk <span class="hljs-string">&#x27;&#123;printf &quot;%-8s %-10s\n&quot;,$1,$3&#125;&#x27;</span> log.txt <br>1        This      <br>2        The       <br>3        We        <br>4        Let<span class="hljs-string">&#x27;s     </span><br><span class="hljs-string">5        Apple,</span><br><span class="hljs-string"></span><br><span class="hljs-string"># 指定域分隔符 -F 未加这个参数的话就是默认用空格作为分割</span><br><span class="hljs-string">$ awk -F: &#x27;</span>&#123;<span class="hljs-built_in">print</span> $1<span class="hljs-variable">$2</span>&#125;<span class="hljs-string">&#x27; log2.txt</span><br><span class="hljs-string">AppleBanana</span><br><span class="hljs-string">Apple  Banana </span><br><span class="hljs-string">Apple Banana</span><br><span class="hljs-string">Apple,Banana,Potato</span><br><span class="hljs-string">$ awk -F, &#x27;</span>&#123;<span class="hljs-built_in">print</span> $1<span class="hljs-variable">$2</span>&#125;<span class="hljs-string">&#x27; log2.txt</span><br><span class="hljs-string">Apple:Banana:Potato</span><br><span class="hljs-string">Apple : Banana : Potato</span><br><span class="hljs-string">Apple: Banana: Potato</span><br><span class="hljs-string">AppleBanana</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>除了 <code>$+数字</code> 表示某个字段，awk还提供其他一些变量。常用的有NF和NR。</p>
+<p>变量<code>NF</code>表示当前行有多少个字段，因此<code>$NF</code>就代表最后一个字段。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;this is a test&#x27;</span> | awk <span class="hljs-string">&#x27;&#123;print $NF&#125;&#x27;</span><br><span class="hljs-built_in">test</span><br></code></pre></td></tr></table></figure>
+
+<p>变量<code>NR</code>表示当前处理的是第几行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ awk -F <span class="hljs-string">&#x27;:&#x27;</span> <span class="hljs-string">&#x27;&#123;print NR &quot;) &quot; $2&#125;&#x27;</span> log.txt<br>1)  This is a <span class="hljs-built_in">test</span>.<br>2)  The number indicates the index of line.<br>3)  We are going to learn the basic usage of awk.<br>4)  Let<span class="hljs-string">&#x27;s list some fruits at first.</span><br><span class="hljs-string">5)  Apple, Banana, Orange &amp; Pear.</span><br></code></pre></td></tr></table></figure>
+
+<p>其他变量如：</p>
+<ul>
+<li><code>FILENAME</code>：当前文件名</li>
+<li><code>FS</code>：字段分隔符，默认是空格和制表符。</li>
+<li><code>RS</code>：行分隔符，用于分割每一行，默认是换行符。</li>
+<li><code>OFS</code>：输出字段的分隔符，用于打印时分隔字段，默认为空格。</li>
+<li><code>ORS</code>：输出记录的分隔符，用于打印时分隔记录，默认为换行符。</li>
+<li><code>OFMT</code>：数字输出的格式，默认为<code>％.6g</code>。</li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>awk 还提供了一些方便的内置函数。</p>
+<ul>
+<li><code>toupper()</code>：字符转为大写。</li>
+<li><code>tolower()</code>：字符转为小写。</li>
+<li><code>length()</code>：返回字符串长度。</li>
+<li><code>substr()</code>：返回子字符串。</li>
+<li><code>sin()</code>：正弦。</li>
+<li><code>cos()</code>：余弦。</li>
+<li><code>sqrt()</code>：平方根。</li>
+<li><code>rand()</code>：随机数。</li>
+</ul>
+<h3 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h3><p>awk允许指定输出条件，只输出符合条件的行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ awk <span class="hljs-string">&#x27;条件 动作&#x27;</span> 文件名<br></code></pre></td></tr></table></figure>
+
+<p>例子：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ awk -F <span class="hljs-string">&#x27;:&#x27;</span> <span class="hljs-string">&#x27;/Apple/ &#123;print $1,$2&#125;&#x27;</span> log.txt	 <span class="hljs-comment"># 只输出包含Apple字段的行</span><br>5   Apple, Banana, Orange &amp; Pear.<br>$ awk -F <span class="hljs-string">&#x27;:&#x27;</span> <span class="hljs-string">&#x27;NR%2==1 &#123;print $0&#125;&#x27;</span> log.txt	 <span class="hljs-comment"># 只输出奇数行</span><br>1 : This is a <span class="hljs-built_in">test</span>.<br>3 : We are going to learn the basic usage of awk.<br>5 : Apple, Banana, Orange &amp; Pear.<br>$ awk -F <span class="hljs-string">&#x27;:&#x27;</span> <span class="hljs-string">&#x27;$1==&quot;1 &quot; &#123;print $0&#125;&#x27;</span> log.txt	<span class="hljs-comment"># 输出第一个字段等于指定值的行</span><br>1 : This is a <span class="hljs-built_in">test</span>.<br></code></pre></td></tr></table></figure>
+
+<h3 id="if-语句"><a href="#if-语句" class="headerlink" title="if 语句"></a>if 语句</h3><p>awk提供了if结构，用于编写复杂的条件。if结构还可以指定else部分。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ awk -F <span class="hljs-string">&#x27;:&#x27;</span> <span class="hljs-string">&#x27;&#123;if ($1&gt;&quot;2 &quot;) print $0; else print &quot;---&quot;&#125;&#x27;</span> log.txt<br>---<br>---<br>3 : We are going to learn the basic usage of awk.<br>4 : Let<span class="hljs-string">&#x27;s list some fruits at first.</span><br><span class="hljs-string">5 : Apple, Banana, Orange &amp; Pear.</span><br></code></pre></td></tr></table></figure>
+
+
+
+<h2 id="wget"><a href="#wget" class="headerlink" title="wget"></a>wget</h2><p>(Coming soon……)</p>
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><p>(Coming soon……)</p>
+<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><p>(Coming soon……)</p>
+<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>(Coming soon……)</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://www.gnu.org/software/gawk/manual/html_node/index.html#SEC_Contents">The GNU Awk User’s Guide</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/11/awk.html">awk入门教程-阮一峰的网络日志</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-shell.html">Linux awk命令-菜鸟教程</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Tech/" class="category-chain-item">Tech</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Shell/">#Shell</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Shell杂谈</div>
+      <div>http://bingcs.com/2021/06/16/learning-shell/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Bing</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>June 16, 2021</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/06/28/k8s-learning/" title="Introduction of Kubernetes(k8s)">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Introduction of Kubernetes(k8s)</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/12/21/macTerminalRebuild/" title="Mac终端改造计划">
+                        <span class="hidden-mobile">Mac终端改造计划</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>Table of Contents</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
