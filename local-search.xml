@@ -4,31 +4,6 @@
   
   
   <entry>
-    <title>Introduction of Kubernetes(k8s)</title>
-    <link href="/2021/06/28/k8s-learning/"/>
-    <url>/2021/06/28/k8s-learning/</url>
-    
-    <content type="html"><![CDATA[<span id="more"></span><h2 id="Kubernetes-K8s-是什么"><a href="#Kubernetes-K8s-是什么" class="headerlink" title="Kubernetes(K8s)是什么"></a>Kubernetes(K8s)是什么</h2><p><a href="https://kubernetes.io/zh/">Kubernetes</a> 是用于自动部署，扩展和管理容器化应用程序的开源系统。它可以帮助用户省去应用容器化过程中的许多手动部署和扩展操作。你可以将Linux容器的多组主机聚集在一起，由Kubernetes来轻松高效地管理这些集群。<strong>Kubernetes</strong> 这个名字源于希腊语，意为“舵手”或“飞行员”。k8s 这个缩写是因为 k 和 s 之间有八个字符的关系。</p><p>当我们把容器部署到生产环境或者扩展成多个应用，我们显然需要许多托管在相同位置的容器来协同提供各种服务，随着这些容器的积累，环境中容器的数量会急剧增加，复杂度随之增长。Kubernetes通过将容器分类成 容器集(pod)，解决了容器增殖带来的许多问题。容器集为分组容器增加了一个抽象层，可以帮助我们调用工作负载，并为这些容器提供所需的联网和存储服务，而Kubernetes的其他部分可以帮助我们在这些容器集之间达成负载均衡，同时确保运行正确数量的容器来充分支持我们的工作负载。</p><h2 id="K8s相关术语"><a href="#K8s相关术语" class="headerlink" title="K8s相关术语"></a>K8s相关术语</h2><p><strong>主机（Master）：</strong> 用于控制 Kubernetes 节点的计算机。所有任务分配都来自于此。</p><p><strong>节点（Node）：</strong>负责执行请求和所分配任务的计算机。由 Kubernetes 主机负责对节点进行控制。</p><p><strong>容器集（Pod）：</strong>被部署在单个节点上的，且包含一个或多个容器的容器组。同一容器集中的所有容器共享同一个 IP 地址、IPC、主机名称及其它资源。容器集会将网络和存储从底层容器中抽象出来。这样，您就能更加轻松地在集群中移动容器。</p><p><strong>复制控制器（Replication controller）：</strong>用于控制应在集群某处运行的完全相同的容器集副本数量。</p><p><strong>服务（Service）：</strong>将工作内容与容器集分离。Kubernetes 服务代理会自动将服务请求分发到正确的容器集——无论这个容器集会移到集群中的哪个位置，甚至可以被替换掉。</p><p><strong>Kubelet：</strong>运行在节点上的服务，可读取容器清单（container manifest），确保指定的容器启动并运行。</p><p><strong>kubectl：</strong> Kubernetes 的命令行配置工具。</p><h2 id="K8s集群架构"><a href="#K8s集群架构" class="headerlink" title="K8s集群架构"></a>K8s集群架构</h2><p>一个K8s集群可以可视化为两个部分：控制平面和计算设备（或节点）。每个节点都是自己的Linux环境，可以是物理机或者虚拟机，每个节点都运行由若干容器组成的容器集。</p><p>如下架构图显示K8s集群的各部分之间的联系。</p><p><img src="https://tencent-hb666-1253906972.cos.ap-chengdu.myqcloud.com/photo/2021-06-29-023053.png" alt="image-20210629103052447"></p><ul><li><p>K8s集群的神经中枢：控制平台 Control plane</p></li><li><p>K8s集群API：kube-apiserver</p></li><li><p>K8s调度程序：kube-scheduler</p></li><li><p>K8s控制器：kube-controller-manager</p></li><li><p>键值存储数据库 etcd</p></li><li><p>K8s节点：Compute machines</p><ul><li>容器集Pod</li><li>容器运行时引擎：如Docker，但K8s也支持其他诸如rkt和CRI-O</li><li>kubelet：与控制平面通信的微型应用，可确保容器在容器集内运行</li><li>kube-proxy：用于优化K8s网络服务的网络代理</li></ul></li></ul><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://www.redhat.com/zh/topics/containers/kubernetes-architecture">K8s 原理：Kubernetes 架构解析</a></li></ol>]]></content>
-    
-    
-    <categories>
-      
-      <category>Container</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Kubernetes</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>Shell杂谈</title>
     <link href="/2021/06/16/learning-shell/"/>
     <url>/2021/06/16/learning-shell/</url>
